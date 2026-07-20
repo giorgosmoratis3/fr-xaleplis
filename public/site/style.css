@@ -7075,3 +7075,8 @@ body.lightbox-open{overflow:hidden;}
   .ac-card.pos-left,.ac-card.pos-right{opacity:0;pointer-events:none}
   .ac-card{padding:28px 26px}
 }
+
+/* Clickable class circles */
+.level-list .level-link{display:block;color:inherit;text-decoration:none;transition:transform .35s ease}
+.level-list .level-link:hover{transform:translateY(-6px)}
+.level-list .level-link:hover h3{color:#c31924}
