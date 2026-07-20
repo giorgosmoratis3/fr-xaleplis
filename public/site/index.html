@@ -89,8 +89,50 @@
 </div>
 </div>
 <div class="hero-content">
-<h1>Η επιτυχία στις <span class="inline-shimmer shimmer-yellow">Πανελλαδικές</span> <span>χτίζεται από το καλοκαίρι</span></h1>
+<div aria-label="Παρουσίαση φροντιστηρίου" class="hero-carousel" id="heroCarousel">
+<button aria-label="Προηγούμενο" class="hero-arrow hero-prev" type="button">‹</button>
+<div class="hero-stage">
+<div class="hero-slide active" data-slide="0">
+<div class="hero-logo">
+<div class="logo-icon">Φ</div>
+<div class="logo-text"><small>Φροντιστήριο</small><strong>ΧΑΛΕΠΛΗ</strong></div>
+</div>
+<div class="hero-message">
+<h1><span class="hero-eyebrow">Η επιτυχία στις</span> <span class="hero-highlight">Πανελλαδικές</span> <span class="hero-tag">χτίζεται από το καλοκαίρι</span></h1>
 <a class="btn btn-primary hero-btn" href="#contact">ΚΛΕΙΣΤΕ ΕΝΗΜΕΡΩΣΗ</a>
+</div>
+</div>
+<div class="hero-slide" data-slide="1">
+<div class="hero-logo">
+<div class="logo-icon">Φ</div>
+<div class="logo-text"><small>Φροντιστήριο</small><strong>ΧΑΛΕΠΛΗ</strong></div>
+</div>
+<div class="hero-message">
+<h1><span class="hero-eyebrow">Προετοιμάζει...</span> <span class="hero-tag">με επιτυχία τους μαθητές του για την εισαγωγή τους στην τριτοβάθμια εκπαίδευση</span></h1>
+<a class="btn btn-primary hero-btn" href="#results">ΔΕΣ ΤΑ ΑΠΟΤΕΛΕΣΜΑΤΑ</a>
+</div>
+<div class="hero-badge" aria-hidden="true">
+<span class="badge-top">ΘΕΜΑΤΑ</span>
+<span class="badge-mid">ΠΑΝΕΛΛΑΔΙΚΕΣ 2026</span>
+<span class="badge-bot">ΑΠΑΝΤΗΣΕΙΣ</span>
+</div>
+</div>
+<div class="hero-slide" data-slide="2">
+<div class="hero-logo">
+<div class="logo-icon">Φ</div>
+<div class="logo-text"><small>Φροντιστήριο</small><strong>ΧΑΛΕΠΛΗ</strong></div>
+</div>
+<div class="hero-message">
+<h1><span class="hero-eyebrow">Προσωπική</span> <span class="hero-highlight">Καθοδήγηση</span> <span class="hero-tag">και ολιγομελή τμήματα σε κάθε τάξη του Λυκείου</span></h1>
+<a class="btn btn-primary hero-btn" href="#study-programs">ΠΡΟΓΡΑΜΜΑ ΣΠΟΥΔΩΝ</a>
+</div>
+</div>
+</div>
+<button aria-label="Επόμενο" class="hero-arrow hero-next" type="button">›</button>
+<div aria-hidden="true" class="hero-dots">
+<span class="active"></span><span></span><span></span>
+</div>
+</div>
 </div>
 </section>
 <section aria-label="Υπεύθυνος σπουδών" class="director-banner-section">
@@ -370,6 +412,38 @@
 <div class="footer-modern-copy">© 2026 Φιλολογικό Φροντιστήριο Χαλεπλής. All rights reserved.</div>
 </div>
 </footer>
+<script>
+    (() => {
+      const carousel = document.getElementById('heroCarousel');
+      if (!carousel) return;
+      const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.hero-dots span'));
+      let active = 0;
+      let timer;
+      const apply = (dir = 1) => {
+        slides.forEach((s, i) => {
+          s.classList.remove('active', 'leaving-left', 'leaving-right');
+          if (i === active) s.classList.add('active');
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === active));
+      };
+      const go = (n) => { active = (n + slides.length) % slides.length; apply(); reset(); };
+      const next = () => go(active + 1);
+      const prev = () => go(active - 1);
+      const reset = () => { clearInterval(timer); timer = setInterval(next, 6000); };
+      carousel.querySelector('.hero-next').addEventListener('click', next);
+      carousel.querySelector('.hero-prev').addEventListener('click', prev);
+      dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+      let startX = 0;
+      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+      carousel.addEventListener('touchend', e => {
+        const delta = e.changedTouches[0].clientX - startX;
+        if (Math.abs(delta) > 45) delta < 0 ? next() : prev();
+      }, {passive:true});
+      apply();
+      reset();
+    })();
+    </script>
 <script>
     document.querySelectorAll('.results-carousel').forEach((carousel) => {
       const cards = Array.from(carousel.querySelectorAll('.results-card'));

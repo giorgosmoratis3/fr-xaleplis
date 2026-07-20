@@ -6973,3 +6973,43 @@ body.lightbox-open{overflow:hidden;}
  .class-program-card th,.class-program-card td{padding:14px 18px}
  .class-program-note{flex-direction:column;align-items:flex-start}
 }
+
+/* === Hero Carousel === */
+.hero{position:relative;overflow:hidden}
+.hero-content{min-height:560px;padding:40px 20px;background:linear-gradient(120deg,#3a0f14 0%,#7a1f1a 35%,#c14a2b 70%,#e88a3a 100%);position:relative}
+.hero-carousel{position:relative;max-width:1400px;margin:0 auto;min-height:460px;display:flex;align-items:center;justify-content:center}
+.hero-stage{position:relative;width:100%;min-height:460px;overflow:hidden}
+.hero-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:70px;flex-wrap:wrap;padding:20px 90px;opacity:0;transform:translateX(40px) scale(.98);transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+.hero-slide.active{opacity:1;transform:translateX(0) scale(1);pointer-events:auto;z-index:2}
+.hero-logo{display:flex;align-items:center;gap:22px;animation:heroFloat 5s ease-in-out infinite}
+.hero-logo .logo-icon{width:120px;height:78px;border-color:var(--yellow);color:var(--yellow);background:rgba(0,0,0,.25);font-size:34px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.hero-logo .logo-text small{color:#fff;font-size:22px}
+.hero-logo .logo-text strong{color:var(--yellow);font-size:44px;text-shadow:0 4px 18px rgba(0,0,0,.4)}
+.hero-message{max-width:560px;text-align:left;color:#fff}
+.hero-message h1{font-family:'Ubuntu';font-size:44px;line-height:1.15;margin:0 0 26px;letter-spacing:-1px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.35)}
+.hero-message h1 span{display:block;color:#fff;font-size:inherit}
+.hero-message h1 .hero-highlight{color:var(--yellow);font-size:52px;font-weight:900}
+.hero-message h1 .hero-eyebrow{font-weight:800}
+.hero-message h1 .hero-tag{font-size:26px;font-weight:600;opacity:.95;margin-top:8px}
+.hero-message .hero-btn{margin-top:10px}
+.hero-badge{position:absolute;top:20px;right:40px;width:180px;height:180px;background:radial-gradient(circle at 50% 45%,#0f2340 0%,#0a1830 65%,#050c1c 100%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-family:'Ubuntu';text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4);border:4px solid rgba(255,255,255,.08);animation:heroFloat 4s ease-in-out infinite;z-index:3}
+.hero-badge .badge-top,.hero-badge .badge-bot{font-size:14px;letter-spacing:2px;color:#8fd6ff;font-weight:800}
+.hero-badge .badge-mid{background:linear-gradient(90deg,#1a4a8a,#2d6ec4);color:var(--yellow);font-weight:900;font-size:15px;padding:6px 18px;margin:8px 0;letter-spacing:1px;width:110%;text-align:center;transform:rotate(-6deg);box-shadow:0 6px 14px rgba(0,0,0,.4)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;font-size:32px;border:0;cursor:pointer;z-index:5;display:grid;place-items:center;transition:background .25s ease, transform .25s ease}
+.hero-arrow:hover{background:var(--yellow);color:#000;transform:translateY(-50%) scale(1.08)}
+.hero-prev{left:10px}
+.hero-next{right:10px}
+.hero-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:5}
+.hero-dots span{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:background .3s ease, transform .3s ease}
+.hero-dots span.active{background:var(--yellow);transform:scale(1.25);box-shadow:0 0 12px rgba(255,220,60,.7)}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:900px){
+  .hero-slide{gap:30px;padding:20px 60px;flex-direction:column;text-align:center}
+  .hero-message{text-align:center}
+  .hero-message h1{font-size:30px}
+  .hero-message h1 .hero-highlight{font-size:36px}
+  .hero-message h1 .hero-tag{font-size:20px}
+  .hero-badge{position:relative;top:0;right:0;width:130px;height:130px;margin:10px auto 0}
+  .hero-logo .logo-icon{width:90px;height:60px;font-size:26px}
+  .hero-logo .logo-text strong{font-size:32px}
+}
