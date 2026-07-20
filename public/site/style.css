@@ -3522,7 +3522,7 @@ body{background:#fff;color:#07111d;}
   font-weight:900;
   margin:36px 0 0;
 }
-.advantage-card-white{background:#fff !important;color:#050505 !important;}
+.advantage-card-white{background:#e8e7ec !important;color:#050505 !important;}
 .advantage-card-blue{background:#053f73 !important;color:#fff !important;}
 .advantage-card-red{background:#c91822 !important;color:#fff !important;}
 .advantage-card-white .check-icon:before{border-color:#053f73 !important;color:#c91822 !important;}
