@@ -613,18 +613,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.class-image-card[data-href]').forEach(card => {
     const open = () => { window.location.href = card.dataset.href; };
-    card.addEventListener('dblclick', open);
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', open);
     card.addEventListener('keydown', e => {
-      if (e.key === 'Enter') open();
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
     });
-    const img = card.querySelector('img');
-    if (img) {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', e => {
-        const isCenter = card.classList.contains('center');
-        if (isCenter) { e.stopPropagation(); open(); }
-      });
-    }
   });
 });
 </script></body>
