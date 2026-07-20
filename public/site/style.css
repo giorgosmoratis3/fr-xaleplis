@@ -1082,13 +1082,14 @@
 
 /* --- Added summer flow sections inspired by the supplied reference --- */
 .summer-flow{
-  --accent:var(--yellow);
+  --accent:#c31924;
   position:relative;
   overflow:hidden;
-  background:linear-gradient(120deg,#ffe45a 0%, #ffd21f 48%, #ffc400 100%);
-  color:#050505;
+  background:linear-gradient(120deg,#f4f4f6 0%, #e9ecf2 48%, #dfe4ec 100%);
+  color:#0b1f3a;
   isolation:isolate;
 }
+
 .summer-flow::before{
   content:'';
   position:absolute;
