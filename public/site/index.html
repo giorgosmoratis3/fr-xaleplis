@@ -433,12 +433,36 @@
       const carousel = document.getElementById('heroCarousel');
       if (!carousel) return;
       const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.hero-dot'));
       const bar = document.getElementById('heroProgressBar');
       let active = 0;
-      const apply = () => slides.forEach((s, i) => s.classList.toggle('active', i === active));
+      let timer;
+      const setClasses = () => {
+        slides.forEach((s, i) => {
+          s.classList.remove('active', 'prev', 'next');
+          if (i === active) s.classList.add('active');
+          else if (i === (active - 1 + slides.length) % slides.length) s.classList.add('prev');
+          else if (i === (active + 1) % slides.length) s.classList.add('next');
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === active));
+      };
+      const resetBar = () => {
+        if (!bar) return;
+        bar.style.transition = 'none';
+        bar.style.width = '0';
+        void bar.offsetWidth;
+        bar.style.transition = 'width 6s linear';
+        bar.style.width = '100%';
+      };
+      const apply = () => { setClasses(); resetBar(); };
       const next = () => { active = (active + 1) % slides.length; apply(); };
-      if (bar) bar.addEventListener('animationiteration', next);
+      const prev = () => { active = (active - 1 + slides.length) % slides.length; apply(); };
+      const startTimer = () => { clearInterval(timer); timer = setInterval(next, 6000); };
+      carousel.querySelector('.hero-arrow-next')?.addEventListener('click', () => { next(); startTimer(); });
+      carousel.querySelector('.hero-arrow-prev')?.addEventListener('click', () => { prev(); startTimer(); });
+      dots.forEach((d, i) => d.addEventListener('click', () => { active = i; apply(); startTimer(); }));
       apply();
+      startTimer();
     })();
     </script>
 <script>
