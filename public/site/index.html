@@ -413,6 +413,38 @@
 </div>
 </footer>
 <script>
+    (() => {
+      const carousel = document.getElementById('heroCarousel');
+      if (!carousel) return;
+      const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.hero-dots span'));
+      let active = 0;
+      let timer;
+      const apply = (dir = 1) => {
+        slides.forEach((s, i) => {
+          s.classList.remove('active', 'leaving-left', 'leaving-right');
+          if (i === active) s.classList.add('active');
+        });
+        dots.forEach((d, i) => d.classList.toggle('active', i === active));
+      };
+      const go = (n) => { active = (n + slides.length) % slides.length; apply(); reset(); };
+      const next = () => go(active + 1);
+      const prev = () => go(active - 1);
+      const reset = () => { clearInterval(timer); timer = setInterval(next, 6000); };
+      carousel.querySelector('.hero-next').addEventListener('click', next);
+      carousel.querySelector('.hero-prev').addEventListener('click', prev);
+      dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
+      let startX = 0;
+      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+      carousel.addEventListener('touchend', e => {
+        const delta = e.changedTouches[0].clientX - startX;
+        if (Math.abs(delta) > 45) delta < 0 ? next() : prev();
+      }, {passive:true});
+      apply();
+      reset();
+    })();
+    </script>
+<script>
     document.querySelectorAll('.results-carousel').forEach((carousel) => {
       const cards = Array.from(carousel.querySelectorAll('.results-card'));
       const dots = Array.from(carousel.querySelectorAll('.results-dots span'));
