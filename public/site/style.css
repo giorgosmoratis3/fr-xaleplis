@@ -6975,12 +6975,12 @@ body.lightbox-open{overflow:hidden;}
 }
 
 /* === Hero Banner (blank white + red loading bar) === */
-.hero{position:relative;overflow:hidden;background:#ffffff}
+.hero{position:relative;overflow:hidden;background:#f4f4f6}
 .hero .hero-content{padding:0;position:relative;display:block;text-align:left;min-height:0}
-.hero-banner{position:relative;width:100%;max-width:none;margin:0;height:calc(100vh - 132px - 46px);min-height:520px;border-radius:0;overflow:hidden;background:#ffffff}
+.hero-banner{position:relative;width:100%;max-width:none;margin:0;height:calc(100vh - 132px - 46px);min-height:520px;border-radius:0;overflow:hidden;background:#f4f4f6}
 .hero-decor,.hero-waves,.hero-card,.hero-card-accent,.hero-arrow,.hero-dots,.hero-logo-wrap,.hero-logo-img,.hero-badge,.hero-copy,.hero-kicker,.hero-headline,.hero-sub,.hero-actions,.hero-left,.hero-logo,.hero-inner,.hero-ring,.hero-orb,.hero-grid-lines{display:none !important}
 .hero-stage{position:absolute;inset:0;z-index:2}
-.hero-slide{position:absolute;inset:0;background:#ffffff;opacity:0;transition:opacity .6s ease}
+.hero-slide{position:absolute;inset:0;background:#f4f4f6;opacity:0;transition:opacity .6s ease}
 .hero-slide.active{opacity:1}
 .hero-progress{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(11,61,145,.06);z-index:5}
 .hero-progress-bar{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff6b3d,#d92f2f,#a3111c);animation:heroProgress 6s linear infinite;box-shadow:0 0 12px rgba(217,47,47,.55)}
