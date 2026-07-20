@@ -1090,7 +1090,11 @@
   isolation:isolate;
 }
 
+.summer-flow .shimmer-white{
+  background-image:linear-gradient(105deg,#073760 0%,#073760 35%,rgba(195,25,36,.55) 46%,#c31924 50%,rgba(195,25,36,.55) 55%,#073760 67%,#073760 100%);
+}
 .summer-flow::before{
+
   content:'';
   position:absolute;
   inset:-20% -15%;
