@@ -7044,3 +7044,29 @@ body.lightbox-open{overflow:hidden;}
 
 
 
+
+/* === Advantages Carousel === */
+.advantages-carousel-section{padding:clamp(60px,9vw,120px) 20px;background:#fff;overflow:hidden}
+.ac-wrap{max-width:1200px;margin:0 auto;position:relative}
+.ac-stage{position:relative;height:clamp(320px,42vw,440px);display:flex;align-items:center;justify-content:center;perspective:1600px}
+.ac-card{position:absolute;top:50%;left:50%;width:min(440px,82vw);height:clamp(280px,34vw,360px);border-radius:22px;background:#fff;box-shadow:0 24px 60px -20px rgba(7,55,96,.18),0 8px 24px -12px rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 44px;text-align:center;transition:transform .7s cubic-bezier(.22,.61,.36,1),opacity .7s ease,background .7s ease,color .7s ease,filter .7s ease;will-change:transform,opacity;color:#8a94a3}
+.ac-card p{font-size:clamp(16px,1.6vw,20px);font-weight:700;line-height:1.45;margin:0}
+.ac-icon{width:clamp(52px,6vw,72px);height:clamp(52px,6vw,72px);margin-bottom:22px;color:#c8ced6;transition:color .7s ease}
+.ac-card.pos-center{transform:translate(-50%,-50%) translateX(0) scale(1);opacity:1;z-index:5;background:#0a2f5c;color:#fff;box-shadow:0 32px 70px -18px rgba(10,47,92,.5),0 12px 30px -12px rgba(0,0,0,.18)}
+.ac-card.pos-center .ac-icon{color:#fff}
+.ac-card.pos-center .ac-icon circle:first-of-type{stroke:#c31924}
+.ac-card.pos-left{transform:translate(-50%,-50%) translateX(-62%) scale(.86);opacity:.85;z-index:3;filter:saturate(.9)}
+.ac-card.pos-right{transform:translate(-50%,-50%) translateX(62%) scale(.86);opacity:.85;z-index:3;background:#f3d9db;color:#a56b6d;filter:saturate(.95)}
+.ac-card.pos-right .ac-icon{color:#c99a9d}
+.ac-card.pos-far-left,.ac-card.pos-far-right{transform:translate(-50%,-50%) scale(.7);opacity:0;z-index:1;pointer-events:none}
+.ac-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:36px}
+.ac-arrow{width:46px;height:46px;border-radius:50%;border:1.5px solid #d9dde3;background:#fff;color:#0a2f5c;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease;padding:0}
+.ac-arrow svg{width:20px;height:20px}
+.ac-arrow:hover{border-color:#0a2f5c;background:#0a2f5c;color:#fff;transform:translateY(-1px)}
+.ac-dots{display:flex;gap:10px;align-items:center}
+.ac-dots button{width:8px;height:8px;border-radius:50%;background:#d9dde3;border:0;padding:0;cursor:pointer;transition:all .3s ease}
+.ac-dots button.active{background:#c31924;width:26px;border-radius:4px;height:4px}
+@media(max-width:640px){
+  .ac-card.pos-left,.ac-card.pos-right{opacity:0;pointer-events:none}
+  .ac-card{padding:28px 26px}
+}
