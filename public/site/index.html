@@ -90,59 +90,14 @@
 </div>
 <div class="hero-content">
 <div aria-label="Παρουσίαση φροντιστηρίου" class="hero-banner" id="heroCarousel">
-<div aria-hidden="true" class="hero-decor">
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-grid-lines"></div>
-  <svg class="hero-ring" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="3 6"/></svg>
-</div>
-
-<button aria-label="Προηγούμενο" class="hero-arrow hero-prev" type="button">‹</button>
 <div class="hero-stage">
-  <div class="hero-slide active" data-slide="0">
-    <div class="hero-inner">
-      <div class="hero-logo-wrap"><img src="chalepelis-logo.jpeg" alt="Φροντιστήριο Χαλεπλής" class="hero-logo-img"/></div>
-      <div class="hero-copy">
-        <h1 class="hero-headline"><span class="hl-word">Προετοιμάζει…</span></h1>
-        <p class="hero-sub">με επιτυχία τους μαθητές του για την εισαγωγή τους στην τριτοβάθμια εκπαίδευση.</p>
-      </div>
-      <div class="hero-badge" aria-hidden="true">
-        <span class="hero-badge-top">ΘΕΜΑΤΑ</span>
-        <span class="hero-badge-mid">ΠΑΝΕΛΛΑΔΙΚΕΣ<br/><b>2026</b></span>
-        <span class="hero-badge-bot">ΑΠΑΝΤΗΣΕΙΣ</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-slide" data-slide="1">
-    <div class="hero-inner">
-      <div class="hero-logo-wrap"><img src="chalepelis-logo.jpeg" alt="Φροντιστήριο Χαλεπλής" class="hero-logo-img"/></div>
-      <div class="hero-copy">
-        <h1 class="hero-headline"><span class="hl-word">Αποτελέσματα</span> <span class="hl-word hl-accent">που μιλούν</span> <span class="hl-word">από μόνα τους.</span></h1>
-        <p class="hero-sub">Κάθε χρόνο οι μαθητές μας εισάγονται σε σχολές όλης της Ελλάδας, με υψηλές βαθμολογίες.</p>
-      </div>
-      <div class="hero-badge hero-badge-alt" aria-hidden="true">
-        <span class="hero-badge-num">100%</span>
-        <span class="hero-badge-label">ΕΠΙΤΥΧΙΑ</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-slide" data-slide="2">
-    <div class="hero-inner">
-      <div class="hero-logo-wrap"><img src="chalepelis-logo.jpeg" alt="Φροντιστήριο Χαλεπλής" class="hero-logo-img"/></div>
-      <div class="hero-copy">
-        <h1 class="hero-headline"><span class="hl-word">Προετοιμασία σε</span> <span class="hl-word hl-accent">Α΄, Β΄ &amp; Γ΄</span> <span class="hl-word">Λυκείου.</span></h1>
-        <p class="hero-sub">Ολιγομελή τμήματα, έμπειροι καθηγητές και συνεχής παρακολούθηση προόδου.</p>
-      </div>
-      <div class="hero-badge hero-badge-alt" aria-hidden="true">
-        <span class="hero-badge-num">Α Β Γ</span>
-        <span class="hero-badge-label">ΛΥΚΕΙΟΥ</span>
-      </div>
-    </div>
-  </div>
+  <div class="hero-slide active" data-slide="0"></div>
+  <div class="hero-slide" data-slide="1"></div>
+  <div class="hero-slide" data-slide="2"></div>
 </div>
-
-
-
+<div class="hero-progress"><span class="hero-progress-bar" id="heroProgressBar"></span></div>
+</div>
+</div>
 </section>
 <section aria-label="Υπεύθυνος σπουδών" class="director-banner-section">
 <div class="director-banner">
@@ -426,31 +381,12 @@
       const carousel = document.getElementById('heroCarousel');
       if (!carousel) return;
       const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
-      const dots = Array.from(carousel.querySelectorAll('.hero-dots span'));
+      const bar = document.getElementById('heroProgressBar');
       let active = 0;
-      let timer;
-      const apply = (dir = 1) => {
-        slides.forEach((s, i) => {
-          s.classList.remove('active', 'leaving-left', 'leaving-right');
-          if (i === active) s.classList.add('active');
-        });
-        dots.forEach((d, i) => d.classList.toggle('active', i === active));
-      };
-      const go = (n) => { active = (n + slides.length) % slides.length; apply(); reset(); };
-      const next = () => go(active + 1);
-      const prev = () => go(active - 1);
-      const reset = () => { clearInterval(timer); timer = setInterval(next, 6000); };
-      carousel.querySelector('.hero-next').addEventListener('click', next);
-      carousel.querySelector('.hero-prev').addEventListener('click', prev);
-      dots.forEach((d, i) => d.addEventListener('click', () => go(i)));
-      let startX = 0;
-      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
-      carousel.addEventListener('touchend', e => {
-        const delta = e.changedTouches[0].clientX - startX;
-        if (Math.abs(delta) > 45) delta < 0 ? next() : prev();
-      }, {passive:true});
+      const apply = () => slides.forEach((s, i) => s.classList.toggle('active', i === active));
+      const next = () => { active = (active + 1) % slides.length; apply(); };
+      if (bar) bar.addEventListener('animationiteration', next);
       apply();
-      reset();
     })();
     </script>
 <script>
