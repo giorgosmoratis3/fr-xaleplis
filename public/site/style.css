@@ -6977,11 +6977,12 @@ body.lightbox-open{overflow:hidden;}
 /* === Hero Banner (light, editorial, animated) === */
 .hero{position:relative;overflow:hidden;background:#ffffff}
 .hero .hero-content{padding:0;position:relative;display:block;text-align:left;min-height:0}
-.hero-banner{position:relative;width:100%;max-width:none;margin:0;height:calc(100vh - 132px - 46px);min-height:560px;border-radius:0;overflow:hidden;background:
-  radial-gradient(1200px 600px at 85% -10%, rgba(11,61,145,.06), transparent 60%),
-  radial-gradient(900px 500px at -10% 110%, rgba(201,21,32,.05), transparent 60%),
-  linear-gradient(180deg,#ffffff 0%,#fafaf7 100%);
+.hero-banner{position:relative;width:100%;max-width:none;margin:0;height:calc(100vh - 132px - 46px);min-height:520px;border-radius:0;overflow:hidden;background:
+  radial-gradient(1200px 700px at 15% 20%, #8a1e2b 0%, transparent 60%),
+  radial-gradient(1000px 600px at 85% 80%, #f28a3d 0%, transparent 55%),
+  linear-gradient(115deg,#6a1520 0%,#a83024 35%,#d95a2a 70%,#f0913e 100%);
   isolation:isolate}
+
 
 /* Decorative background layers */
 .hero-waves{display:none !important}
