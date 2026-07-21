@@ -761,8 +761,24 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
   },{threshold:.2});
   items.forEach(function(el){io.observe(el);});
+
+  var tl=document.querySelector('.sim-timeline');
+  var fill=document.querySelector('.sim-tl-line-fill');
+  if(!tl||!fill)return;
+  function update(){
+    var r=tl.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    var anchor=vh*0.5;
+    var progressed=anchor-r.top;
+    var p=Math.max(0,Math.min(1, progressed/r.height));
+    fill.style.height=(p*100)+'%';
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
 })();
 </script>
+
 
 </script></body>
 </html>
