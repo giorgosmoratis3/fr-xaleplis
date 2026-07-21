@@ -234,17 +234,25 @@
 <div class="dark-card">
 <div class="number-bg dark">02</div>
 <h2><span>ΠΡΑΓΜΑΤΙΚΗ</span> ΠΡΟΣΟΜΟΙΩΣΗ<br>ΕΞΕΤΑΣΕΩΝ</br></h2>
-<div class="sim-rotator" id="simRotator">
-  <div class="sim-track">
-    <div class="sim-slide is-active"><img src="/site/simulation-exams.svg" alt="Συνθήκες Πανελλαδικών"></div>
-    <div class="sim-slide"><img src="/site/simulation-time.svg" alt="Κοινά Θέματα"></div>
-    <div class="sim-slide"><img src="/site/simulation-progress.svg" alt="Εξέλιξη Βαθμού"></div>
-  </div>
-  <div class="sim-dots">
-    <button type="button" class="sim-dot is-active" aria-label="1"></button>
-    <button type="button" class="sim-dot" aria-label="2"></button>
-    <button type="button" class="sim-dot" aria-label="3"></button>
-  </div>
+<div aria-label="Προσομοίωση εξετάσεων" class="class-review-carousel classic-class-cards sim-carousel" id="simCarousel">
+<div class="class-review-stage">
+<article class="class-review-card side left sim-image-card" data-slide="0">
+<img src="/site/simulation-exams.svg" alt="Συνθήκες Πανελλαδικών">
+</article>
+<article class="class-review-card active sim-image-card" data-slide="1">
+<img src="/site/simulation-time.svg" alt="Κοινά Θέματα">
+</article>
+<article class="class-review-card side right sim-image-card" data-slide="2">
+<img src="/site/simulation-progress.svg" alt="Εξέλιξη Βαθμού">
+</article>
+</div>
+<div aria-label="Έλεγχος slider προσομοίωσης" class="class-review-controls">
+<button aria-label="Προηγούμενο" class="class-review-arrow class-review-prev" type="button">‹</button>
+<div aria-hidden="true" class="class-review-dots">
+<span></span><span class="active"></span><span></span>
+</div>
+<button aria-label="Επόμενο" class="class-review-arrow class-review-next" type="button">›</button>
+</div>
 </div>
           </section><section class="advisor section-white">
 <div class="number-bg">03</div>
