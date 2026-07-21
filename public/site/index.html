@@ -736,9 +736,10 @@ document.addEventListener('DOMContentLoaded', () => {
   var n=cards.length, active=Math.floor(n/2), timer;
   function spread(){
     var w=root.clientWidth;
-    if(w<620) return 90;
-    if(w<900) return 130;
-    return 180;
+    if(w<620) return 62;
+    if(w<900) return 92;
+    if(w<1200) return 120;
+    return 140;
   }
   function render(){
     var s=spread();
@@ -747,18 +748,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if(d>n/2) d-=n; else if(d<-n/2) d+=n;
       c.classList.remove('is-active','is-hidden');
       var abs=Math.abs(d);
-      if(abs>3){ c.classList.add('is-hidden'); }
+      if(abs>4){ c.classList.add('is-hidden'); }
       if(d===0) c.classList.add('is-active');
       var x = d*s;
-      var y = abs*abs*14;
-      var ry = -d*22;
-      var scale = Math.max(.55, 1 - abs*0.14);
-      var z = 10-abs;
+      var y = abs*abs*10;
+      var ry = -d*20;
+      var scale = Math.max(.5, 1 - abs*0.13);
+      var z = 20-abs;
       c.style.transform='translate3d('+x+'px,'+y+'px,0) rotateY('+ry+'deg) scale('+scale+')';
       c.style.zIndex=z;
-      c.style.opacity = abs>3 ? 0 : (1 - abs*0.15);
+      c.style.opacity = abs>4 ? 0 : (1 - abs*0.18);
     });
   }
+
   function go(i){ active=(i%n+n)%n; render(); }
   function next(){ go(active+1); }
   function prev(){ go(active-1); }
