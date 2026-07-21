@@ -7093,34 +7093,94 @@ body.lightbox-open{overflow:hidden;}
 .sim-dot.is-active{background:var(--yellow,#d3b64d);transform:scale(1.3)}
 @media(max-width:720px){.sim-rotator{margin-top:28px}.sim-slide img{border-radius:26px}}
 
-/* Simulation carousel — reuses classic-class-cards layout with a different animation */
-.sim-carousel .class-review-card.sim-image-card{
-  background:#ffffff;
-  padding:24px;
-  border-radius:28px;
+
+/* Simulation fan carousel — arc of cards like reference */
+.simulation .sim-fan{
+  position:relative;
+  margin: 40px auto 0;
+  padding: 20px 0 40px;
+  perspective: 1600px;
+}
+.simulation .sim-fan-stage{
+  position:relative;
+  height: 480px;
+  transform-style: preserve-3d;
+}
+.sim-fan-card{
+  position:absolute;
+  left:50%; top:20px;
+  width: 240px;
+  margin-left: -120px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 18px;
+  cursor:pointer;
+  transition: transform .7s cubic-bezier(.2,.85,.2,1), opacity .5s ease;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+.sim-fan-thumb{
+  width: 240px;
+  height: 320px;
+  border-radius: 22px;
+  background:#fff;
+  box-shadow: 0 26px 44px rgba(0,0,0,.28), 0 6px 12px rgba(0,0,0,.14);
   overflow:hidden;
-  transition:transform .7s cubic-bezier(.2,.85,.2,1), opacity .55s ease, filter .55s ease, box-shadow .55s ease;
-  transform-origin:50% 100%;
+  display:flex; align-items:center; justify-content:center;
+  padding: 18px;
 }
-.sim-carousel .class-review-card.sim-image-card img{
-  width:100%;height:100%;max-height:320px;object-fit:contain;display:block;
+.sim-fan-thumb img{
+  width:100%; height:100%; object-fit:contain; display:block;
 }
-.sim-carousel .class-review-stage{perspective:1400px;}
-.sim-carousel .class-review-card.active{
-  transform: translateY(0) rotateX(0) scale(1);
+.sim-fan-caption{
+  text-align:center;
+  color:#fff;
+  opacity:0;
+  transform: translateY(-6px);
+  transition: opacity .4s ease .1s, transform .4s ease .1s;
 }
-.sim-carousel .class-review-card.left{
-  transform: translate(-460px,42px) rotateX(14deg) rotateY(0) scale(.86) !important;
+.sim-fan-card.is-active .sim-fan-caption{
+  opacity:1; transform:translateY(0);
 }
-.sim-carousel .class-review-card.right{
-  transform: translate(460px,42px) rotateX(14deg) rotateY(0) scale(.86) !important;
+.sim-fan-num{
+  color:#c91822;
+  font-weight:900;
+  font-family:'Ubuntu',sans-serif;
+  font-size: 15px;
+  letter-spacing:.06em;
 }
-.sim-carousel .class-review-dots span.active{background:#c91822 !important;}
-@media(max-width:980px){
-  .sim-carousel .class-review-card.left{transform:translate(-220px,28px) rotateX(12deg) scale(.8) !important;}
-  .sim-carousel .class-review-card.right{transform:translate(220px,28px) rotateX(12deg) scale(.8) !important;}
+.sim-fan-caption p{
+  margin: 4px 0 0;
+  font-family:'Ubuntu',sans-serif;
+  font-weight:700;
+  font-size: 16px;
+  color:#fff;
 }
-@media(max-width:620px){
-  .sim-carousel .class-review-card.left{transform:translate(-170px,22px) rotateX(10deg) scale(.72) !important;}
-  .sim-carousel .class-review-card.right{transform:translate(170px,22px) rotateX(10deg) scale(.72) !important;}
+.sim-fan-card.is-active .sim-fan-thumb{
+  box-shadow: 0 34px 60px rgba(0,0,0,.42), 0 10px 20px rgba(201,24,34,.35);
+}
+.sim-fan-card.is-hidden{ pointer-events:none; }
+.sim-fan-controls{
+  display:flex; justify-content:center; gap:14px; margin-top: 16px;
+}
+.sim-fan-arrow{
+  width:44px; height:44px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.35);
+  background: rgba(255,255,255,.08);
+  color:#fff; font-size:22px; line-height:1; cursor:pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.sim-fan-arrow:hover{ background:#c91822; border-color:#c91822; transform: translateY(-2px); }
+
+@media(max-width: 900px){
+  .simulation .sim-fan-stage{ height: 400px; }
+  .sim-fan-card{ width: 180px; margin-left:-90px; }
+  .sim-fan-thumb{ width:180px; height:240px; border-radius:18px; }
+}
+@media(max-width: 620px){
+  .simulation .sim-fan-stage{ height: 340px; }
+  .sim-fan-card{ width: 140px; margin-left:-70px; }
+  .sim-fan-thumb{ width:140px; height:190px; border-radius:14px; padding:12px; }
+  .sim-fan-caption p{ font-size:13px; }
 }
