@@ -7209,8 +7209,17 @@ body.lightbox-open{overflow:hidden;}
 }
 .simulation .sim-tl-line{
   position:absolute; left:50%; top:0; bottom:0;
-  width:2px; background: rgba(255,255,255,.18);
+  width:3px; background: rgba(255,255,255,.14);
   transform: translateX(-50%);
+  border-radius: 3px;
+  overflow:hidden;
+}
+.simulation .sim-tl-line-fill{
+  position:absolute; left:0; top:0; width:100%;
+  height: var(--tl-progress, 0%);
+  background: linear-gradient(180deg, #ff4756, #c31924);
+  box-shadow: 0 0 18px rgba(195,25,36,.7);
+  transition: height .15s linear;
 }
 .sim-tl-item{
   position:relative;
@@ -7227,50 +7236,63 @@ body.lightbox-open{overflow:hidden;}
 .sim-tl-item:last-child{ margin-bottom: 0; }
 .sim-tl-card{
   position:relative;
-  border-radius: 22px;
-  min-height: 300px;
-  padding: 32px 34px 34px;
-  background-color:#0a3d63;
-  background-size: cover;
-  background-position: center;
+  border-radius: 24px;
+  min-height: 260px;
+  padding: 40px 40px 34px;
+  background: linear-gradient(155deg, #0d4a7a 0%, #073760 55%, #05253f 100%);
   color:#fff;
   overflow:hidden;
   box-shadow: 0 30px 60px rgba(0,0,0,.45), 0 8px 18px rgba(0,0,0,.25);
   display:flex; flex-direction:column; justify-content:flex-end;
+  text-align:center;
 }
 .sim-tl-card::before{
-  content:""; position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(7,55,96,.55) 0%, rgba(7,15,25,.85) 100%);
+  content:""; position:absolute; inset:-1px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(195,25,36,.22), transparent 55%),
+    radial-gradient(circle at 15% 90%, rgba(255,255,255,.08), transparent 55%);
+  pointer-events:none;
 }
 .sim-tl-card > *{ position:relative; z-index:1; }
 .sim-tl-badge{
   position:absolute; top:22px; left:22px;
-  width: 54px; height: 54px; border-radius: 50%;
+  width: 58px; height: 58px; border-radius: 50%;
   background:#fff; color:#0a1520;
   display:grid; place-items:center;
-  font-family:'Ubuntu',sans-serif; font-weight:900; font-size:18px;
+  font-family:'Ubuntu',sans-serif; font-weight:900; font-size:19px;
   box-shadow: 0 8px 18px rgba(0,0,0,.35);
+  z-index:2;
 }
+.sim-tl-icon{
+  width: 62px; height: 62px; margin: 8px auto 14px;
+  display:grid; place-items:center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.18);
+}
+.sim-tl-icon svg{ width:28px; height:28px; stroke:#fff; fill:none; stroke-width:2; }
 .sim-tl-step{
-  color:#c31924;
+  color:#ff4756;
   font-family:'Ubuntu',sans-serif; font-weight:800;
-  font-size: 13px; letter-spacing: .28em;
-  display:inline-block; margin-bottom: 12px;
+  font-size: 12px; letter-spacing: .32em;
+  display:inline-block; margin-bottom: 10px;
 }
 .sim-tl-body h3{
   font-family:'Ubuntu',sans-serif;
-  font-size: 28px; font-weight:900;
+  font-size: 26px; font-weight:900;
   margin: 0 0 10px; color:#fff; line-height:1.15;
 }
 .sim-tl-body p{
-  margin: 0; color: rgba(255,255,255,.85);
-  font-size: 15px; line-height:1.55;
+  margin: 0 auto; color: rgba(255,255,255,.82);
+  font-size: 15px; line-height:1.55; max-width: 380px;
 }
 .sim-tl-bar{
-  height: 3px; background:#c31924; margin-top: 20px;
+  height: 3px; background:#c31924; margin: 22px auto 0;
   width: 0; transition: width 1.2s ease .2s;
+  border-radius: 3px;
 }
-.sim-tl-item.is-in .sim-tl-bar{ width: 70%; }
+.sim-tl-item.is-in .sim-tl-bar{ width: 60%; }
+
 .sim-tl-dot{
   position:absolute; left:50%; top:50%;
   width:16px; height:16px; border-radius:50%;
