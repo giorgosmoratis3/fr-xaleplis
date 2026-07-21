@@ -721,17 +721,22 @@ document.addEventListener('DOMContentLoaded', () => {
   var root=document.getElementById('simFan');if(!root)return;
   var cards=[].slice.call(root.querySelectorAll('.sim-fan-card'));
   var n=cards.length, active=Math.floor(n/2), timer;
+  function spread(){
+    var w=root.clientWidth;
+    if(w<620) return 90;
+    if(w<900) return 130;
+    return 180;
+  }
   function render(){
+    var s=spread();
     cards.forEach(function(c,i){
       var d=i-active;
-      // wrap to shortest signed distance
       if(d>n/2) d-=n; else if(d<-n/2) d+=n;
       c.classList.remove('is-active','is-hidden');
       var abs=Math.abs(d);
       if(abs>3){ c.classList.add('is-hidden'); }
       if(d===0) c.classList.add('is-active');
-      // arc: x spreads, y sinks with distance, rotateY opposes
-      var x = d*180;
+      var x = d*s;
       var y = abs*abs*14;
       var ry = -d*22;
       var scale = Math.max(.55, 1 - abs*0.14);
