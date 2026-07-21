@@ -234,21 +234,18 @@
 <div class="dark-card">
 <div class="number-bg dark">02</div>
 <h2><span>ΠΡΑΓΜΑΤΙΚΗ</span> ΠΡΟΣΟΜΟΙΩΣΗ<br>ΕΞΕΤΑΣΕΩΝ</br></h2>
-<p class="intro">Στο Φιλολογικό Φροντιστήριο Χαλεπλής κάθε μαθητής έχει τον προσωπικό του Σύμβουλο Καθηγητή. Ο Σύμβουλος Καθηγητής:</p>
-<div class="three-cols">
-<article>
-<span class="check-icon"></span>
-<h3>Οργανώνει τη μελέτη του μαθητή με προσωπικό πρόγραμμα.</h3>
-</article>
-<article>
-<span class="check-icon"></span>
-<h3>Παρακολουθεί την πρόοδο σε όλα τα φιλολογικά μαθήματα.</h3>
-</article>
-<article>
-<span class="check-icon"></span>
-<h3>Βοηθά στην επιλογή στόχων και στη σωστή προετοιμασία.</h3>
-</article>
-          </div>
+<div class="sim-rotator" id="simRotator">
+  <div class="sim-track">
+    <div class="sim-slide is-active"><img src="/site/simulation-exams.svg" alt="Συνθήκες Πανελλαδικών"></div>
+    <div class="sim-slide"><img src="/site/simulation-time.svg" alt="Κοινά Θέματα"></div>
+    <div class="sim-slide"><img src="/site/simulation-progress.svg" alt="Εξέλιξη Βαθμού"></div>
+  </div>
+  <div class="sim-dots">
+    <button type="button" class="sim-dot is-active" aria-label="1"></button>
+    <button type="button" class="sim-dot" aria-label="2"></button>
+    <button type="button" class="sim-dot" aria-label="3"></button>
+  </div>
+</div>
           </section><section class="advisor section-white">
 <div class="number-bg">03</div>
 <h2>ΣΥΜΒΟΥΛΟΣ <span>ΚΑΘΗΓΗΤΗΣ</span></h2>
@@ -693,6 +690,22 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('acNext').addEventListener('click',()=>{next();restart()});
   document.getElementById('acPrev').addEventListener('click',()=>{prev();restart()});
   render();restart();
+})();
+</script>
+<script>
+(function(){
+  var root=document.getElementById('simRotator');if(!root)return;
+  var slides=root.querySelectorAll('.sim-slide'),dots=root.querySelectorAll('.sim-dot'),i=0,timer;
+  function go(n){
+    var prev=i;i=(n+slides.length)%slides.length;
+    slides[prev].classList.remove('is-active');slides[prev].classList.add('is-exit');
+    setTimeout(function(){slides[prev].classList.remove('is-exit');},800);
+    slides[i].classList.add('is-active');
+    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);});
+  }
+  function start(){timer=setInterval(function(){go(i+1);},4500);}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){clearInterval(timer);go(k);start();});});
+  start();
 })();
 </script></body>
 </html>
