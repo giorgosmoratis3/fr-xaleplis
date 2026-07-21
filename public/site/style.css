@@ -7109,30 +7109,44 @@ body.lightbox-open{overflow:hidden;}
 .sim-fan-card{
   position:absolute;
   left:50%; top:20px;
-  width: 240px;
-  margin-left: -120px;
+  width: 200px;
+  margin-left: -100px;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap: 18px;
   cursor:pointer;
-  transition: transform .7s cubic-bezier(.2,.85,.2,1), opacity .5s ease;
+  transition: transform .7s cubic-bezier(.2,.85,.2,1), opacity .5s ease, box-shadow .4s ease;
   transform-origin: 50% 50%;
   will-change: transform, opacity;
 }
 .sim-fan-thumb{
-  width: 240px;
-  height: 320px;
+  width: 200px;
+  height: 270px;
   border-radius: 22px;
   background:#fff;
   box-shadow: 0 26px 44px rgba(0,0,0,.28), 0 6px 12px rgba(0,0,0,.14);
   overflow:hidden;
   display:flex; align-items:center; justify-content:center;
   padding: 18px;
+  border: 2px solid transparent;
+  transition: background .4s ease, border-color .4s ease;
 }
 .sim-fan-thumb img{
   width:100%; height:100%; object-fit:contain; display:block;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.15));
 }
+
+/* Color tones matching site palette (navy #073760, red #c31924, cream #f4f4f6) */
+.sim-fan-card.tone-navy .sim-fan-thumb{ background: linear-gradient(160deg,#0a4a7a,#073760); border-color:#0a4a7a; }
+.sim-fan-card.tone-navy .sim-fan-thumb img{ filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
+.sim-fan-card.tone-navy-soft .sim-fan-thumb{ background: linear-gradient(160deg,#dbe7f2,#b7cde0); border-color:#8fb3d1; }
+.sim-fan-card.tone-red .sim-fan-thumb{ background: linear-gradient(160deg,#e02a36,#c31924); border-color:#c31924; }
+.sim-fan-card.tone-red .sim-fan-thumb img{ filter: brightness(0) invert(1) drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
+.sim-fan-card.tone-red-soft .sim-fan-thumb{ background: linear-gradient(160deg,#fbdcdd,#f2b7bb); border-color:#e69499; }
+.sim-fan-card.tone-cream .sim-fan-thumb{ background: linear-gradient(160deg,#faf5e8,#f0e7cf); border-color:#e6d9b6; }
+.sim-fan-card.tone-white .sim-fan-thumb{ background:#ffffff; border-color:#e5e7ec; }
+
 .sim-fan-caption{
   text-align:center;
   color:#fff;
@@ -7144,7 +7158,7 @@ body.lightbox-open{overflow:hidden;}
   opacity:1; transform:translateY(0);
 }
 .sim-fan-num{
-  color:#c91822;
+  color:#ff5a63;
   font-weight:900;
   font-family:'Ubuntu',sans-serif;
   font-size: 15px;
@@ -7174,13 +7188,14 @@ body.lightbox-open{overflow:hidden;}
 .sim-fan-arrow:hover{ background:#c91822; border-color:#c91822; transform: translateY(-2px); }
 
 @media(max-width: 900px){
-  .simulation .sim-fan-stage{ height: 400px; }
-  .sim-fan-card{ width: 180px; margin-left:-90px; }
-  .sim-fan-thumb{ width:180px; height:240px; border-radius:18px; }
+  .simulation .sim-fan-stage{ height: 380px; }
+  .sim-fan-card{ width: 160px; margin-left:-80px; }
+  .sim-fan-thumb{ width:160px; height:210px; border-radius:18px; }
 }
 @media(max-width: 620px){
-  .simulation .sim-fan-stage{ height: 340px; }
-  .sim-fan-card{ width: 140px; margin-left:-70px; }
-  .sim-fan-thumb{ width:140px; height:190px; border-radius:14px; padding:12px; }
+  .simulation .sim-fan-stage{ height: 320px; }
+  .sim-fan-card{ width: 130px; margin-left:-65px; }
+  .sim-fan-thumb{ width:130px; height:170px; border-radius:14px; padding:12px; }
   .sim-fan-caption p{ font-size:13px; }
 }
+
