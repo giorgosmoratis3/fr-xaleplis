@@ -702,18 +702,15 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script>
 (function(){
-  var root=document.getElementById('simRotator');if(!root)return;
-  var slides=root.querySelectorAll('.sim-slide'),dots=root.querySelectorAll('.sim-dot'),i=0,timer;
-  function go(n){
-    var prev=i;i=(n+slides.length)%slides.length;
-    slides[prev].classList.remove('is-active');slides[prev].classList.add('is-exit');
-    setTimeout(function(){slides[prev].classList.remove('is-exit');},800);
-    slides[i].classList.add('is-active');
-    dots.forEach(function(d,k){d.classList.toggle('is-active',k===i);});
-  }
-  function start(){timer=setInterval(function(){go(i+1);},4500);}
-  dots.forEach(function(d,k){d.addEventListener('click',function(){clearInterval(timer);go(k);start();});});
+  var carousel=document.getElementById('simCarousel');if(!carousel)return;
+  var nextBtn=carousel.querySelector('.class-review-next');
+  var timer;
+  function tick(){ nextBtn && nextBtn.click(); }
+  function start(){ clearInterval(timer); timer=setInterval(tick,4500); }
+  carousel.addEventListener('click',start);
+  carousel.addEventListener('touchend',start,{passive:true});
   start();
 })();
+</script>
 </script></body>
 </html>
