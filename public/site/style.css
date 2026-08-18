@@ -7435,3 +7435,30 @@ body.lightbox-open{overflow:hidden;}
 /* --- Year badge per results section --- */
 #results.results-2025-section.results-2025-embedded::after{content:'2026' !important;}
 #results-2025.results-2025-section.results-2025-embedded::after{content:'2025' !important;}
+
+/* --- Fit results posters comfortably inside their section --- */
+.results-2025-section .results-stage,
+.results-stage{
+  height:clamp(430px,48vw,620px) !important;
+  margin-bottom:clamp(26px,3vw,42px) !important;
+}
+.results-2025-section .results-card,
+.results-card{
+  width:min(330px,52vw) !important;
+}
+.results-2025-section .results-card img,
+.results-card img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+}
+@media(max-width:760px){
+  .results-2025-section .results-stage,
+  .results-stage{
+    height:clamp(380px,105vw,560px) !important;
+  }
+  .results-2025-section .results-card,
+  .results-card{
+    width:min(72vw,320px) !important;
+  }
+}
