@@ -7387,7 +7387,7 @@ body.lightbox-open{overflow:hidden;}
   letter-spacing:-.04em !important;
   color:transparent !important;
   -webkit-text-fill-color:transparent !important;
-  -webkit-text-stroke:3px #e3e6ea !important;
+  -webkit-text-stroke:2px rgba(7,55,96,.22) !important;
   background:none !important;
   z-index:0 !important;
   pointer-events:none !important;
