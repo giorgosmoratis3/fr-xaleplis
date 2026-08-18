@@ -31,7 +31,7 @@
 <div class="nav-dropdown">
 <a href="#">Η διαδρομή μας</a>
 <a href="#advantages">Τι προσφέρουμε</a>
-<a href="#space" id="spaceNavLink">Ο χώρος μας</a>
+<a href="o-xoros-mas.html" id="spaceNavLink">Ο χώρος μας</a>
 
 </div>
 </div>
@@ -807,7 +807,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if(!modal) return;
   function open(){ modal.hidden=false; document.body.style.overflow='hidden'; }
   function close(){ modal.hidden=true; document.body.style.overflow=''; }
-  document.querySelectorAll('a[href="#space"],a[href="index.html#space"]').forEach(function(a){
+  document.querySelectorAll('a[href="o-xoros-mas.html"],a[href="o-xoros-mas.html"]').forEach(function(a){
     a.addEventListener('click',function(e){ e.preventDefault(); open(); });
   });
   modal.querySelectorAll('[data-space-close]').forEach(function(el){ el.addEventListener('click',close); });
