@@ -7462,3 +7462,18 @@ body.lightbox-open{overflow:hidden;}
     width:min(72vw,320px) !important;
   }
 }
+
+/* --- Ο χώρος μας (modal gallery) --- */
+.space-modal{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;}
+.space-modal[hidden]{display:none;}
+.space-modal-backdrop{position:absolute;inset:0;background:rgba(7,55,96,.62);backdrop-filter:blur(4px);}
+.space-modal-panel{position:relative;background:#f4f4f6;border-radius:18px;max-width:960px;width:100%;max-height:88vh;overflow:auto;padding:clamp(22px,3vw,40px);box-shadow:0 30px 70px rgba(7,55,96,.32);animation:spaceIn .35s ease both;}
+@keyframes spaceIn{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+.space-modal-x{position:absolute;top:12px;right:16px;border:0;background:transparent;font-size:30px;line-height:1;color:#073760;cursor:pointer;}
+.space-kicker{display:inline-block;background:#c31924;color:#fff;font-weight:800;font-size:12px;letter-spacing:.14em;padding:6px 12px;border-radius:999px;}
+.space-modal-panel h3{margin:14px 0 8px;color:#073760;font-size:clamp(22px,3vw,32px);font-weight:900;}
+.space-lead{margin:0 0 22px;color:#5a6470;max-width:56ch;}
+.space-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.space-tile{margin:0;aspect-ratio:4/3;border-radius:14px;background:linear-gradient(135deg,#073760,#0d4f83);display:flex;align-items:flex-end;padding:14px;position:relative;overflow:hidden;}
+.space-tile::after{content:'';position:absolute;inset:auto -20% -40% -20%;height:70%;background:radial-gradient(ellipse at center,rgba(217,192,136,.35),transparent 70%);}
+.space-tile span{position:relative;color:#fff;font-weight:800;letter-spacing:.04em;font-size:14px;}

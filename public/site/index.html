@@ -31,8 +31,8 @@
 <div class="nav-dropdown">
 <a href="#">Η διαδρομή μας</a>
 <a href="#advantages">Τι προσφέρουμε</a>
-<a href="#levels">Κανονισμός Λειτουργίας</a>
-<a href="#levels">Διεύθυνση Σπουδών</a>
+<a href="#space" id="spaceNavLink">Ο χώρος μας</a>
+
 </div>
 </div>
 <div class="nav-item has-dropdown">
@@ -783,6 +783,39 @@ document.addEventListener('DOMContentLoaded', () => {
   update();
 })();
 </script>
+
+<div class="space-modal" id="spaceModal" role="dialog" aria-modal="true" aria-label="Ο χώρος μας" hidden>
+  <div class="space-modal-backdrop" data-space-close></div>
+  <div class="space-modal-panel">
+    <button class="space-modal-x" type="button" aria-label="Κλείσιμο" data-space-close>×</button>
+    <span class="space-kicker">Ο ΧΩΡΟΣ ΜΑΣ</span>
+    <h3>Οι αίθουσες του φροντιστηρίου</h3>
+    <p class="space-lead">Σύγχρονες, φωτεινές αίθουσες με ολιγομελή τμήματα και εξοπλισμό που στηρίζει τη διδασκαλία.</p>
+    <div class="space-grid">
+      <figure class="space-tile"><span>Αίθουσα Α</span></figure>
+      <figure class="space-tile"><span>Αίθουσα Β</span></figure>
+      <figure class="space-tile"><span>Αίθουσα Γ</span></figure>
+      <figure class="space-tile"><span>Χώρος μελέτης</span></figure>
+      <figure class="space-tile"><span>Γραμματεία</span></figure>
+      <figure class="space-tile"><span>Αίθουσα προσομοιώσεων</span></figure>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var modal=document.getElementById('spaceModal');
+  if(!modal) return;
+  function open(){ modal.hidden=false; document.body.style.overflow='hidden'; }
+  function close(){ modal.hidden=true; document.body.style.overflow=''; }
+  document.querySelectorAll('a[href="#space"],a[href="index.html#space"]').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); open(); });
+  });
+  modal.querySelectorAll('[data-space-close]').forEach(function(el){ el.addEventListener('click',close); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  if(location.hash==='#space') open();
+})();
+</script>
+
 
 
 </script></body>
