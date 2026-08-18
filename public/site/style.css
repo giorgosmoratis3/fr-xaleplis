@@ -1930,8 +1930,8 @@ body{position:relative;}
   padding:62px 48px 90px !important;
   gap:28px !important;
 }
-.stat strong{font-size:104px !important;}
-.stat span{font-size:28px !important;}
+.stat strong{font-size:clamp(40px,7vw,58px) !important;}
+.stat span{font-size:clamp(16px,2.2vw,20px) !important;}
 .stat.center{
   border-width:12px !important;
   border-radius:44px !important;
