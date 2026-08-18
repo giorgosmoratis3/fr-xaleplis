@@ -7431,3 +7431,7 @@ body.lightbox-open{overflow:hidden;}
   object-fit:contain;border-radius:50%;
 }
 .footer-modern-socials a:hover{background:transparent !important;}
+
+/* --- Year badge per results section --- */
+#results.results-2025-section.results-2025-embedded::after{content:'2026' !important;}
+#results-2025.results-2025-section.results-2025-embedded::after{content:'2025' !important;}
