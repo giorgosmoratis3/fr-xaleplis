@@ -7376,6 +7376,7 @@ body.lightbox-open{overflow:hidden;}
 .advantages-flow .summer-advantage-head{position:relative !important;overflow:visible !important;}
 .advantages-flow .summer-advantage-head::after{
   content:'01' !important;
+  display:block !important;
   position:absolute !important;
   top:50% !important;
   left:50% !important;
