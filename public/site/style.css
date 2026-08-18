@@ -7423,3 +7423,11 @@ body.lightbox-open{overflow:hidden;}
   object-fit:contain;
 }
 .footer-modern-socials a:hover{background:#fff !important;transform:translateY(-4px) scale(1.06);}
+
+/* Full-bleed social logos */
+.footer-modern-socials a{background:transparent !important;overflow:visible !important;}
+.footer-modern-socials .social-img{
+  width:100% !important;height:100% !important;
+  object-fit:contain;border-radius:50%;
+}
+.footer-modern-socials a:hover{background:transparent !important;}
