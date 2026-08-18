@@ -7415,3 +7415,11 @@ body.lightbox-open{overflow:hidden;}
 @media(max-width:820px){
   .advantages-collage{margin-top:30px;margin-bottom:6px;}
 }
+
+/* Social brand logos (Facebook, Instagram, Google Maps) */
+.footer-modern-socials a{background:#fff !important;}
+.footer-modern-socials .social-img{
+  width:24px !important;height:24px !important;display:block !important;
+  object-fit:contain;
+}
+.footer-modern-socials a:hover{background:#fff !important;transform:translateY(-4px) scale(1.06);}
