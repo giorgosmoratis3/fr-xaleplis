@@ -11,50 +11,84 @@
 <link href="style.css" rel="stylesheet"/>
 </head>
 <body>
-<header class="brand-header">
-<div class="brand-header-inner">
-<a class="brand-mark" href="index.html" aria-label="Αρχική">
-<img alt="Φιλολογικό Φροντιστήριο Χαλεπλής" src="chalepelis-emblem.png"/>
-<span class="brand-mark-text"><em>ΦΙΛΟΛΟΓΙΚΟ ΦΡΟΝΤΙΣΤΗΡΙΟ</em><strong>ΧΑΛΕΠΛΗΣ</strong></span>
+<header class="reference-header">
+<div class="reference-header-top">
+<a aria-label="Αρχική" class="reference-brand" href="#">
+<img alt="Φιλολογικό Φροντιστήριο Χαλεπλής" src="chalepelis-logo.jpeg"/>
 </a>
+<label aria-label="Αναζήτηση" class="reference-search">
+<span aria-hidden="true">⌕</span>
+<input placeholder="Αναζήτηση..." type="search"/>
+</label>
+</div>
+<div class="reference-nav-wrap">
 <button aria-expanded="false" aria-label="Άνοιγμα μενού" class="reference-menu-toggle" type="button">
 <span></span><span></span><span></span>
 </button>
 <nav aria-label="Κύρια πλοήγηση" class="reference-nav">
-<a class="nav-link simple-link" href="index.html">Αρχική</a>
 <div class="nav-item has-dropdown">
-<button aria-expanded="false" class="nav-link" type="button">Το Φροντιστήριο</button>
+<button aria-expanded="false" class="nav-link active" type="button">Φροντιστήριο <span>▾</span></button>
 <div class="nav-dropdown">
-<a href="index.html#about">Η διαδρομή μας</a>
-<a href="index.html#advantages">Τι προσφέρουμε</a>
+<a href="#">Η διαδρομή μας</a>
+<a href="#advantages">Τι προσφέρουμε</a>
 <a href="o-xoros-mas.html" id="spaceNavLink">Ο χώρος μας</a>
+
 </div>
 </div>
 <div class="nav-item has-dropdown">
-<button aria-expanded="false" class="nav-link" type="button">Πρόγραμμα Σπουδών</button>
+<button aria-expanded="false" class="nav-link" type="button">Πρόγραμμα Σπουδών <span>▾</span></button>
 <div class="nav-dropdown">
 <a href="a-lykeiou.html">Α΄ Λυκείου</a>
 <a href="b-lykeiou.html">Β΄ Λυκείου</a>
 <a href="g-lykeiou.html">Γ΄ Λυκείου</a>
-<a href="index.html#levels">Πρόγραμμα Σπουδών</a>
+<a href="#levels">Πρόγραμμα Σπουδών</a>
 </div>
 </div>
 <div class="nav-item has-dropdown">
-<button aria-expanded="false" class="nav-link" type="button">Πανελλαδικές</button>
+<button aria-expanded="false" class="nav-link" type="button">Πανελλαδικές <span>▾</span></button>
 <div class="nav-dropdown">
-<a href="index.html#results">Αποτελέσματα 2026</a>
-<a href="index.html#results-2025">Αποτελέσματα 2025</a>
-<a href="index.html#levels">Προσομοίωση Εξετάσεων</a>
-<a href="index.html#advantages">Μεθοδολογία Προετοιμασίας</a>
+<a href="#results">Αποτελέσματα 2026</a>
+<a href="#results-2025">Αποτελέσματα 2025</a>
+<a href="#levels">Προσομοίωση Εξετάσεων</a>
+<a href="#advantages">Μεθοδολογία Προετοιμασίας</a>
 </div>
 </div>
-<a class="nav-link simple-link" href="index.html#results">Ανακοινώσεις</a>
+<div class="nav-item has-dropdown">
+<button aria-expanded="false" class="nav-link" type="button">Θέματα για εξάσκηση <span>▾</span></button>
+<div class="nav-dropdown">
+<a href="#advantages">Νεοελληνική Γλώσσα</a>
+<a href="#advantages">Αρχαία Ελληνικά</a>
+<a href="#advantages">Ιστορία</a>
+<a href="#advantages">Λατινικά</a>
+</div>
+</div>
+<a class="nav-link simple-link" href="#results">Ανακοινώσεις</a>
+<div class="nav-item has-dropdown">
+<button aria-expanded="false" class="nav-link" type="button">Επικοινωνία <span>▾</span></button>
+<div class="nav-dropdown nav-dropdown-right">
+<a href="#contact">Στείλτε μήνυμα</a>
+<a href="#location">Τοποθεσία</a>
+<a href="#contact">Κλείστε ενημέρωση</a>
+</div>
+</div>
+<a class="nav-link simple-link" href="#advantages">Εκπαιδευτικά νέα</a>
 </nav>
-<a class="brand-contact-btn" href="index.html#contact">Επικοινωνία</a>
 </div>
 </header>
 <main>
 <section class="hero section-white">
+<div aria-label="Πληροφορίες προετοιμασίας" class="hero-top-strip">
+<div class="marquee-track">
+<span>ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+<span>ΦΙΛΟΛΟΓΙΚΗ ΠΡΟΕΤΟΙΜΑΣΙΑ</span>
+<span>ΠΑΝΕΛΛΑΔΙΚΕΣ 2026</span>
+<span>ΠΡΟΣΩΠΙΚΗ ΚΑΘΟΔΗΓΗΣΗ</span>
+<span>ΜΑΘΕΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+<span>ΦΙΛΟΛΟΓΙΚΗ ΠΡΟΕΤΟΙΜΑΣΙΑ</span>
+<span>ΠΑΝΕΛΛΑΔΙΚΕΣ 2026</span>
+<span>ΠΡΟΣΩΠΙΚΗ ΚΑΘΟΔΗΓΗΣΗ</span>
+</div>
+</div>
 <div class="hero-content">
 <div aria-label="Παρουσίαση φροντιστηρίου" class="hero-banner hero-banner-photo" id="heroCarousel">
 <div class="hero-stage">
@@ -98,6 +132,29 @@
     </div>
   </div>
 </div>
+<aside class="hero-panel" aria-label="Τμήματα">
+  <div class="hero-panel-head">
+    <span>ΤΜΗΜΑΤΑ</span>
+    <div class="hero-panel-nav">
+      <button class="hero-panel-arrow" data-dir="-1" type="button" aria-label="Προηγούμενο">‹</button>
+      <button class="hero-panel-arrow" data-dir="1" type="button" aria-label="Επόμενο">›</button>
+    </div>
+  </div>
+  <div class="hero-panel-cards">
+    <a class="hero-mini" href="a-lykeiou.html" style="background-image:url('hero-bg-1.jpg')">
+      <span class="hero-mini-index">01.</span>
+      <span class="hero-mini-body"><strong>Α΄ Λυκείου</strong><em>Στέρεες βάσεις</em></span>
+    </a>
+    <a class="hero-mini" href="b-lykeiou.html" style="background-image:url('hero-bg-2.jpg')">
+      <span class="hero-mini-index">02.</span>
+      <span class="hero-mini-body"><strong>Β΄ Λυκείου</strong><em>Προσανατολισμός</em></span>
+    </a>
+    <a class="hero-mini" href="g-lykeiou.html" style="background-image:url('hero-bg-3.jpg')">
+      <span class="hero-mini-index">03.</span>
+      <span class="hero-mini-body"><strong>Γ΄ Λυκείου</strong><em>Πανελλαδικές</em></span>
+    </a>
+  </div>
+</aside>
 <div class="hero-dots" aria-hidden="true">
   <button class="hero-dot active" data-slide="0" type="button"></button>
   <button class="hero-dot" data-slide="1" type="button"></button>
