@@ -7671,23 +7671,3 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 
 /* Hero: hide the white progress track at the very bottom */
 .hero-banner-photo .hero-progress{background:transparent !important;box-shadow:none !important;border:none !important;}
-
-/* Slide 0: πορτρέτο δεξιά, text-logo αριστερά */
-.hero-slide-portrait .hero-photo{
-  background-position: right center !important;
-  background-size: cover;
-}
-.hero-slide-portrait .hero-overlay{
-  background: linear-gradient(90deg, rgba(15,17,21,.92) 0%, rgba(15,17,21,.78) 42%, rgba(15,17,21,.18) 72%, rgba(15,17,21,.05) 100%) !important;
-}
-.hero-logo-text{
-  display: block;
-  width: clamp(240px, 34vw, 420px);
-  height: auto;
-  margin: 6px 0 14px;
-  filter: drop-shadow(0 0 10px rgba(255,255,255,.55)) drop-shadow(0 0 26px rgba(255,255,255,.35));
-}
-@media (max-width: 780px){
-  .hero-slide-portrait .hero-photo{ background-position: 72% center !important; }
-  .hero-logo-text{ width: min(78vw, 300px); }
-}
