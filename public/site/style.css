@@ -7717,5 +7717,7 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 /* header polish */
 .brand-header .reference-nav>.simple-link:last-of-type{display:flex !important;}
 .brand-header .brand-mark img{background:transparent !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;mix-blend-mode:normal;}
-.hero-text-col{padding-top:118px;}
-@media (max-width:1000px){.hero-text-col{padding-top:92px;}}
+
+.brand-header .reference-nav{min-width:0;flex:1 1 auto;}
+.brand-contact-btn{flex:0 0 auto;}
+.brand-header .brand-mark{padding-right:clamp(16px,2vw,40px);}
