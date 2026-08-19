@@ -621,7 +621,9 @@
         }
       }, {passive:true});
       apply();
-    });
+    };
+    document.querySelectorAll('.results-carousel').forEach((c) => window.initResultsCarousel(c));
+
 
     document.querySelectorAll('.class-review-carousel').forEach((carousel) => {
       const cards = Array.from(carousel.querySelectorAll('.class-review-card'));
