@@ -7723,3 +7723,6 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 .brand-header .brand-mark{padding-right:clamp(16px,2vw,40px);}
 
 .hero-banner-photo .hero-kicker{position:static !important;top:auto !important;left:auto !important;transform:none !important;}
+
+.hero-banner-photo .hero-text-col{bottom:64px !important;}
+@media (max-width:1000px){.hero-banner-photo .hero-text-col{bottom:auto !important;}}
