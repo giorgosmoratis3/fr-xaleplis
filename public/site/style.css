@@ -7522,3 +7522,10 @@ a.btn,.phone,.hero-btn,.class-program-cta,
 .sim-tl-dot,[class*="-dot"],[class*="-dots"] button,[class*="-dots"] span{
   border-radius:999px !important;
 }
+.contact-info-card,.map-card{border-radius:0 !important}
+.results-prev,.results-next,.results-lightbox-prev,.results-lightbox-next,
+.class-review-arrow,.hero-arrow,.hero-arrow-prev,.hero-arrow-next,.hero-cta-arrow,
+.ac-arrow,.sim-fan-arrow,.summer-arrow,.prev,.next,
+[class*="arrow"],[class*="-prev"],[class*="-next"]{
+  border-radius:999px !important;
+}
