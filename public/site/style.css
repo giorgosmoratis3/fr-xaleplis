@@ -7580,3 +7580,7 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 .results-nav button.results-prev,.results-nav button.results-next{
   border-radius:999px !important;
 }
+
+/* Hero: no arrows, white headline */
+.hero-banner-photo .hero-arrow,.hero-banner-photo .hero-arrow-prev,.hero-banner-photo .hero-arrow-next{display:none !important}
+.hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{color:#fff !important}
