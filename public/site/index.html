@@ -873,5 +873,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-</script></body>
+</script><script>
+(function(){
+  var stage=document.getElementById('greviewsCarousel');
+  if(!stage)return;
+  var cards=Array.prototype.slice.call(stage.querySelectorAll('.greview-card'));
+  var dots=Array.prototype.slice.call(document.querySelectorAll('#greviewsDots span'));
+  var i=0,timer=null;
+  function render(){
+    cards.forEach(function(c,idx){
+      c.classList.remove('is-active','is-prev','is-next');
+      if(idx===i)c.classList.add('is-active');
+      else if(idx===(i-1+cards.length)%cards.length)c.classList.add('is-prev');
+      else if(idx===(i+1)%cards.length)c.classList.add('is-next');
+    });
+    dots.forEach(function(d,idx){d.classList.toggle('is-active',idx===i);});
+  }
+  function go(step){i=(i+step+cards.length)%cards.length;render();start();}
+  function start(){if(timer)clearInterval(timer);timer=setInterval(function(){go(1);},6000);}
+  document.querySelectorAll('.greviews-arrow').forEach(function(b){
+    b.addEventListener('click',function(){go(parseInt(b.dataset.grDir,10));});
+  });
+  dots.forEach(function(d,idx){d.addEventListener('click',function(){i=idx;render();start();});});
+  render();start();
+})();
+</script>
+</body>
 </html>
