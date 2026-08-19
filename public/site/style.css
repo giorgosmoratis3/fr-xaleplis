@@ -7409,7 +7409,7 @@ body.lightbox-open{overflow:hidden;}
   margin-right:calc(50% - 50vw);
   min-height:clamp(320px,42vw,560px);
   border-radius:0;
-  background:#efe4cf;
+  background:transparent;
   position:relative;
   overflow:hidden;
   display:flex;
@@ -7432,11 +7432,11 @@ body.lightbox-open{overflow:hidden;}
 .collage-quote p{
   font-family:'Manrope',sans-serif;font-weight:800;
   font-size:clamp(24px,2.9vw,44px);line-height:1.14;letter-spacing:-1px;
-  color:var(--navy,#073760) !important;margin:0 0 22px;
+  color:#000 !important;margin:0 0 22px;text-transform:uppercase;
 }
 .collage-quote cite{
   display:block;font-style:normal;font-size:.72rem;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(7,55,96,.6);font-weight:700;
+  text-transform:uppercase;color:rgba(0,0,0,.65);font-weight:700;
 }
 .collage-rotator{
   position:relative;width:100%;
