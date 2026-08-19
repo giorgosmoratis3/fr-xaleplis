@@ -7746,7 +7746,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 @media(max-width:820px){.cms-card{grid-template-columns:1fr}.cms-card-body{padding:26px 22px}}
 
 /* ===== Είσοδος admin (footer) ===== */
-.footer-admin{margin-top:10px;text-align:center}
-.footer-admin-rule{display:block;width:26px;height:1px;background:rgba(255,255,255,.16);margin:0 auto 8px}
-.footer-admin a{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600}
-.footer-admin a:hover{color:rgba(255,255,255,.7)}
+.footer-admin{margin-top:6px;text-align:center}
+.footer-admin-rule{display:block;width:14px;height:1px;background:rgba(255,255,255,.1);margin:0 auto 5px}
+.footer-admin a{font-size:.42rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);font-weight:500}
+.footer-admin a:hover{color:rgba(255,255,255,.55)}
