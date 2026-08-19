@@ -6944,7 +6944,7 @@ body.lightbox-open{overflow:hidden;}
 /* Separate class programme pages */
 .class-page-main{background:#f7f5ee;min-height:100vh}
 .class-page-hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#173f7a 0%,#0d2b5c 100%);color:#fff;padding:78px 24px 92px}
-.class-page-hero:after{content:'';position:absolute;inset:0;left:auto;width:72%;background:linear-gradient(150deg,#cf3b33 0%,#b92028 100%);clip-path:polygon(38% 0,100% 0,100% 100%,0 100%);z-index:0;pointer-events:none}
+.class-page-hero:after{content:'';position:absolute;inset:0;left:auto;width:48%;background:linear-gradient(150deg,#cf3b33 0%,#b92028 100%);clip-path:polygon(42% 0,100% 0,100% 100%,0 100%);z-index:0;pointer-events:none}
 .class-page-hero-inner{position:relative;z-index:1;max-width:1180px;margin:auto}
 .class-back-link{display:inline-flex;color:#fff;text-decoration:none;font-weight:800;margin-bottom:36px;opacity:.9}
 .class-page-kicker{display:block;font-size:.78rem;font-weight:800;letter-spacing:.17em;margin-bottom:14px;color:#f5d35d}
@@ -6975,7 +6975,7 @@ body.lightbox-open{overflow:hidden;}
 .class-image-card[data-href]{cursor:pointer}
 @media(max-width:760px){
  .class-page-hero{padding:54px 20px 74px}
- .class-page-hero:after{width:52%;clip-path:polygon(46% 0,100% 0,100% 100%,0 100%)}
+ .class-page-hero:after{width:34%;clip-path:polygon(48% 0,100% 0,100% 100%,0 100%)}
  .class-program-section{padding:54px 16px 74px}
  .class-program-grid{grid-template-columns:1fr;gap:20px}
  .class-program-card th,.class-program-card td{padding:14px 18px}
