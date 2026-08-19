@@ -12,9 +12,7 @@ const YEAR_SEC = 60 * 60 * 24 * 365;
 
 export async function resolveMedia(value) {
   if (!value) return '';
-  if (/^https?:\/\//i.test(value) || value.startsWith('/') || !value.includes('/')) {
-    if (/^https?:\/\//i.test(value)) return value;
-  }
+  if (/^https?:\/\//i.test(value)) return value;
   const { data } = await supabase.storage.from('site-media').createSignedUrl(value, YEAR_SEC);
   return data?.signedUrl || '';
 }
