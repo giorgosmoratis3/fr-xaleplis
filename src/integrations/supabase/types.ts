@@ -14,16 +14,139 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      articles: {
+        Row: {
+          body: string | null
+          category: string
+          created_at: string
+          excerpt: string | null
+          id: string
+          image_url: string | null
+          link_url: string | null
+          published: boolean
+          published_at: string
+          title: string
+        }
+        Insert: {
+          body?: string | null
+          category?: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          link_url?: string | null
+          published?: boolean
+          published_at?: string
+          title: string
+        }
+        Update: {
+          body?: string | null
+          category?: string
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          image_url?: string | null
+          link_url?: string | null
+          published?: boolean
+          published_at?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      program_hours: {
+        Row: {
+          class_key: string
+          created_at: string
+          hours: number
+          id: string
+          season: string
+          sort_order: number
+          subject: string
+        }
+        Insert: {
+          class_key: string
+          created_at?: string
+          hours?: number
+          id?: string
+          season?: string
+          sort_order?: number
+          subject: string
+        }
+        Update: {
+          class_key?: string
+          created_at?: string
+          hours?: number
+          id?: string
+          season?: string
+          sort_order?: number
+          subject?: string
+        }
+        Relationships: []
+      }
+      successes: {
+        Row: {
+          caption: string | null
+          created_at: string
+          id: string
+          image_url: string
+          sort_order: number
+          year: number
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url: string
+          sort_order?: number
+          year?: number
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+          year?: number
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      claim_first_admin: { Args: never; Returns: boolean }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +273,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin"],
+    },
   },
 } as const
