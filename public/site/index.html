@@ -924,5 +924,18 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 <script type="module" src="cms.js"></script>
+<script>
+(function(){
+  var r=document.querySelector('[data-collage-rotator]');
+  if(!r) return;
+  var s=r.querySelectorAll('.collage-slide'), i=0;
+  if(s.length<2) return;
+  setInterval(function(){
+    s[i].classList.remove('is-active');
+    i=(i+1)%s.length;
+    s[i].classList.add('is-active');
+  },4500);
+})();
+</script>
 </body>
 </html>
