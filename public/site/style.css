@@ -7694,6 +7694,6 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 .offer-badge{top:18px !important;left:18px !important;background:#fff !important;}
 .offer-hover{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;opacity:0;transition:opacity .35s ease;background:linear-gradient(180deg,rgba(10,14,22,0) 30%,rgba(10,14,22,.78) 100%);pointer-events:none;}
 .offer-hover-label{color:#fff;font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:0 0 26px 22px;transform:translateY(10px);transition:transform .35s ease;}
-.offer-hover-arrow{display:flex;align-items:center;justify-content:center;width:clamp(48px,4vw,62px);height:clamp(48px,4vw,62px);background:#d62828;color:#fff;font-size:20px;line-height:1;border-radius:0 !important;transform:translateY(10px);transition:transform .35s ease;}
+.offer-hover-arrow{display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:#d62828;color:#fff;font-size:17px;line-height:1;border-radius:0 !important;transform:translateY(10px);transition:transform .35s ease;}
 .offer-card:hover .offer-hover,.offer-card:focus-visible .offer-hover{opacity:1;}
 .offer-card:hover .offer-hover-label,.offer-card:hover .offer-hover-arrow,.offer-card:focus-visible .offer-hover-label,.offer-card:focus-visible .offer-hover-arrow{transform:translateY(0);}
