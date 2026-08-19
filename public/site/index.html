@@ -292,7 +292,20 @@
 <h2><span class="shimmer-white">Περισσότερα</span> <span class="shimmer-black">από ένα</span> <span class="shimmer-white">φροντιστήριο</span></h2>
 <div class="summer-arrow">↓</div>
 </div>
-<div aria-hidden="true" class="advantages-collage"></div>
+<div class="advantages-collage">
+  <div class="collage-inner">
+    <blockquote class="collage-quote">
+      <span class="collage-quote-mark">“</span>
+      <p>Δεν θέλει άγχος. Θέλει μέθοδο, συνέπεια και σωστή καθοδήγηση.</p>
+      <cite>Κυριάκος Ντάσιος — Υπεύθυνος Σπουδών</cite>
+    </blockquote>
+    <div class="collage-rotator" data-collage-rotator>
+      <div class="collage-slide is-active"><img alt="Φροντιστήριο Χαλεπλής" src="hero-bg-1.jpg"></div>
+      <div class="collage-slide"><img alt="Αίθουσα διδασκαλίας" src="hero-bg-2.jpg"></div>
+      <div class="collage-slide"><img alt="Μαθητές στην τάξη" src="hero-bg-3.jpg"></div>
+    </div>
+  </div>
+</div>
 <div class="teacher-spotlight">
 <div class="spot-number shimmer-number">01</div>
 <h2><span class="shimmer-white">ΟΙ</span> <span class="shimmer-black">ΚΑΛΥΤΕΡΟΙ</span><br><span class="shimmer-white">ΚΑΘΗΓΗΤΕΣ</span></br></h2>
@@ -911,5 +924,18 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 <script type="module" src="cms.js"></script>
+<script>
+(function(){
+  var r=document.querySelector('[data-collage-rotator]');
+  if(!r) return;
+  var s=r.querySelectorAll('.collage-slide'), i=0;
+  if(s.length<2) return;
+  setInterval(function(){
+    s[i].classList.remove('is-active');
+    i=(i+1)%s.length;
+    s[i].classList.add('is-active');
+  },4500);
+})();
+</script>
 </body>
 </html>
