@@ -7653,7 +7653,7 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 
 /* --- Hero: fit full screen (progress bar + dots visible) + neutral dark overlay --- */
 .hero-banner-photo{
-  height:calc(100svh - 210px) !important;
+  height:calc(100svh - 220px) !important;
   min-height:460px !important;
   max-height:none !important;
   overflow:hidden;
