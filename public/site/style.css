@@ -7650,3 +7650,21 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
   .reference-brand img{max-height:66px !important;}
   .reference-nav-wrap{min-height:46px !important;}
 }
+
+/* --- Hero: fit full screen (progress bar + dots visible) + neutral dark overlay --- */
+.hero-banner-photo{
+  height:calc(100svh - 210px) !important;
+  min-height:460px !important;
+  max-height:none !important;
+  overflow:hidden;
+}
+.hero-banner-photo .hero-text-col{bottom:clamp(70px,9vh,110px) !important;}
+.hero-banner-photo .hero-dots{bottom:26px !important;}
+.hero-banner-photo .hero-progress{bottom:0 !important;height:5px !important;}
+.hero-overlay{
+  background:linear-gradient(180deg,rgba(18,18,20,.62) 0%,rgba(16,16,18,.70) 45%,rgba(12,12,14,.88) 100%) !important;
+}
+@media (max-width:1100px){
+  .hero-banner-photo{height:auto !important;min-height:78svh !important;}
+  .hero-banner-photo .hero-text-col{padding:90px 22px 120px !important;}
+}
