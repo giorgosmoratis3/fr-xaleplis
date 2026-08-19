@@ -7587,7 +7587,7 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
 .hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{color:#fff !important}
 
 /* ===== Hero editorial layout (photo + glass panel) ===== */
-.hero-banner-photo .hero-text-col{position:absolute;left:clamp(20px,6vw,90px);right:auto;bottom:clamp(90px,14vh,150px);top:auto;max-width:min(620px,52vw);text-align:left;align-items:flex-start;display:flex;flex-direction:column;gap:18px;transform:none}
+.hero-banner-photo .hero-text-col{position:absolute;left:clamp(20px,6vw,90px);right:auto;bottom:clamp(48px,7vh,80px);top:auto;max-width:min(760px,74vw);text-align:left;align-items:flex-start;display:flex;flex-direction:column;gap:18px;transform:none}
 .hero-banner-photo .hero-kicker{color:rgba(255,255,255,.75);letter-spacing:.32em;font-size:12px}
 .hero-banner-photo .hero-headline{color:#fff;font-size:clamp(46px,7.4vw,104px);line-height:.95;margin:0;letter-spacing:-.02em}
 .hero-banner-photo .hero-subtitle{color:rgba(255,255,255,.86);font-size:clamp(15px,1.15vw,17px);line-height:1.7;max-width:520px;margin:0}
