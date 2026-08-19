@@ -7694,7 +7694,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .offer-badge{top:18px !important;left:18px !important;background:#fff !important;}
 .offer-hover{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;opacity:0;transition:opacity .35s ease;background:linear-gradient(180deg,rgba(10,14,22,0) 30%,rgba(10,14,22,.78) 100%);pointer-events:none;}
 .offer-hover-label{color:#fff;font-size:clamp(12px,1vw,14px);font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:0 0 26px 22px;transform:translateY(10px);transition:transform .35s ease;}
-.offer-hover-arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0 22px 26px 0;background:#d93a34;color:#fff;line-height:1;border-radius:0 !important;clip-path:none !important;transform:translateY(10px);transition:transform .35s ease;}
-.offer-hover-arrow svg{width:22px;height:22px;display:block;}
+.offer-hover-arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:34px;height:34px;margin:0 22px 26px 0;background:#d93a34;color:#fff;line-height:1;border-radius:0 !important;clip-path:none !important;transform:translateY(10px);transition:transform .35s ease;}
+.offer-hover-arrow svg{width:16px;height:16px;display:block;}
 .offer-card:hover .offer-hover,.offer-card:focus-visible .offer-hover{opacity:1;}
 .offer-card:hover .offer-hover-label,.offer-card:hover .offer-hover-arrow,.offer-card:focus-visible .offer-hover-label,.offer-card:focus-visible .offer-hover-arrow{transform:translateY(0);}
