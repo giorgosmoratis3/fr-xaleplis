@@ -7668,3 +7668,6 @@ a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
   .hero-banner-photo{height:auto !important;min-height:78svh !important;}
   .hero-banner-photo .hero-text-col{padding:90px 22px 120px !important;}
 }
+
+/* Hero: hide the white progress track at the very bottom */
+.hero-banner-photo .hero-progress{background:transparent !important;box-shadow:none !important;border:none !important;}
