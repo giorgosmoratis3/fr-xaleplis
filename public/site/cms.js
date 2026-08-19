@@ -109,8 +109,36 @@ async function hydrateProgram() {
   });
 }
 
+
+/* ---------- Εκπαιδευτικά νέα (grid στην αρχική) ---------- */
+async function hydrateNewsGrid() {
+  const grid = document.querySelector('[data-cms-news-grid]');
+  if (!grid) return;
+  const { data } = await supabase
+    .from('articles')
+    .select('*')
+    .eq('category', 'news')
+    .eq('published', true)
+    .order('published_at', { ascending: false })
+    .limit(4);
+  if (!data || !data.length) return;
+  const cards = await Promise.all(data.map(async (a) => {
+    const img = await resolveMedia(a.image_url);
+    if (!img) return '';
+    const esc = (v) => (v || '').replace(/"/g, '&quot;');
+    return `<a class="news-hl-card" href="nea.html">
+      <img alt="${esc(a.title)}" loading="lazy" src="${img}"/>
+      <span class="news-hl-overlay"></span>
+      <span class="news-hl-text"><span class="news-hl-label">${fmtDate(a.published_at)}</span><span class="news-hl-name">${a.title || ''}</span></span>
+    </a>`;
+  }));
+  const html = cards.filter(Boolean).join('');
+  if (html) grid.innerHTML = html;
+}
+
 const boot = () => {
   hydrateArticles();
+  hydrateNewsGrid();
   hydrateSuccesses();
   hydrateProgram();
 };
