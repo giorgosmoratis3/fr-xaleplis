@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="el"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Διαχείριση | Φιλολογικό Φροντιστήριο Χαλεπλής</title>
+<meta name="description" content="Περιοχή διαχείρισης περιεχομένου του Φιλολογικού Φροντιστηρίου Χαλεπλής."/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Ubuntu:wght@700&amp;display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;background:#f4f4f6;color:#14161a}
+a{color:#0b3d91}
+.adm-top{background:#0b3d91;color:#fff;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.adm-top h1{font-family:'Ubuntu';font-size:20px;letter-spacing:.12em;margin:0;text-transform:uppercase}
+.adm-top .adm-user{font-size:13px;opacity:.85}
+.adm-wrap{max-width:1080px;margin:0 auto;padding:34px 20px 90px}
+.adm-panel{background:#fff;border:1px solid #e2e4e8;padding:26px;margin-bottom:26px}
+.adm-panel h2{font-family:'Ubuntu';font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}
+.adm-panel h2+p{margin:0 0 20px;font-size:13px;color:#6b7280}
+label{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6b7280;margin:14px 0 6px}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid #d7d9de;background:#fff;font:inherit;font-size:14px;border-radius:0}
+textarea{min-height:110px;resize:vertical}
+button{font:inherit;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:12px;padding:13px 22px;border:0;cursor:pointer;border-radius:0}
+.btn-navy{background:#0b3d91;color:#fff}
+.btn-red{background:#d62828;color:#fff}
+.btn-ghost{background:#fff;color:#14161a;border:1px solid #d7d9de}
+.adm-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.adm-grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.adm-list{margin-top:24px;border-top:1px solid #eceef1}
+.adm-row{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #eceef1;font-size:14px}
+.adm-row img{width:64px;height:48px;object-fit:cover;flex:none;border:1px solid #e2e4e8}
+.adm-row strong{display:block;font-size:14px}
+.adm-row small{color:#6b7280;font-size:12px}
+.adm-row .adm-row-main{flex:1;min-width:0}
+.adm-msg{margin-top:16px;font-size:13px;padding:12px 14px;display:none}
+.adm-msg.ok{display:block;background:#eef7ee;color:#1c6b2c;border-left:3px solid #1c6b2c}
+.adm-msg.err{display:block;background:#fdeeee;color:#a4161a;border-left:3px solid #d62828}
+.adm-login{max-width:420px;margin:70px auto;background:#fff;border:1px solid #e2e4e8;padding:32px}
+.adm-login h2{font-family:'Ubuntu';font-size:18px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 6px}
+.adm-login p{font-size:13px;color:#6b7280;margin:0 0 12px}
+.adm-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.adm-tabs button{background:#fff;border:1px solid #d7d9de;color:#14161a}
+.adm-tabs button.is-active{background:#0b3d91;color:#fff;border-color:#0b3d91}
+.hidden{display:none !important}
+.adm-hours-row{display:grid;grid-template-columns:1fr 90px 40px;gap:10px;margin-bottom:10px;align-items:center}
+.adm-hours-row button{background:#fff;border:1px solid #d7d9de;color:#d62828;padding:12px 0}
+@media(max-width:720px){.adm-grid2{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="adm-top">
+  <h1>Διαχείριση περιεχομένου</h1>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="adm-user" id="admUser"></span>
+    <a href="index.html" style="color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase">← Ιστοσελίδα</a>
+    <button class="btn-red hidden" id="btnLogout" type="button">Έξοδος</button>
+  </div>
+</div>
+
+<div class="adm-login" id="loginCard">
+  <h2>Είσοδος διαχειριστή</h2>
+  <p>Συνδεθείτε με το email και τον κωδικό σας.</p>
+  <label for="logEmail">Email</label>
+  <input id="logEmail" type="email" autocomplete="username"/>
+  <label for="logPass">Κωδικός</label>
+  <input id="logPass" type="password" autocomplete="current-password"/>
+  <div class="adm-actions">
+    <button class="btn-navy" id="btnLogin" type="button">Σύνδεση</button>
+    <button class="btn-ghost" id="btnSignup" type="button">Δημιουργία λογαριασμού</button>
+  </div>
+  <div class="adm-msg" id="loginMsg"></div>
+</div>
+
+<div class="adm-wrap hidden" id="admApp">
+  <div class="adm-panel hidden" id="claimPanel">
+    <h2>Ενεργοποίηση δικαιωμάτων</h2>
+    <p>Ο λογαριασμός σας δεν έχει ακόμη δικαιώματα διαχειριστή.</p>
+    <div class="adm-actions"><button class="btn-navy" id="btnClaim" type="button">Ενεργοποίηση ως διαχειριστής</button></div>
+    <div class="adm-msg" id="claimMsg"></div>
+  </div>
+
+  <div id="admPanels" class="hidden">
+  <div class="adm-tabs">
+    <button data-tab="news" class="is-active" type="button">Εκπαιδευτικά νέα</button>
+    <button data-tab="press" type="button">Ανακοινώσεις</button>
+    <button data-tab="successes" type="button">Επιτυχίες</button>
+    <button data-tab="program" type="button">Πρόγραμμα ωρών</button>
+  </div>
+
+  <!-- ΑΡΘΡΑ -->
+  <section class="adm-panel" data-pane="news">
+    <h2>Εκπαιδευτικά νέα</h2>
+    <p>Ανεβάστε άρθρα με εικόνα και σύνδεσμο. Εμφανίζονται στη σελίδα «Εκπαιδευτικά νέα».</p>
+    <div class="adm-grid2">
+      <div><label>Τίτλος</label><input data-f="news-title" type="text"/></div>
+      <div><label>Σύνδεσμος (προαιρετικά)</label><input data-f="news-link" type="url" placeholder="https://..."/></div>
+    </div>
+    <label>Περίληψη</label><input data-f="news-excerpt" type="text"/>
+    <label>Κείμενο</label><textarea data-f="news-body"></textarea>
+    <label>Εικόνα</label><input data-f="news-image" type="file" accept="image/*"/>
+    <div class="adm-actions"><button class="btn-navy" data-save="news" type="button">Δημοσίευση</button></div>
+    <div class="adm-msg" data-msg="news"></div>
+    <div class="adm-list" data-list="news"></div>
+  </section>
+
+  <section class="adm-panel hidden" data-pane="press">
+    <h2>Ανακοινώσεις (Press)</h2>
+    <p>Ανακοινώσεις του φροντιστηρίου με εικόνα και σύνδεσμο.</p>
+    <div class="adm-grid2">
+      <div><label>Τίτλος</label><input data-f="press-title" type="text"/></div>
+      <div><label>Σύνδεσμος (προαιρετικά)</label><input data-f="press-link" type="url" placeholder="https://..."/></div>
+    </div>
+    <label>Περίληψη</label><input data-f="press-excerpt" type="text"/>
+    <label>Κείμενο</label><textarea data-f="press-body"></textarea>
+    <label>Εικόνα</label><input data-f="press-image" type="file" accept="image/*"/>
+    <div class="adm-actions"><button class="btn-navy" data-save="press" type="button">Δημοσίευση</button></div>
+    <div class="adm-msg" data-msg="press"></div>
+    <div class="adm-list" data-list="press"></div>
+  </section>
+
+  <!-- ΕΠΙΤΥΧΙΕΣ -->
+  <section class="adm-panel hidden" data-pane="successes">
+    <h2>Επιτυχίες Πανελλαδικών</h2>
+    <p>Νέες κάρτες επιτυχιών προστίθενται στο αντίστοιχο carousel της αρχικής σελίδας.</p>
+    <div class="adm-grid2">
+      <div><label>Έτος</label><input data-f="suc-year" type="number" value="2027"/></div>
+      <div><label>Λεζάντα</label><input data-f="suc-caption" type="text" placeholder="Επιτυχόντες 2027"/></div>
+    </div>
+    <label>Εικόνα κάρτας</label><input data-f="suc-image" type="file" accept="image/*"/>
+    <div class="adm-actions"><button class="btn-navy" id="btnSuc" type="button">Προσθήκη κάρτας</button></div>
+    <div class="adm-msg" data-msg="suc"></div>
+    <div class="adm-list" data-list="suc"></div>
+  </section>
+
+  <!-- ΠΡΟΓΡΑΜΜΑ -->
+  <section class="adm-panel hidden" data-pane="program">
+    <h2>Πρόγραμμα ωρών</h2>
+    <p>Αλλάξτε τα μαθήματα και τις ώρες κάθε τάξης. Τα σύνολα υπολογίζονται αυτόματα στη σελίδα.</p>
+    <div class="adm-grid2">
+      <div><label>Τάξη</label>
+        <select id="progClass"><option value="a">Α΄ Λυκείου</option><option value="b">Β΄ Λυκείου</option><option value="g">Γ΄ Λυκείου</option></select>
+      </div>
+      <div><label>Περίοδος</label>
+        <select id="progSeason"><option value="summer">Θερινό</option><option value="winter">Χειμερινό</option></select>
+      </div>
+    </div>
+    <label>Μαθήματα &amp; ώρες</label>
+    <div id="progRows"></div>
+    <div class="adm-actions">
+      <button class="btn-ghost" id="btnAddRow" type="button">+ Μάθημα</button>
+      <button class="btn-navy" id="btnSaveProg" type="button">Αποθήκευση</button>
+    </div>
+    <div class="adm-msg" data-msg="prog"></div>
+  </section>
+  </div>
+</div>
+
+<script type="module">
+import { supabase, resolveMedia } from './cms.js';
+
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const f = (name) => $(`[data-f="${name}"]`);
+const msg = (key, text, ok = true) => {
+  const el = $(`[data-msg="${key}"]`) || $('#loginMsg');
+  el.textContent = text;
+  el.className = 'adm-msg ' + (ok ? 'ok' : 'err');
+  if (ok) setTimeout(() => { el.className = 'adm-msg'; }, 4000);
+};
+
+/* ---------- auth ---------- */
+async function refresh() {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session) {
+    $('#loginCard').classList.remove('hidden');
+    $('#admApp').classList.add('hidden');
+    $('#btnLogout').classList.add('hidden');
+    $('#admUser').textContent = '';
+    return;
+  }
+  $('#loginCard').classList.add('hidden');
+  $('#admApp').classList.remove('hidden');
+  $('#btnLogout').classList.remove('hidden');
+  $('#admUser').textContent = session.user.email || '';
+
+  const { data: roles } = await supabase.from('user_roles').select('role').eq('user_id', session.user.id);
+  const isAdmin = (roles || []).some((r) => r.role === 'admin');
+  $('#claimPanel').classList.toggle('hidden', isAdmin);
+  $('#admPanels').classList.toggle('hidden', !isAdmin);
+  if (isAdmin) { loadArticles('news'); loadArticles('press'); loadSuccesses(); loadProgram(); }
+}
+
+$('#btnLogin').addEventListener('click', async () => {
+  const { error } = await supabase.auth.signInWithPassword({ email: $('#logEmail').value.trim(), password: $('#logPass').value });
+  if (error) return msg('login', 'Λάθος στοιχεία ή ανενεργός λογαριασμός.', false);
+  refresh();
+});
+$('#btnSignup').addEventListener('click', async () => {
+  const { error } = await supabase.auth.signUp({
+    email: $('#logEmail').value.trim(),
+    password: $('#logPass').value,
+    options: { emailRedirectTo: window.location.href },
+  });
+  if (error) return msg('login', error.message, false);
+  msg('login', 'Ο λογαριασμός δημιουργήθηκε. Αν ζητηθεί, επιβεβαιώστε το email σας και συνδεθείτε.');
+  refresh();
+});
+$('#btnLogout').addEventListener('click', async () => { await supabase.auth.signOut(); refresh(); });
+$('#btnClaim').addEventListener('click', async () => {
+  const { data, error } = await supabase.rpc('claim_first_admin');
+  if (error) return msg('claim', error.message, false);
+  if (!data) return msg('claim', 'Υπάρχει ήδη διαχειριστής. Ζητήστε πρόσβαση από αυτόν.', false);
+  msg('claim', 'Έγινε! Έχετε δικαιώματα διαχειριστή.');
+  refresh();
+});
+
+/* ---------- tabs ---------- */
+$$('.adm-tabs button').forEach((btn) => btn.addEventListener('click', () => {
+  $$('.adm-tabs button').forEach((b) => b.classList.toggle('is-active', b === btn));
+  $$('[data-pane]').forEach((p) => p.classList.toggle('hidden', p.dataset.pane !== btn.dataset.tab));
+}));
+
+/* ---------- upload ---------- */
+async function upload(input) {
+  const file = input?.files?.[0];
+  if (!file) return null;
+  const path = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')}`;
+  const { error } = await supabase.storage.from('site-media').upload(path, file, { upsert: false });
+  if (error) throw error;
+  return path;
+}
+
+/* ---------- άρθρα ---------- */
+async function loadArticles(cat) {
+  const { data } = await supabase.from('articles').select('*').eq('category', cat).order('published_at', { ascending: false });
+  const list = $(`[data-list="${cat}"]`);
+  if (!data || !data.length) { list.innerHTML = '<p style="font-size:13px;color:#6b7280">Καμία καταχώρηση.</p>'; return; }
+  list.innerHTML = '';
+  for (const a of data) {
+    const img = await resolveMedia(a.image_url);
+    const row = document.createElement('div');
+    row.className = 'adm-row';
+    row.innerHTML = `${img ? `<img src="${img}" alt=""/>` : ''}
+      <div class="adm-row-main"><strong>${a.title}</strong><small>${new Date(a.published_at).toLocaleDateString('el-GR')}${a.link_url ? ' · σύνδεσμος' : ''}</small></div>
+      <button class="btn-ghost" type="button">Διαγραφή</button>`;
+    row.querySelector('button').addEventListener('click', async () => {
+      if (!confirm('Διαγραφή καταχώρησης;')) return;
+      const { error } = await supabase.from('articles').delete().eq('id', a.id);
+      if (error) return msg(cat, error.message, false);
+      loadArticles(cat);
+    });
+    list.appendChild(row);
+  }
+}
+
+$$('[data-save]').forEach((btn) => btn.addEventListener('click', async () => {
+  const cat = btn.dataset.save;
+  const title = f(`${cat}-title`).value.trim();
+  if (!title) return msg(cat, 'Συμπληρώστε τίτλο.', false);
+  btn.disabled = true;
+  try {
+    const image_url = await upload(f(`${cat}-image`));
+    const { error } = await supabase.from('articles').insert({
+      category: cat, title,
+      excerpt: f(`${cat}-excerpt`).value.trim() || null,
+      body: f(`${cat}-body`).value.trim() || null,
+      link_url: f(`${cat}-link`).value.trim() || null,
+      image_url,
+    });
+    if (error) throw error;
+    ['title', 'excerpt', 'body', 'link', 'image'].forEach((k) => { f(`${cat}-${k}`).value = ''; });
+    msg(cat, 'Δημοσιεύτηκε.');
+    loadArticles(cat);
+  } catch (e) { msg(cat, e.message || 'Σφάλμα αποθήκευσης.', false); }
+  btn.disabled = false;
+}));
+
+/* ---------- επιτυχίες ---------- */
+async function loadSuccesses() {
+  const { data } = await supabase.from('successes').select('*').order('year', { ascending: false }).order('sort_order');
+  const list = $('[data-list="suc"]');
+  if (!data || !data.length) { list.innerHTML = '<p style="font-size:13px;color:#6b7280">Καμία κάρτα.</p>'; return; }
+  list.innerHTML = '';
+  for (const s of data) {
+    const img = await resolveMedia(s.image_url);
+    const row = document.createElement('div');
+    row.className = 'adm-row';
+    row.innerHTML = `${img ? `<img src="${img}" alt=""/>` : ''}
+      <div class="adm-row-main"><strong>${s.year}</strong><small>${s.caption || ''}</small></div>
+      <button class="btn-ghost" type="button">Διαγραφή</button>`;
+    row.querySelector('button').addEventListener('click', async () => {
+      if (!confirm('Διαγραφή κάρτας;')) return;
+      await supabase.from('successes').delete().eq('id', s.id);
+      loadSuccesses();
+    });
+    list.appendChild(row);
+  }
+}
+
+$('#btnSuc').addEventListener('click', async () => {
+  const input = f('suc-image');
+  if (!input.files?.length) return msg('suc', 'Επιλέξτε εικόνα.', false);
+  try {
+    const image_url = await upload(input);
+    const { error } = await supabase.from('successes').insert({
+      year: Number(f('suc-year').value) || new Date().getFullYear(),
+      caption: f('suc-caption').value.trim() || null,
+      image_url,
+      sort_order: Date.now() % 100000,
+    });
+    if (error) throw error;
+    input.value = ''; f('suc-caption').value = '';
+    msg('suc', 'Η κάρτα προστέθηκε.');
+    loadSuccesses();
+  } catch (e) { msg('suc', e.message || 'Σφάλμα.', false); }
+});
+
+/* ---------- πρόγραμμα ---------- */
+function addProgRow(subject = '', hours = '') {
+  const row = document.createElement('div');
+  row.className = 'adm-hours-row';
+  row.innerHTML = `<input type="text" placeholder="Μάθημα" value="${subject.replace(/"/g, '&quot;')}"/>
+    <input type="number" step="0.5" placeholder="Ώρες" value="${hours}"/>
+    <button type="button" title="Αφαίρεση">✕</button>`;
+  row.querySelector('button').addEventListener('click', () => row.remove());
+  $('#progRows').appendChild(row);
+}
+async function loadProgram() {
+  const { data } = await supabase.from('program_hours').select('*')
+    .eq('class_key', $('#progClass').value).eq('season', $('#progSeason').value).order('sort_order');
+  $('#progRows').innerHTML = '';
+  (data || []).forEach((r) => addProgRow(r.subject, Number(r.hours)));
+  if (!data || !data.length) addProgRow();
+}
+$('#progClass').addEventListener('change', loadProgram);
+$('#progSeason').addEventListener('change', loadProgram);
+$('#btnAddRow').addEventListener('click', () => addProgRow());
+$('#btnSaveProg').addEventListener('click', async () => {
+  const class_key = $('#progClass').value, season = $('#progSeason').value;
+  const rows = $$('#progRows .adm-hours-row').map((r, i) => {
+    const [s, h] = $$('input', r);
+    return { class_key, season, subject: s.value.trim(), hours: Number(h.value) || 0, sort_order: i + 1 };
+  }).filter((r) => r.subject);
+  const del = await supabase.from('program_hours').delete().eq('class_key', class_key).eq('season', season);
+  if (del.error) return msg('prog', del.error.message, false);
+  if (rows.length) {
+    const { error } = await supabase.from('program_hours').insert(rows);
+    if (error) return msg('prog', error.message, false);
+  }
+  msg('prog', 'Το πρόγραμμα αποθηκεύτηκε.');
+});
+
+supabase.auth.onAuthStateChange(() => {});
+refresh();
+</script>
+</body></html>
