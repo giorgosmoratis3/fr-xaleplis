@@ -7575,7 +7575,7 @@ a.btn,.phone,.hero-btn,.class-program-cta,
 
 /* === Arrow buttons round everywhere (higher specificity) === */
 button[class*="arrow"],button[class*="-prev"],button[class*="-next"],
-a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
+a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow"],
 .hero-banner-photo .hero-arrow,.hero-banner-photo button.hero-arrow,
 .results-nav button[class*="arrow"],.carousel-nav button[class*="arrow"],
 .results-nav button.results-prev,.results-nav button.results-next{
