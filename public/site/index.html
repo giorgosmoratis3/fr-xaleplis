@@ -68,10 +68,10 @@
 <div class="nav-item has-dropdown">
 <button aria-expanded="false" class="nav-link" type="button">Ανακοινώσεις <span>▾</span></button>
 <div class="nav-dropdown">
-<a href="#results">Press</a>
+<a href="anakoinoseis.html">Press</a>
 </div>
 </div>
-<a class="nav-link simple-link" href="#advantages">Εκπαιδευτικά νέα</a>
+<a class="nav-link simple-link" href="nea.html">Εκπαιδευτικά νέα</a>
 <div class="nav-item has-dropdown">
 <button aria-expanded="false" class="nav-link" type="button">Επικοινωνία <span>▾</span></button>
 <div class="nav-dropdown nav-dropdown-right">
@@ -246,7 +246,7 @@
 </div>
 </div>
 </section>
-<section aria-label="Αποτελέσματα 2026" class="results-2025-section results-2025-embedded" id="results">
+<section aria-label="Αποτελέσματα 2026" class="results-2025-section results-2025-embedded" id="results" data-cms-year="2026">
 <div class="results-2025-inner">
 <div class="results-2025-head">
 <span class="results-kicker">ΕΠΙΤΥΧΟΝΤΕΣ 2026</span>
@@ -269,7 +269,7 @@
 </div>
 </div>
 </section>
-<section aria-label="Αποτελέσματα 2025" class="results-2025-section results-2025-embedded" id="results-2025">
+<section aria-label="Αποτελέσματα 2025" class="results-2025-section results-2025-embedded" id="results-2025" data-cms-year="2025">
 <div class="results-2025-inner">
 <div class="results-2025-head">
 <span class="results-kicker">ΕΠΙΤΥΧΟΝΤΕΣ 2025</span>
@@ -533,6 +533,7 @@
 </div>
 <div class="footer-modern-divider footer-modern-divider-last"></div>
 <div class="footer-modern-copy">© 2026 Φιλολογικό Φροντιστήριο Χαλεπλής. All rights reserved.</div>
+<div class="footer-admin"><span class="footer-admin-rule"></span><a href="admin.html">Είσοδος admin</a></div>
 </div>
 </footer>
 <script>
@@ -576,7 +577,7 @@
     })();
     </script>
 <script>
-    document.querySelectorAll('.results-carousel').forEach((carousel) => {
+    window.initResultsCarousel = (carousel) => {
       const cards = Array.from(carousel.querySelectorAll('.results-card'));
       const dots = Array.from(carousel.querySelectorAll('.results-dots span'));
       let active = 0;
@@ -620,7 +621,9 @@
         }
       }, {passive:true});
       apply();
-    });
+    };
+    document.querySelectorAll('.results-carousel').forEach((c) => window.initResultsCarousel(c));
+
 
     document.querySelectorAll('.class-review-carousel').forEach((carousel) => {
       const cards = Array.from(carousel.querySelectorAll('.class-review-card'));
@@ -898,5 +901,6 @@ document.addEventListener('DOMContentLoaded', () => {
   render();start();
 })();
 </script>
+<script type="module" src="cms.js"></script>
 </body>
 </html>

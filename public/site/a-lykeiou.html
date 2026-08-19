@@ -6,7 +6,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Ubuntu:wght@700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
-</head><body><header class="reference-header">
+</head><body data-cms-class="a"><header class="reference-header">
 <div class="reference-header-top">
 <a aria-label="Αρχική" class="reference-brand" href="index.html">
 <img alt="Φιλολογικό Φροντιστήριο Χαλεπλής" src="chalepelis-logo.jpeg"/>
@@ -62,10 +62,10 @@
 <div class="nav-item has-dropdown">
 <button aria-expanded="false" class="nav-link" type="button">Ανακοινώσεις <span>▾</span></button>
 <div class="nav-dropdown">
-<a href="index.html#results">Press</a>
+<a href="anakoinoseis.html">Press</a>
 </div>
 </div>
-<a class="nav-link simple-link" href="index.html#advantages">Εκπαιδευτικά νέα</a>
+<a class="nav-link simple-link" href="nea.html">Εκπαιδευτικά νέα</a>
 <div class="nav-item has-dropdown">
 <button aria-expanded="false" class="nav-link" type="button">Επικοινωνία <span>▾</span></button>
 <div class="nav-dropdown nav-dropdown-right">
@@ -97,12 +97,12 @@
         <article class="class-program-card summer-card">
           <div class="class-program-season"><small>ΘΕΡΙΝΟ</small><strong>ΠΡΟΓΡΑΜΜΑ</strong></div>
           <div class="class-program-label">Α΄ ΛΥΚΕΙΟΥ</div>
-          <table><thead><tr><th>Μάθημα</th><th>Ώρες</th></tr></thead><tbody><tr><td>Νεοελληνική Γλώσσα</td><td>2</td></tr><tr><td>Αρχαία Ελληνικά</td><td>2</td></tr><tr><td>Ιστορία</td><td>1</td></tr></tbody><tfoot><tr><td>Σύνολο</td><td>5</td></tr></tfoot></table>
+          <table data-cms-program="summer"><thead><tr><th>Μάθημα</th><th>Ώρες</th></tr></thead><tbody><tr><td>Νεοελληνική Γλώσσα</td><td>2</td></tr><tr><td>Αρχαία Ελληνικά</td><td>2</td></tr><tr><td>Ιστορία</td><td>1</td></tr></tbody><tfoot><tr><td>Σύνολο</td><td>5</td></tr></tfoot></table>
         </article>
         <article class="class-program-card winter-card">
           <div class="class-program-season"><small>ΧΕΙΜΕΡΙΝΟ</small><strong>ΠΡΟΓΡΑΜΜΑ</strong></div>
           <div class="class-program-label">Α΄ ΛΥΚΕΙΟΥ</div>
-          <table><thead><tr><th>Μάθημα</th><th>Ώρες</th></tr></thead><tbody><tr><td>Νεοελληνική Γλώσσα</td><td>2</td></tr><tr><td>Αρχαία Ελληνικά</td><td>2</td></tr><tr><td>Ιστορία</td><td>1</td></tr><tr><td>Λογοτεχνία</td><td>1</td></tr></tbody><tfoot><tr><td>Σύνολο</td><td>6</td></tr></tfoot></table>
+          <table data-cms-program="winter"><thead><tr><th>Μάθημα</th><th>Ώρες</th></tr></thead><tbody><tr><td>Νεοελληνική Γλώσσα</td><td>2</td></tr><tr><td>Αρχαία Ελληνικά</td><td>2</td></tr><tr><td>Ιστορία</td><td>1</td></tr><tr><td>Λογοτεχνία</td><td>1</td></tr></tbody><tfoot><tr><td>Σύνολο</td><td>6</td></tr></tfoot></table>
         </article>
       </div>
       <div class="class-program-note"><strong>Προσωπική καθοδήγηση σε κάθε βήμα.</strong><span>Το πρόγραμμα προσαρμόζεται στις ανάγκες του μαθητή και στους στόχους του.</span></div>
@@ -158,6 +158,7 @@
 </div>
 <div class="footer-modern-divider footer-modern-divider-last"></div>
 <div class="footer-modern-copy">© 2026 Φιλολογικό Φροντιστήριο Χαλεπλής. All rights reserved.</div>
+<div class="footer-admin"><span class="footer-admin-rule"></span><a href="admin.html">Είσοδος admin</a></div>
 </div>
 </footer><script>
 (() => {
@@ -168,4 +169,5 @@
  document.querySelectorAll('.has-dropdown > .nav-link').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();const item=btn.parentElement;document.querySelectorAll('.has-dropdown').forEach(x=>{if(x!==item)x.classList.remove('dropdown-open')});item.classList.toggle('dropdown-open');btn.setAttribute('aria-expanded',String(item.classList.contains('dropdown-open')));}));
  document.addEventListener('click',e=>{if(!e.target.closest('.reference-nav'))document.querySelectorAll('.has-dropdown').forEach(x=>x.classList.remove('dropdown-open'));});
 })();
-</script></body></html>
+</script><script type="module" src="cms.js"></script>
+</body></html>
