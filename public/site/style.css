@@ -7563,3 +7563,20 @@ a.btn,.phone,.hero-btn,.class-program-cta,
   .hero-banner-photo .hero-text-col{max-width:100%;padding:80px 24px 100px;text-align:left;align-items:flex-start}
   .hero-overlay{background:linear-gradient(180deg,rgba(6,29,51,.9),rgba(6,29,51,.75))}
 }
+
+/* === Hero text in white + round dot mark === */
+.hero-banner-photo .hero-kicker{color:#fff}
+.hero-banner-photo .hero-subtitle{color:#fff}
+.hero-banner-photo .hero-headline{color:#fff}
+.hero-dot-mark{display:inline-block;width:.18em;height:.18em;border-radius:50%;background:var(--red);color:transparent;font-size:inherit;margin-left:.12em;vertical-align:baseline;overflow:hidden;text-indent:-9999px}
+.hero-banner-photo .hero-cta-ghost{border-color:rgba(255,255,255,.75);color:#fff}
+.hero-banner-photo .hero-cta-ghost:hover{background:rgba(255,255,255,.18)}
+
+/* === Arrow buttons round everywhere (higher specificity) === */
+button[class*="arrow"],button[class*="-prev"],button[class*="-next"],
+a[class*="arrow"],span[class*="arrow"],div[class*="arrow"],
+.hero-banner-photo .hero-arrow,.hero-banner-photo button.hero-arrow,
+.results-nav button[class*="arrow"],.carousel-nav button[class*="arrow"],
+.results-nav button.results-prev,.results-nav button.results-next{
+  border-radius:999px !important;
+}
