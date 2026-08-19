@@ -7748,7 +7748,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 /* ===== Είσοδος admin (footer) ===== */
 .footer-admin{margin-top:18px;text-align:center}
 .footer-admin-rule{display:block;width:100%;height:1px;background:rgba(255,255,255,.12);margin:0 auto 12px}
-.footer-admin a{font-size:.34rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.06);font-weight:400}
+.footer.footer-reference .footer-admin a{display:inline-block;font-size:.5rem !important;line-height:1 !important;letter-spacing:.03em;text-transform:none;color:rgba(255,255,255,.16) !important;font-weight:400 !important}
 .footer-admin a:hover{color:rgba(255,255,255,.5)}
 
 /* ===== Εκπαιδευτικά νέα (highlight grid) ===== */
