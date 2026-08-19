@@ -7516,3 +7516,9 @@ a.btn,.phone,.hero-btn,.class-program-cta,
 .room-badge,.space-cta,.results-nav button,.carousel-nav button{
   border-radius:0 !important;
 }
+.space-room-media span{border-radius:0 !important}
+.hero-dot,.hero-dots button,.sim-dot,.ac-dots button,.ac-dot,
+.results-dots button,.results-dots span,.class-review-dots button,.class-review-dots span,
+.sim-tl-dot,[class*="-dot"],[class*="-dots"] button,[class*="-dots"] span{
+  border-radius:999px !important;
+}
