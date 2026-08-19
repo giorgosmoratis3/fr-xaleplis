@@ -498,6 +498,9 @@
       carousel.querySelector('.hero-arrow-next')?.addEventListener('click', () => { next(); startTimer(); });
       carousel.querySelector('.hero-arrow-prev')?.addEventListener('click', () => { prev(); startTimer(); });
       dots.forEach((d, i) => d.addEventListener('click', () => { active = i; apply(); startTimer(); }));
+      carousel.querySelectorAll('.hero-panel-arrow').forEach((b) => b.addEventListener('click', () => {
+        (b.dataset.dir === '1' ? next : prev)(); startTimer();
+      }));
       apply();
       startTimer();
     })();
