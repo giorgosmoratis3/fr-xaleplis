@@ -7902,3 +7902,24 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .journey-ghost{display:none;}
   .journey-dot{left:12px;top:34px;}
 }
+
+/* ===== Google reviews: 3D square-card carousel ===== */
+.greviews-stage{position:relative;max-width:1024px;margin:0 auto;height:440px;perspective:1400px;}
+.greviews-track{position:relative;width:100%;height:100%;transform-style:preserve-3d;}
+.greview-card{position:absolute;left:0;right:0;margin:0 auto;width:min(400px,100%);aspect-ratio:1/1;height:auto;background:#fff;border:1px solid rgba(11,32,68,.12);box-shadow:0 18px 50px rgba(11,32,68,.10);cursor:pointer;filter:none !important;border-radius:0 !important;transition:transform .7s cubic-bezier(.22,.61,.36,1),opacity .5s ease;transform-style:preserve-3d;}
+.greview-card.is-active{border-color:rgba(214,40,40,.35);box-shadow:0 26px 70px rgba(11,32,68,.16);}
+.greview-inner{display:flex;flex-direction:column;height:100%;padding:30px;}
+.greview-badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:7px 13px;border:1px solid rgba(11,32,68,.14);background:#fff;margin-bottom:20px;}
+.greview-badge svg{width:14px;height:14px;flex:0 0 auto;}
+.greview-badge b{font-size:11px;letter-spacing:.2em;font-weight:700;color:#0b2044;}
+.greview-card p{flex:1;margin:0;color:rgba(20,22,26,.85);font-size:15px;line-height:1.75;}
+.greview-foot{margin-top:22px;padding-top:18px;border-top:1px solid rgba(11,32,68,.12);}
+.greview-foot strong{display:block;color:#0b2044;font-weight:700;}
+.greview-foot small{display:block;margin-top:4px;color:#7a8090;font-size:11px;letter-spacing:.18em;text-transform:uppercase;}
+.greviews-controls{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:40px;}
+.greviews-arrow{width:42px;height:42px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid rgba(11,32,68,.14);border-radius:50% !important;color:#0b2044;font-size:20px;line-height:1;cursor:pointer;transition:border-color .25s ease,transform .25s ease;}
+.greviews-arrow:hover{border-color:#d62828;transform:scale(1.1);}
+.greviews-dots{display:flex;align-items:center;gap:8px;}
+.greviews-dots span{display:block;width:8px;height:6px;background:rgba(11,32,68,.25);border-radius:999px !important;cursor:pointer;transition:width .3s ease,background .3s ease;}
+.greviews-dots span.is-active{width:32px;background:#d62828;}
+@media (max-width:640px){.greviews-stage{height:420px;}.greview-card{width:min(320px,88%);}}
