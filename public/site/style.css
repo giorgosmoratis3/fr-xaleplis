@@ -7657,7 +7657,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo .hero-headline{display:inline-flex;align-items:flex-end;gap:.06em}
 .hero-banner-photo .hero-dot-mark{width:.14em;height:.14em;margin:0 0 .14em 0;vertical-align:baseline;flex:0 0 auto}
 .hero-banner-photo .hero-subtitle{color:rgba(255,255,255,.9) !important}
-.hero-banner-photo .hero-actions{flex-wrap:nowrap}
+.hero-banner-photo .hero-actions{flex-wrap:wrap}
 .hero-banner-photo .hero-cta{white-space:nowrap}
 
 /* --- Stats: remove hover outline frame + slightly larger typography --- */
@@ -8128,7 +8128,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 /* Hero: remove logo watermark + match "Οι επιτυχίες μας" layout on every slide */
 .hero-banner-photo .hero-text-col:before{display:none !important;content:none !important;background:none !important}
 .hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{max-width:16ch;white-space:normal}
-.hero-banner-photo .hero-actions{flex-wrap:nowrap}
+.hero-banner-photo .hero-actions{flex-wrap:wrap}
 .hero-banner-photo .hero-cta{white-space:nowrap;padding:15px 22px}
 @media (max-width:1100px){
   .hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{font-size:clamp(1.6rem,2.9vw,2.6rem)}
