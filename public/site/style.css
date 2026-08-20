@@ -7862,3 +7862,43 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .offer-badge{transition:background .3s ease,color .3s ease;z-index:2;}
 .offer-card:hover .offer-badge,
 .offer-card:focus-visible .offer-badge{background:#d62828 !important;color:#fff !important;}
+
+/* ===== Η διαδρομή μας / Χρονολόγιο ===== */
+.journey{background:#fff;padding:110px 24px 100px;overflow:hidden;}
+.journey-head{max-width:1180px;margin:0 auto 70px;text-align:center;}
+.journey-kicker{display:block;color:#d62828;font-size:.72rem;letter-spacing:.42em;font-weight:700;margin-bottom:16px;}
+.journey-title{margin:0;color:#0b2044;font-size:clamp(2rem,5vw,3.4rem);font-weight:900;letter-spacing:.04em;}
+.journey-title-rule{display:block;width:64px;height:3px;background:#d62828;margin:22px auto 20px;}
+.journey-sub{margin:0;color:#5b6272;font-size:clamp(14px,1.1vw,17px);}
+.journey-tl{position:relative;max-width:1180px;margin:0 auto;}
+.journey-line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(11,32,68,.12);transform:translateX(-50%);}
+.journey-line-fill{position:absolute;left:0;top:0;width:100%;height:0;background:#d62828;transition:height .15s linear;}
+.journey-item{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;margin-bottom:90px;}
+.journey-item:last-child{margin-bottom:0;}
+.journey-card{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
+.journey-item.is-in .journey-card{opacity:1;transform:translateY(0);}
+.journey-left .journey-card{grid-column:1;}
+.journey-left .journey-ghost{grid-column:2;}
+.journey-right .journey-card{grid-column:2;}
+.journey-right .journey-ghost{grid-column:1;text-align:right;}
+.journey-ghost{font-size:clamp(4rem,10vw,8.5rem);font-weight:900;color:rgba(11,32,68,.06);line-height:1;letter-spacing:.02em;}
+.journey-dot{position:absolute;left:50%;top:50%;width:14px;height:14px;background:#d62828;border-radius:50%;transform:translate(-50%,-50%) scale(.4);opacity:.35;transition:transform .5s ease,opacity .5s ease;}
+.journey-item.is-in .journey-dot{transform:translate(-50%,-50%) scale(1);opacity:1;}
+.journey-media{position:relative;overflow:hidden;background:#0b2044;}
+.journey-media img{display:block;width:100%;height:280px;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform .8s ease,filter .6s ease;}
+.journey-card:hover .journey-media img{transform:scale(1.05);filter:grayscale(0);}
+.journey-content{position:relative;padding:26px 0 0;}
+.journey-card{position:relative;}
+.journey-badge{position:absolute;top:18px;left:18px;z-index:2;background:#d62828;color:#fff;font-size:11px;font-weight:800;letter-spacing:.22em;padding:9px 15px;}
+.journey-year{display:block;color:#d62828;font-size:.72rem;letter-spacing:.3em;font-weight:700;margin-bottom:10px;}
+.journey-content h3{margin:0 0 12px;color:#0b2044;font-size:clamp(19px,1.7vw,25px);font-weight:800;}
+.journey-content p{margin:0;color:#5b6272;font-size:clamp(14px,1.1vw,16px);line-height:1.75;}
+.journey-rule{display:block;height:3px;width:56px;background:#d62828;margin-top:20px;transition:width .5s ease;}
+.journey-card:hover .journey-rule{width:100%;}
+@media (max-width:900px){
+  .journey-line{left:12px;transform:none;}
+  .journey-item{grid-template-columns:1fr;gap:0;padding-left:44px;margin-bottom:60px;}
+  .journey-left .journey-card,.journey-right .journey-card{grid-column:1;}
+  .journey-ghost{display:none;}
+  .journey-dot{left:12px;top:34px;}
+}
