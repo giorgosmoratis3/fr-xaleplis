@@ -7857,3 +7857,8 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 @media (max-width:520px){
   .offer-extra{ justify-content:flex-start; flex-wrap:wrap; }
 }
+
+/* hover: badge γίνεται κόκκινο με λευκά γράμματα */
+.offer-badge{transition:background .3s ease,color .3s ease;z-index:2;}
+.offer-card:hover .offer-badge,
+.offer-card:focus-visible .offer-badge{background:#d62828 !important;color:#fff !important;}
