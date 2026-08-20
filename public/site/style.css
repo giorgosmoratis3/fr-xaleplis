@@ -8096,3 +8096,8 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 @media (max-width:900px){
   .hero-banner-photo .hero-text-col{padding:34px 24px 92px;justify-content:flex-start}
 }
+.hero.section-white,.hero{min-height:0}
+.hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{color:#0b3d91 !important}
+.hero-banner-photo .hero-subtitle{color:#3a4a5f !important}
+.hero-banner-photo .hero-text-col:before{width:min(70%,380px);opacity:.06;right:-4%;bottom:-6%}
+.hero-banner-photo .hero-text-col{justify-content:center;padding-bottom:clamp(92px,9vw,120px)}
