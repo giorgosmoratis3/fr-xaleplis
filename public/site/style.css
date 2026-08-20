@@ -8122,3 +8122,15 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 @media (max-width:900px){
   .hero-banner-photo .hero-progress{left:10px !important;right:-10px !important;bottom:-10px !important;height:10px !important}
 }
+
+/* remove watermark, nudge ghost CTA, restore progress bar */
+.hero-banner-photo .hero-text-col:before{display:none !important}
+.hero-banner-photo .hero-cta-ghost{margin-top:34px;margin-left:clamp(20px,4vw,64px)}
+.hero-banner-photo .hero-progress{
+  left:0 !important;right:0 !important;bottom:0 !important;height:6px !important;
+  background:rgba(11,61,145,.12) !important;
+}
+.hero-banner-photo .hero-progress-bar{background:linear-gradient(90deg,#d62828,#ff6b3d) !important}
+@media (max-width:900px){
+  .hero-banner-photo .hero-progress{left:0 !important;right:0 !important;bottom:0 !important;height:5px !important}
+}
