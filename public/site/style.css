@@ -8101,3 +8101,6 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo .hero-subtitle{color:#3a4a5f !important}
 .hero-banner-photo .hero-text-col:before{width:min(70%,380px);opacity:.06;right:-4%;bottom:-6%}
 .hero-banner-photo .hero-text-col{justify-content:center;padding-bottom:clamp(92px,9vw,120px)}
+.hero-banner-photo{height:auto !important;min-height:0 !important}
+.hero-banner-photo .hero-stage{height:clamp(520px,64vh,680px) !important}
+.hero-banner-photo .hero-dots{position:absolute;bottom:clamp(28px,3vw,46px)}
