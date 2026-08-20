@@ -8104,3 +8104,9 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo{height:auto !important;min-height:0 !important}
 .hero-banner-photo .hero-stage{height:clamp(520px,64vh,680px) !important}
 .hero-banner-photo .hero-dots{position:absolute;bottom:clamp(28px,3vw,46px)}
+
+/* Hero: black headline + black ghost buttons */
+.hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{color:#111 !important}
+.hero-banner-photo .hero-cta-ghost{border-color:#111 !important;color:#111 !important}
+.hero-banner-photo .hero-cta-ghost:hover,.hero-banner-photo .hero-cta-ghost:focus-visible{background:transparent !important;border-color:#111 !important}
+.hero-banner-photo .hero-cta-ghost:hover,.hero-banner-photo .hero-cta-ghost:hover *,.hero-banner-photo .hero-cta-ghost:focus-visible,.hero-banner-photo .hero-cta-ghost:focus-visible *{color:#111 !important}
