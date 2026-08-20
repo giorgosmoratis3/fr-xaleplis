@@ -7926,3 +7926,8 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .greviews-dots span{display:block;width:8px;height:6px;background:rgba(11,32,68,.25);border-radius:999px !important;cursor:pointer;transition:width .3s ease,background .3s ease;}
 .greviews-dots span.is-active{width:32px;background:#d62828;}
 @media (max-width:640px){.greviews-stage{height:420px;}.greview-card{width:min(320px,88%);}}
+
+/* Τάξεις: τίτλος σε μαύρο */
+.levels .news-highlight-kicker{color:#111 !important}
+.levels .news-highlight-title{color:#111 !important}
+.levels .news-highlight-title span{color:#111 !important}
