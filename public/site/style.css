@@ -7838,16 +7838,16 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   align-items:center;
   justify-content:flex-end;
   gap:.5rem;
-  margin-top:1.4rem;
+  margin-top:2.6rem;
   font-size:.74rem;
   letter-spacing:.08em;
   text-transform:uppercase;
-  color:rgba(11,61,145,.45);
+  color:rgba(0,0,0,.5);
 }
 .offer-extra-label{ opacity:.6; }
 .offer-extra-sep{ opacity:.35; }
 .offer-extra a{
-  color:rgba(11,61,145,.7);
+  color:#000;
   text-decoration:none;
   padding-bottom:2px;
   border-bottom:1px solid rgba(214,40,40,.35);
