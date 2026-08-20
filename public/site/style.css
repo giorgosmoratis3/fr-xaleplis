@@ -7878,10 +7878,11 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .journey-card{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
 .journey-item.is-in .journey-card{opacity:1;transform:translateY(0);}
 .journey-left .journey-card{grid-column:1;}
-.journey-left .journey-ghost{grid-column:2;}
+.journey-left .journey-ghost{grid-column:2;justify-self:start;padding-left:40px;}
 .journey-right .journey-card{grid-column:2;}
-.journey-right .journey-ghost{grid-column:1;text-align:right;}
-.journey-ghost{font-size:clamp(4rem,10vw,8.5rem);font-weight:900;color:rgba(11,32,68,.06);line-height:1;letter-spacing:.02em;}
+.journey-right .journey-ghost{grid-column:1;justify-self:end;padding-right:40px;text-align:center;}
+.journey-ghost{font-family:'Ubuntu',sans-serif;font-size:190px;font-weight:900;font-style:italic;line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(11,32,68,.14);text-align:center;user-select:none;letter-spacing:0;transition:color .8s ease,-webkit-text-stroke-color .8s ease;}
+.journey-item.is-in .journey-ghost{color:rgba(214,40,40,.85);-webkit-text-stroke-color:rgba(214,40,40,.85);}
 .journey-dot{position:absolute;left:50%;top:50%;width:14px;height:14px;background:#d62828;border-radius:50%;transform:translate(-50%,-50%) scale(.4);opacity:.35;transition:transform .5s ease,opacity .5s ease;}
 .journey-item.is-in .journey-dot{transform:translate(-50%,-50%) scale(1);opacity:1;}
 .journey-media{position:relative;overflow:hidden;background:#0b2044;}
@@ -7899,7 +7900,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .journey-line{left:12px;transform:none;}
   .journey-item{grid-template-columns:1fr;gap:0;padding-left:44px;margin-bottom:60px;}
   .journey-left .journey-card,.journey-right .journey-card{grid-column:1;}
-  .journey-ghost{display:none;}
+  .journey-ghost{grid-column:1 !important;justify-self:start !important;padding:0 !important;font-size:90px;margin-bottom:-16px;text-align:left;}
   .journey-dot{left:12px;top:34px;}
 }
 
