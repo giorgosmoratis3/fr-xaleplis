@@ -8104,3 +8104,21 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo{height:auto !important;min-height:0 !important}
 .hero-banner-photo .hero-stage{height:clamp(520px,64vh,680px) !important}
 .hero-banner-photo .hero-dots{position:absolute;bottom:clamp(28px,3vw,46px)}
+
+/* Hero tweaks: black headline, black ghost CTA lower, progress aligned with bottom strip */
+.hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{color:#111 !important}
+.hero-banner-photo .hero-dot-mark{color:#d62828 !important}
+.hero-banner-photo .hero-cta-ghost{
+  border:2px solid #111 !important;color:#111 !important;background:transparent !important;
+  margin-top:14px;
+}
+.hero-banner-photo .hero-cta-ghost:hover{background:transparent !important;color:#d62828 !important;border-color:#d62828 !important}
+.hero-banner-photo .hero-actions{flex-direction:column;align-items:flex-start;gap:0}
+.hero-banner-photo .hero-progress{
+  position:absolute !important;left:18px !important;right:-18px !important;bottom:-18px !important;
+  height:18px !important;background:#d62828 !important;z-index:12 !important;
+}
+.hero-banner-photo .hero-progress-bar{background:#0b3d91 !important;box-shadow:none !important}
+@media (max-width:900px){
+  .hero-banner-photo .hero-progress{left:10px !important;right:-10px !important;bottom:-10px !important;height:10px !important}
+}
