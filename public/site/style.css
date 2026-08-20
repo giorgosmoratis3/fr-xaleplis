@@ -8137,3 +8137,11 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 @media (max-width:700px){
   .hero-banner-photo .hero-actions{flex-wrap:wrap}
 }
+
+/* Hero: vertically center text panel content (no top-heavy look) */
+.hero-banner-photo .hero-text-col{
+  justify-content:center !important;
+  padding-top:clamp(28px,3vw,48px) !important;
+  padding-bottom:clamp(28px,3vw,48px) !important;
+}
+.hero-banner-photo .hero-actions{margin-bottom:0}
