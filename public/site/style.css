@@ -2973,104 +2973,58 @@ body{background:#fff;color:#07111d;}
   .site-header .brand-mark{gap:9px !important;}
 }
 
-/* --- Replace hero video with exact Χαλεπλής-style director banner (not a screenshot) --- */
+/* --- Διαγώνιο marquee band (μπλε marquee + κόκκινη λωρίδα) --- */
 .director-banner-section{
   position:relative;
   overflow:hidden;
-  padding:0 0 44px;
+  padding:26px 0 64px;
   background:#f2f2f4;
 }
 .director-banner{
   position:relative;
   width:100%;
-  min-height:420px;
   overflow:hidden;
-  isolation:isolate;
-  background:#f2f2f4;
+  padding:34px 0;
   animation:directorFadeUp .9s ease both;
 }
-.director-top{
+.director-band{
   position:relative;
-  height:116px;
-  background:#f2f2f4;
-  overflow:hidden;
-}
-.director-red-slice{
-  position:absolute;
-  left:-5%;
-  bottom:-4px;
-  width:64%;
-  height:84px;
-  background:linear-gradient(100deg,#c91520 0%,#d71920 72%,#b8121d 100%);
-  clip-path:polygon(0 22%, 100% 86%, 100% 100%, 0% 100%);
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
-  animation:sliceIn 1s cubic-bezier(.2,.8,.2,1) both;
+  width:112%;
+  margin-left:-6%;
+  transform:rotate(-1.6deg);
+  box-shadow:0 18px 40px rgba(0,0,0,.14);
 }
 .director-blue-panel{
   position:relative;
-  min-height:205px;
   background:linear-gradient(110deg,#064d89 0%,#075894 48%,#064d89 100%);
   color:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:38px 7vw 48px;
   overflow:hidden;
+  padding:0;
 }
-.director-blue-panel::before,
-.director-red-panel::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(110deg,transparent 0%,rgba(255,255,255,.10) 42%,rgba(255,255,255,.22) 50%,rgba(255,255,255,.08) 58%,transparent 100%);
-  transform:translateX(-120%);
-  animation:directorGlimmer 4.8s ease-in-out infinite;
-  pointer-events:none;
+.director-marquee{
+  overflow:hidden;
+  padding:12px 0;
 }
-.director-blue-panel::after{
-  content:"";
-  position:absolute;
-  right:-2px;
-  bottom:-1px;
-  width:23%;
-  height:84px;
-  background:#c91520;
-  clip-path:polygon(72% 0,100% 0,100% 100%,0 100%);
-  opacity:.92;
-}
-.director-blue-panel p{
-  position:relative;
-  z-index:1;
-  margin:0 0 10px;
-  font-size:clamp(20px,2vw,34px);
+.director-marquee-track{
+  display:flex;
+  align-items:center;
+  gap:clamp(14px,2vw,30px);
+  width:max-content;
+  white-space:nowrap;
+  animation:directorMarquee 34s linear infinite;
+  font-size:clamp(12px,1.15vw,18px);
   font-weight:800;
-  letter-spacing:.06em;
-  line-height:1.05;
+  letter-spacing:.22em;
 }
-.director-blue-panel h2{
-  position:relative;
-  z-index:1;
-  margin:0;
-  font-size:clamp(42px,6.5vw,100px);
-  font-weight:900;
-  letter-spacing:.035em;
-  line-height:.98;
-  color:#fff;
-  text-shadow:0 8px 22px rgba(0,0,0,.18);
-  animation:titleRise .8s .12s ease both;
-}
+.director-marquee-track i{color:#c6ac4a;font-style:normal;opacity:.9;}
 .director-red-panel{
   position:relative;
-  min-height:100px;
   background:linear-gradient(100deg,#c9141f 0%,#d71920 48%,#b8111b 100%);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:28px 5vw 34px;
+  padding:14px 5vw 16px;
   overflow:hidden;
-  box-shadow:inset 0 12px 28px rgba(0,0,0,.08);
 }
 .director-checks{
   position:relative;
@@ -3078,14 +3032,13 @@ body{background:#fff;color:#07111d;}
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:clamp(18px,5vw,74px);
+  gap:clamp(18px,7vw,110px);
   color:#fff;
-  font-size:clamp(26px,3.2vw,52px);
+  font-size:clamp(18px,2.2vw,34px);
   font-weight:900;
   font-style:italic;
-  letter-spacing:.01em;
   line-height:1;
-  text-shadow:0 5px 16px rgba(0,0,0,.16);
+  text-shadow:0 4px 12px rgba(0,0,0,.16);
 }
 .director-checks span{
   position:relative;
@@ -3106,20 +3059,13 @@ body{background:#fff;color:#07111d;}
   line-height:1;
   filter:drop-shadow(0 3px 3px rgba(0,0,0,.16));
 }
+@keyframes directorMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes directorFadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes sliceIn{from{transform:translateX(-18%) translateY(18px);opacity:0}to{transform:translateX(0) translateY(0);opacity:1}}
-@keyframes directorGlimmer{0%,55%{transform:translateX(-120%);opacity:0}66%{opacity:.65}100%{transform:translateX(120%);opacity:0}}
-@keyframes titleRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes checkPop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:760px){
-  .director-banner{min-height:330px;}
-  .director-top{height:84px;}
-  .director-red-slice{width:78%;height:62px;}
-  .director-blue-panel{min-height:170px;padding:28px 20px 36px;}
-  .director-blue-panel p{font-size:17px;}
-  .director-blue-panel h2{font-size:clamp(34px,11vw,54px);letter-spacing:.01em;}
-  .director-red-panel{min-height:90px;padding:22px 14px 26px;}
-  .director-checks{gap:10px;font-size:clamp(17px,5vw,24px);flex-wrap:wrap;}
+  .director-band{width:124%;margin-left:-12%;}
+  .director-marquee{padding:9px 0;}
+  .director-checks{gap:18px;font-size:15px;}
   .director-checks span{gap:6px;}
 }
 
