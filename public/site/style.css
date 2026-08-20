@@ -7831,3 +7831,29 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .about-photo{position:static;width:auto;height:200px}
   .about-photo-1{grid-column:1/-1}
 }
+
+/* Διακριτικοί σύνδεσμοι κάτω δεξιά στο "Τι προσφέρουμε" */
+.offer-extra{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:.5rem;
+  margin-top:1.4rem;
+  font-size:.74rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(11,61,145,.45);
+}
+.offer-extra-label{ opacity:.6; }
+.offer-extra-sep{ opacity:.35; }
+.offer-extra a{
+  color:rgba(11,61,145,.7);
+  text-decoration:none;
+  padding-bottom:2px;
+  border-bottom:1px solid rgba(214,40,40,.35);
+  transition:color .25s ease, border-color .25s ease;
+}
+.offer-extra a:hover{ color:#d62828; border-color:#d62828; }
+@media (max-width:520px){
+  .offer-extra{ justify-content:flex-start; flex-wrap:wrap; }
+}
