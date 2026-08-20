@@ -8043,3 +8043,5 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-badge strong{font-size:1.5rem}
 }
 .hero-banner-photo .hero-cta,.hero-banner-photo .hero-cta-ghost,.hero-banner-photo .hero-dot{border-radius:0 !important}
+.hero-banner-photo .hero-actions{gap:16px}
+.hero-banner-photo .hero-cta-ghost{margin-left:0}
