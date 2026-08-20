@@ -8045,18 +8045,3 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo .hero-cta,.hero-banner-photo .hero-cta-ghost,.hero-banner-photo .hero-dot{border-radius:0 !important}
 .hero-banner-photo .hero-actions{gap:16px}
 .hero-banner-photo .hero-cta-ghost{margin-left:0}
-
-/* Hero: full-bleed, less navy */
-.hero .hero-content{padding:0}
-.hero-banner-photo{max-width:none;margin:0;box-shadow:none}
-.hero-banner-photo .hero-stage{height:calc(100vh - 232px);min-height:600px}
-.hero-banner-photo .hero-slide{grid-template-columns:38% 62%}
-.hero-banner-photo .hero-text-col{border-right:6px solid #d62828;padding:clamp(38px,4vw,72px) clamp(26px,3.4vw,58px) clamp(96px,8vw,112px)}
-.hero-banner-photo .hero-headline{font-size:clamp(2.4rem,4.4vw,4.2rem)}
-.hero-banner-photo .hero-subtitle{max-width:420px}
-.hero-banner-photo .hero-photo:after{background:linear-gradient(90deg,rgba(11,61,145,.35),rgba(11,61,145,0) 55%)}
-.hero-badge{top:0}
-@media (max-width:900px){
-  .hero-banner-photo .hero-slide{grid-template-columns:1fr}
-  .hero-banner-photo .hero-text-col{border-right:0;border-top:6px solid #d62828}
-}
