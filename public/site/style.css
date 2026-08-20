@@ -8045,3 +8045,24 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo .hero-cta,.hero-banner-photo .hero-cta-ghost,.hero-banner-photo .hero-dot{border-radius:0 !important}
 .hero-banner-photo .hero-actions{gap:16px}
 .hero-banner-photo .hero-cta-ghost{margin-left:0}
+
+/* Logo watermark behind the navy panel */
+.hero-banner-photo .hero-text-col{background:#0b3d91;overflow:hidden}
+.hero-banner-photo .hero-text-col:before{
+  content:"";position:absolute;z-index:0;pointer-events:none;
+  right:-6%;bottom:-12%;width:min(115%,720px);aspect-ratio:1/1;
+  background:url('chalepelis-logo-hero.png') no-repeat center/contain;
+  opacity:.1;filter:grayscale(1) brightness(2.2);
+}
+.hero-banner-photo .hero-text-col:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 20% 20%,rgba(11,61,145,.55),rgba(11,61,145,.9));
+}
+.hero-banner-photo .hero-kicker,
+.hero-banner-photo .hero-headline,
+.hero-banner-photo .hero-subtitle,
+.hero-banner-photo .hero-actions{position:relative;z-index:2}
+@media (max-width:900px){
+  .hero-banner-photo .hero-text-col:before{width:130%;right:-20%;bottom:-8%;opacity:.09}
+}
+
