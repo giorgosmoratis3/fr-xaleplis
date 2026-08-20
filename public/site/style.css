@@ -7942,3 +7942,65 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .stats .stat small{font-size:clamp(13px,1.2vw,16px) !important}
 .stats .stat-rule{width:70px !important;height:3px !important}
 @media(max-width:820px){.stats{padding:28px 24px 56px !important}.stats .stat strong{font-size:52px !important}}
+
+/* Marquee band under the director quote */
+.quote-marquee-band{
+  position:relative;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-top:56px;
+  overflow:hidden;
+  isolation:isolate;
+}
+.quote-marquee-top{
+  position:relative;
+  height:64px;
+  background:transparent;
+  overflow:hidden;
+}
+.quote-marquee-slice{
+  position:absolute;
+  left:-5%;
+  bottom:-4px;
+  width:64%;
+  height:64px;
+  background:linear-gradient(100deg,#c91520 0%,#d71920 72%,#b8121d 100%);
+  clip-path:polygon(0 22%, 100% 86%, 100% 100%, 0% 100%);
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+.quote-marquee-strip{
+  position:relative;
+  height:56px;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(110deg,#064d89 0%,#075894 48%,#064d89 100%);
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2.6px;
+  white-space:nowrap;
+  overflow:hidden;
+}
+.quote-marquee-strip .marquee-track{
+  display:flex;
+  gap:34px;
+  min-width:max-content;
+  animation:marquee 32s linear infinite;
+}
+.quote-marquee-strip:hover .marquee-track{animation-play-state:paused}
+.quote-marquee-red{
+  position:relative;
+  background:linear-gradient(110deg,#c91520 0%,#d71920 55%,#b8121d 100%);
+  padding:16px 6vw;
+}
+.quote-marquee-red .director-checks{
+  display:flex;
+  justify-content:center;
+  gap:clamp(28px,7vw,110px);
+}
+@media(max-width:820px){
+  .quote-marquee-top{height:40px}
+  .quote-marquee-slice{width:78%;height:40px}
+  .quote-marquee-strip{height:46px;font-size:12px;letter-spacing:1.6px}
+  .quote-marquee-strip .marquee-track{gap:24px}
+}
