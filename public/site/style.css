@@ -8192,3 +8192,11 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo .hero-slide{grid-template-rows:190px auto}
   .hero-banner-photo .hero-photo{min-height:190px}
 }
+@media (max-width:900px){
+  .hero.section-white{overflow-x:hidden}
+  .hero-content{min-height:0;padding:0}
+  .hero-banner-photo{box-shadow:none;margin:0}
+  .hero-banner-photo .hero-text-col{padding-bottom:56px !important}
+  .hero-banner-photo .hero-dots{bottom:16px}
+  .hero-badge{padding:8px 12px}
+}
