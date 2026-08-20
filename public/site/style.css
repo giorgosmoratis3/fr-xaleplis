@@ -8145,3 +8145,12 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   padding-bottom:clamp(28px,3vw,48px) !important;
 }
 .hero-banner-photo .hero-actions{margin-bottom:0}
+
+/* Hero: lower the copy a touch so the first slide never clips at the top */
+.hero-banner-photo .hero-text-col{
+  justify-content:flex-end !important;
+  padding-top:clamp(56px,7vw,104px) !important;
+  padding-bottom:clamp(48px,5vw,72px) !important;
+}
+.hero-banner-photo .hero-slide-copy,
+.hero-banner-photo .hero-copy{margin-top:auto}
