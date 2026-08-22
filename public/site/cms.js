@@ -25,33 +25,36 @@ const fmtDate = (iso) => {
 
 /* ---------- Άρθρα / Ανακοινώσεις ---------- */
 async function hydrateArticles() {
-  const list = document.querySelector('[data-cms-articles]');
-  if (!list) return;
-  const category = list.getAttribute('data-cms-articles');
-  const { data, error } = await supabase
-    .from('articles')
-    .select('*')
-    .eq('category', category)
-    .eq('published', true)
-    .order('published_at', { ascending: false });
+  const lists = Array.from(document.querySelectorAll('[data-cms-articles]'));
+  if (!lists.length) return;
 
-  if (error) { list.innerHTML = '<p class="cms-empty">Δεν ήταν δυνατή η φόρτωση του περιεχομένου.</p>'; return; }
-  if (!data || !data.length) { list.innerHTML = '<p class="cms-empty">Δεν υπάρχουν καταχωρήσεις ακόμη.</p>'; return; }
+  for (const list of lists) {
+    const category = list.getAttribute('data-cms-articles');
+    const { data, error } = await supabase
+      .from('articles')
+      .select('*')
+      .eq('category', category)
+      .eq('published', true)
+      .order('published_at', { ascending: false });
 
-  const items = await Promise.all(data.map(async (a) => {
-    const img = await resolveMedia(a.image_url);
-    return `<article class="cms-card">
-      ${img ? `<div class="cms-card-media"><img src="${img}" alt="${(a.title || '').replace(/"/g, '&quot;')}" loading="lazy"/></div>` : ''}
-      <div class="cms-card-body">
-        <span class="cms-card-date">${fmtDate(a.published_at)}</span>
-        <h3>${a.title || ''}</h3>
-        ${a.excerpt ? `<p class="cms-card-excerpt">${a.excerpt}</p>` : ''}
-        ${a.body ? `<div class="cms-card-text">${(a.body || '').split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
-        ${a.link_url ? `<a class="cms-card-link" href="${a.link_url}" target="_blank" rel="noopener">ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ →</a>` : ''}
-      </div>
-    </article>`;
-  }));
-  list.innerHTML = items.join('');
+    if (error) { list.innerHTML = '<p class="cms-empty">Δεν ήταν δυνατή η φόρτωση του περιεχομένου.</p>'; continue; }
+    if (!data || !data.length) { list.innerHTML = '<p class="cms-empty">Δεν υπάρχουν καταχωρήσεις ακόμη.</p>'; continue; }
+
+    const items = await Promise.all(data.map(async (a) => {
+      const img = await resolveMedia(a.image_url);
+      return `<article class="cms-card">
+        ${img ? `<div class="cms-card-media"><img src="${img}" alt="${(a.title || '').replace(/"/g, '&quot;')}" loading="lazy"/></div>` : ''}
+        <div class="cms-card-body">
+          <span class="cms-card-date">${fmtDate(a.published_at)}</span>
+          <h3>${a.title || ''}</h3>
+          ${a.excerpt ? `<p class="cms-card-excerpt">${a.excerpt}</p>` : ''}
+          ${a.body ? `<div class="cms-card-text">${(a.body || '').split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
+          ${a.link_url ? `<a class="cms-card-link" href="${a.link_url}" target="_blank" rel="noopener">ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ →</a>` : ''}
+        </div>
+      </article>`;
+    }));
+    list.innerHTML = items.join('');
+  }
 }
 
 /* ---------- Επιτυχίες (κάρτες στα carousel αποτελεσμάτων) ---------- */
