@@ -113,13 +113,13 @@ async function hydrateArticles() {
 
     const items = await Promise.all(data.map(async (a) => {
       const img = await resolveMedia(a.image_url);
-      return `<article class="cms-card">
+      return `<article class="cms-card ${isPressCarousel ? 'cms-card-press' : ''}">
         ${img ? `<div class="cms-card-media"><img src="${img}" alt="${(a.title || '').replace(/"/g, '&quot;')}" loading="lazy"/></div>` : ''}
         <div class="cms-card-body">
           <span class="cms-card-date">${fmtDate(a.published_at)}</span>
           <h3>${a.title || ''}</h3>
           ${a.excerpt ? `<p class="cms-card-excerpt">${a.excerpt}</p>` : ''}
-          ${a.body ? `<div class="cms-card-text">${cleanArticleBody(a.id, a.body).split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
+          ${a.body && !isPressCarousel ? `<div class="cms-card-text">${cleanArticleBody(a.id, a.body).split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
           ${a.link_url ? `<a class="cms-card-link" href="${a.link_url}" target="_blank" rel="noopener">ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ →</a>` : ''}
         </div>
       </article>`;
