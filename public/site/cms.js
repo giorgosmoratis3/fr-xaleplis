@@ -217,11 +217,54 @@ async function hydrateNewsGrid() {
   if (html) grid.innerHTML = html;
 }
 
+/* ---------- Ενότητες σελίδων (page_sections) ---------- */
+async function hydratePageSections() {
+  const holders = Array.from(document.querySelectorAll('[data-cms-sections]'));
+  if (!holders.length) return;
+  for (const holder of holders) {
+    const key = holder.getAttribute('data-cms-sections');
+    const { data, error } = await supabase
+      .from('page_sections')
+      .select('*')
+      .eq('page_key', key)
+      .eq('published', true)
+      .order('sort_order', { ascending: true });
+    if (error || !data || !data.length) { holder.innerHTML = ''; continue; }
+    const esc = (v) => (v || '').replace(/"/g, '&quot;');
+    const cards = await Promise.all(data.map(async (s) => {
+      const img = await resolveMedia(s.image_url);
+      const label = s.link_label || 'ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ';
+      const paras = (s.body || '').split('\n').map((t) => t.trim()).filter(Boolean).map((t) => `<p>${t}</p>`).join('');
+      const more = s.link_url
+        ? `<a class="psec-more" href="${esc(s.link_url)}"${/^https?:/i.test(s.link_url) ? ' target="_blank" rel="noopener"' : ''}>${label} →</a>`
+        : (paras ? `<button class="psec-more" type="button" data-psec-toggle data-label="${esc(label)}">${label} →</button>` : '');
+      return `<article class="psec-card ${img ? 'has-media' : ''}">
+        ${img ? `<figure class="psec-media"><img src="${img}" alt="${esc(s.title)}" loading="lazy"/></figure>` : ''}
+        <div class="psec-body">
+          <h3>${s.title || ''}</h3>
+          ${s.description ? `<p class="psec-desc">${s.description}</p>` : ''}
+          ${paras && !s.link_url ? `<div class="psec-full">${paras}</div>` : ''}
+          ${more}
+        </div>
+      </article>`;
+    }));
+    holder.innerHTML = `<div class="psec-inner">${cards.join('')}</div>`;
+    holder.querySelectorAll('[data-psec-toggle]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.psec-card');
+        const open = card.classList.toggle('is-open');
+        btn.innerHTML = (open ? 'ΛΙΓΟΤΕΡΑ' : (btn.dataset.label || 'ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ')) + ' →';
+      });
+    });
+  }
+}
+
 const boot = () => {
   hydrateArticles();
   hydrateNewsGrid();
   hydrateSuccesses();
   hydrateProgram();
+  hydratePageSections();
 };
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

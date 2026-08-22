@@ -53,6 +53,51 @@ export type Database = {
         }
         Relationships: []
       }
+      page_sections: {
+        Row: {
+          body: string | null
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          link_label: string | null
+          link_url: string | null
+          page_key: string
+          published: boolean
+          sort_order: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          link_label?: string | null
+          link_url?: string | null
+          page_key: string
+          published?: boolean
+          sort_order?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          link_label?: string | null
+          link_url?: string | null
+          page_key?: string
+          published?: boolean
+          sort_order?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       program_hours: {
         Row: {
           class_key: string
