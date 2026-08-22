@@ -272,7 +272,60 @@
     <button class="press-arrow press-next" type="button" aria-label="Επόμενο">→</button>
     <div class="press-dots" aria-hidden="true"></div>
   </div>
+  <div class="press-carousel press-carousel-video" data-video-carousel>
+    <button class="press-arrow press-prev" type="button" aria-label="Προηγούμενο">←</button>
+    <div class="cms-list cms-list-press">
+      <div class="press-track">
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/DakRDZfN1OE/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/Dahz6FTNCgV/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/DafE1BQNSYT/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/DaaLmqJteg_/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/DaXeAlht_iS/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+        <div class="press-card"><article class="cms-card cms-card-video"><div class="cms-card-video-frame"><iframe src="https://www.instagram.com/p/DaVLe8vOZgA/embed/captioned/" title="Instagram video" loading="lazy" allowtransparency="true" allowfullscreen="true" scrolling="no" frameborder="0"></iframe></div></article></div>
+      </div>
+    </div>
+    <button class="press-arrow press-next" type="button" aria-label="Επόμενο">→</button>
+    <div class="press-dots" aria-hidden="true"></div>
+  </div>
+  <script>
+  (() => {
+    const carousel = document.querySelector('[data-video-carousel]');
+    if (!carousel) return;
+    const track = carousel.querySelector('.press-track');
+    const prev = carousel.querySelector('.press-prev');
+    const next = carousel.querySelector('.press-next');
+    const dotsContainer = carousel.querySelector('.press-dots');
+    const cards = Array.from(track.children);
+    const total = cards.length;
+    let index = 0;
+    const getVisible = () => (window.innerWidth <= 900 ? 1 : 2);
+    const maxIndex = () => Math.max(0, total - getVisible());
+    const pageCount = () => { const v = getVisible(); return v === 1 ? total : Math.ceil(total / v); };
+    const updateDots = () => {
+      Array.from(dotsContainer.children).forEach((d, i) => d.classList.toggle('is-active', i === Math.min(index, pageCount() - 1)));
+    };
+    const renderDots = () => {
+      dotsContainer.innerHTML = Array.from({ length: pageCount() }, (_, i) => `<span data-index="${i}"></span>`).join('');
+      dotsContainer.querySelectorAll('span').forEach((dot) => dot.addEventListener('click', () => {
+        index = Math.min(Number(dot.dataset.index) * getVisible(), maxIndex());
+        move();
+      }));
+      updateDots();
+    };
+    const move = () => {
+      const width = cards[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(${-index * width}px)`;
+      updateDots();
+    };
+    prev.addEventListener('click', () => { index = Math.max(0, index - 1); move(); });
+    next.addEventListener('click', () => { index = Math.min(maxIndex(), index + 1); move(); });
+    window.addEventListener('resize', () => { index = Math.min(index, maxIndex()); renderDots(); move(); });
+    renderDots();
+    move();
+  })();
+  </script>
 </section>
+
 
 <section aria-label="Για εμάς" class="about-split">
   <div class="about-split-bg" aria-hidden="true"></div>
