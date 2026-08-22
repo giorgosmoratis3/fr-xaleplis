@@ -83,6 +83,7 @@ button{font:inherit;font-weight:800;letter-spacing:.08em;text-transform:uppercas
     <button data-tab="press" type="button">Ανακοινώσεις</button>
     <button data-tab="successes" type="button">Επιτυχίες</button>
     <button data-tab="program" type="button">Πρόγραμμα ωρών</button>
+    <button data-tab="sections" type="button">Ενότητες σελίδων</button>
   </div>
 
   <!-- ΑΡΘΡΑ -->
@@ -150,6 +151,39 @@ button{font:inherit;font-weight:800;letter-spacing:.08em;text-transform:uppercas
     </div>
     <div class="adm-msg" data-msg="prog"></div>
   </section>
+
+  <!-- ΕΝΟΤΗΤΕΣ ΣΕΛΙΔΩΝ -->
+  <section class="adm-panel hidden" data-pane="sections">
+    <h2>Ενότητες σελίδων</h2>
+    <p>Προσθέστε ενότητες με σύντομη περιγραφή και «Δείτε περισσότερα» στις σελίδες Εκδηλώσεις, Τράπεζα Θεμάτων, Προσομοιώσεις και Εκδρομές.</p>
+    <div class="adm-grid2">
+      <div><label>Σελίδα</label>
+        <select id="secPage">
+          <option value="ekdiloseis">Εκδηλώσεις &amp; δράσεις</option>
+          <option value="trapeza">Τράπεζα Θεμάτων</option>
+          <option value="prosomoiosis">Προσομοιώσεις &amp; διαγωνίσματα</option>
+          <option value="ekdromes">Εκπαιδευτικές εκδρομές</option>
+        </select>
+      </div>
+      <div><label>Τίτλος ενότητας</label><input data-f="sec-title" type="text"/></div>
+    </div>
+    <label>Σύντομη περιγραφή (εμφανίζεται πρώτη)</label><textarea data-f="sec-desc" style="min-height:70px"></textarea>
+    <label>Πλήρες κείμενο (ανοίγει με «Δείτε περισσότερα»)</label><textarea data-f="sec-body"></textarea>
+    <div class="adm-grid2">
+      <div><label>Σύνδεσμος (προαιρετικά — αντί για άνοιγμα κειμένου)</label><input data-f="sec-link" type="url" placeholder="https://..."/></div>
+      <div><label>Κείμενο κουμπιού</label><input data-f="sec-label" type="text" placeholder="ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ"/></div>
+    </div>
+    <div class="adm-grid2">
+      <div><label>Εικόνα (προαιρετικά)</label><input data-f="sec-image" type="file" accept="image/*"/></div>
+      <div><label>Σειρά εμφάνισης</label><input data-f="sec-order" type="number" value="0"/></div>
+    </div>
+    <div class="adm-actions">
+      <button class="btn-navy" id="btnSec" type="button">Αποθήκευση ενότητας</button>
+      <button class="btn-ghost hidden" id="btnSecCancel" type="button">Άκυρο</button>
+    </div>
+    <div class="adm-msg" data-msg="sec"></div>
+    <div class="adm-list" data-list="sec"></div>
+  </section>
   </div>
 </div>
 
@@ -185,7 +219,7 @@ async function refresh() {
   const isAdmin = (roles || []).some((r) => r.role === 'admin');
   $('#claimPanel').classList.toggle('hidden', isAdmin);
   $('#admPanels').classList.toggle('hidden', !isAdmin);
-  if (isAdmin) { loadArticles('news'); loadArticles('press'); loadSuccesses(); loadProgram(); }
+  if (isAdmin) { loadArticles('news'); loadArticles('press'); loadSuccesses(); loadProgram(); loadSections(); }
 }
 
 $('#btnLogin').addEventListener('click', async () => {
@@ -346,6 +380,82 @@ $('#btnSaveProg').addEventListener('click', async () => {
     if (error) return msg('prog', error.message, false);
   }
   msg('prog', 'Το πρόγραμμα αποθηκεύτηκε.');
+});
+
+/* ---------- ενότητες σελίδων ---------- */
+let secEditId = null;
+function secReset() {
+  secEditId = null;
+  ['title','desc','body','link','label','image'].forEach((k) => { f(`sec-${k}`).value = ''; });
+  f('sec-order').value = '0';
+  $('#btnSec').textContent = 'Αποθήκευση ενότητας';
+  $('#btnSecCancel').classList.add('hidden');
+}
+async function loadSections() {
+  const { data } = await supabase.from('page_sections').select('*')
+    .eq('page_key', $('#secPage').value).order('sort_order');
+  const list = $('[data-list="sec"]');
+  if (!data || !data.length) { list.innerHTML = '<p style="font-size:13px;color:#6b7280">Καμία ενότητα σε αυτή τη σελίδα.</p>'; return; }
+  list.innerHTML = '';
+  for (const s of data) {
+    const img = await resolveMedia(s.image_url);
+    const row = document.createElement('div');
+    row.className = 'adm-row';
+    row.innerHTML = `${img ? `<img src="${img}" alt=""/>` : ''}
+      <div class="adm-row-main"><strong>${s.title}</strong><small>${(s.description || '').slice(0, 90)}${s.published ? '' : ' · ανενεργή'}</small></div>
+      <button class="btn-ghost" data-act="edit" type="button">Επεξεργασία</button>
+      <button class="btn-ghost" data-act="del" type="button">Διαγραφή</button>`;
+    row.querySelector('[data-act="edit"]').addEventListener('click', () => {
+      secEditId = s.id;
+      f('sec-title').value = s.title || '';
+      f('sec-desc').value = s.description || '';
+      f('sec-body').value = s.body || '';
+      f('sec-link').value = s.link_url || '';
+      f('sec-label').value = s.link_label || '';
+      f('sec-order').value = s.sort_order ?? 0;
+      $('#btnSec').textContent = 'Ενημέρωση ενότητας';
+      $('#btnSecCancel').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    row.querySelector('[data-act="del"]').addEventListener('click', async () => {
+      if (!confirm('Διαγραφή ενότητας;')) return;
+      const { error } = await supabase.from('page_sections').delete().eq('id', s.id);
+      if (error) return msg('sec', error.message, false);
+      if (secEditId === s.id) secReset();
+      loadSections();
+    });
+    list.appendChild(row);
+  }
+}
+$('#secPage').addEventListener('change', () => { secReset(); loadSections(); });
+$('#btnSecCancel').addEventListener('click', secReset);
+$('#btnSec').addEventListener('click', async () => {
+  const title = f('sec-title').value.trim();
+  if (!title) return msg('sec', 'Συμπληρώστε τίτλο.', false);
+  const btn = $('#btnSec');
+  btn.disabled = true;
+  try {
+    const image_url = await upload(f('sec-image'));
+    const payload = {
+      page_key: $('#secPage').value,
+      title,
+      description: f('sec-desc').value.trim() || null,
+      body: f('sec-body').value.trim() || null,
+      link_url: f('sec-link').value.trim() || null,
+      link_label: f('sec-label').value.trim() || null,
+      sort_order: Number(f('sec-order').value) || 0,
+      published: true,
+    };
+    if (image_url) payload.image_url = image_url;
+    const res = secEditId
+      ? await supabase.from('page_sections').update(payload).eq('id', secEditId)
+      : await supabase.from('page_sections').insert(payload);
+    if (res.error) throw res.error;
+    msg('sec', secEditId ? 'Ενημερώθηκε.' : 'Η ενότητα προστέθηκε.');
+    secReset();
+    loadSections();
+  } catch (e) { msg('sec', e.message || 'Σφάλμα αποθήκευσης.', false); }
+  btn.disabled = false;
 });
 
 supabase.auth.onAuthStateChange(() => {});
