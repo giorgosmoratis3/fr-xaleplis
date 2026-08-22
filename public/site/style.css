@@ -8247,6 +8247,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo .hero-text-col{padding-bottom:56px !important}
   .hero-banner-photo .hero-dots{bottom:16px}
   .hero-badge{padding:8px 12px}
+  .hero-slide[data-slide="2"] .hero-photo{background-position:center 60%}
 }
 
 /* Google reviews CTA + mobile fix */
