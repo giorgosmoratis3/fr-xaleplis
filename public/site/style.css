@@ -7823,7 +7823,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 }
 @media(max-width:900px){
   .press-card{flex:0 0 100%;padding:0 8px}
-  .press-card .cms-card-media img{height:auto;aspect-ratio:16/9}
+  .press-card .cms-card-media img{height:auto;min-height:0;aspect-ratio:auto}
   .press-card .cms-card-body{padding:26px 22px}
 }
 
