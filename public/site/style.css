@@ -8211,7 +8211,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo{box-shadow:8px 8px 0 0 #d62828;max-width:100%}
   .hero-banner-photo .hero-stage{height:auto !important;min-height:0}
   .hero-banner-photo .hero-slide{grid-template-columns:1fr;grid-template-rows:auto auto}
-  .hero-banner-photo .hero-photo{grid-column:1;grid-row:1;min-height:0;height:auto;aspect-ratio:1/1;width:100%}
+  .hero-banner-photo .hero-photo{grid-column:1;grid-row:1;min-height:0;height:auto;aspect-ratio:4/3;width:100%;background-position:center}
   .hero-banner-photo .hero-text-col{
     grid-column:1;grid-row:2;
     justify-content:flex-start !important;
@@ -8238,7 +8238,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 }
 @media (max-width:520px){
   .hero-banner-photo .hero-slide{grid-template-rows:auto auto}
-  .hero-banner-photo .hero-photo{min-height:0;aspect-ratio:1/1}
+  .hero-banner-photo .hero-photo{min-height:0;aspect-ratio:4/3;background-position:center}
 }
 @media (max-width:900px){
   .hero.section-white{overflow-x:hidden}
