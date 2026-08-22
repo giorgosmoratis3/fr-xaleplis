@@ -24,6 +24,61 @@ const fmtDate = (iso) => {
 };
 
 /* ---------- Άρθρα / Ανακοινώσεις ---------- */
+function initPressCarousel(carousel) {
+  const track = carousel.querySelector('.press-track');
+  const prev = carousel.querySelector('.press-prev');
+  const next = carousel.querySelector('.press-next');
+  const dotsContainer = carousel.querySelector('.press-dots');
+  if (!track || !prev || !next) return;
+
+  const cards = Array.from(track.children);
+  const visibleDesktop = 2;
+  const total = cards.length;
+  let index = 0;
+
+  const getVisible = () => window.innerWidth <= 900 ? 1 : visibleDesktop;
+  const maxIndex = () => Math.max(0, total - getVisible());
+
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    const dots = Array.from(dotsContainer.children);
+    const visible = getVisible();
+    const pages = visible === 1 ? total : Math.ceil(total / visible);
+    const page = Math.min(index, pages - 1);
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === page));
+  };
+
+  const renderDots = () => {
+    if (!dotsContainer) return;
+    const visible = getVisible();
+    const pages = visible === 1 ? total : Math.ceil(total / visible);
+    dotsContainer.innerHTML = Array.from({ length: pages }, (_, i) => `<span data-index="${i}" aria-label="Σελίδα ${i + 1}"></span>`).join('');
+    dotsContainer.querySelectorAll('span').forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const visible = getVisible();
+        index = Math.min(Number(dot.dataset.index) * visible, maxIndex());
+        move();
+      });
+    });
+    updateDots();
+  };
+
+  const move = () => {
+    const card = cards[0];
+    if (!card) return;
+    const width = card.getBoundingClientRect().width;
+    track.style.transform = `translateX(${-index * width}px)`;
+    updateDots();
+  };
+
+  prev.addEventListener('click', () => { index = Math.max(0, index - 1); move(); });
+  next.addEventListener('click', () => { index = Math.min(maxIndex(), index + 1); move(); });
+  window.addEventListener('resize', () => { index = Math.min(index, maxIndex()); move(); });
+
+  renderDots();
+  move();
+}
+
 async function hydrateArticles() {
   const lists = Array.from(document.querySelectorAll('[data-cms-articles]'));
   if (!lists.length) return;
@@ -40,6 +95,7 @@ async function hydrateArticles() {
     if (error) { list.innerHTML = '<p class="cms-empty">Δεν ήταν δυνατή η φόρτωση του περιεχομένου.</p>'; continue; }
     if (!data || !data.length) { list.innerHTML = '<p class="cms-empty">Δεν υπάρχουν καταχωρήσεις ακόμη.</p>'; continue; }
 
+    const isPressCarousel = list.closest('[data-press-carousel]') !== null;
     const items = await Promise.all(data.map(async (a) => {
       const img = await resolveMedia(a.image_url);
       return `<article class="cms-card">
@@ -53,7 +109,14 @@ async function hydrateArticles() {
         </div>
       </article>`;
     }));
-    list.innerHTML = items.join('');
+
+    if (isPressCarousel) {
+      list.innerHTML = `<div class="press-track">${items.map((html) => `<div class="press-card">${html}</div>`).join('')}</div>`;
+      const carousel = list.closest('[data-press-carousel]');
+      if (carousel) initPressCarousel(carousel);
+    } else {
+      list.innerHTML = items.join('');
+    }
   }
 }
 
