@@ -8201,3 +8201,35 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo .hero-dots{bottom:16px}
   .hero-badge{padding:8px 12px}
 }
+
+/* ============ Show every image fully — no cropping ============ */
+.brand-mark img,
+.footer-brand-logo img,
+.class-image-carousel .class-image-card img,
+.offer-media img,
+.cms-card-media img,
+.news-hl-card img,
+.about-photo img,
+.collage-slide img,
+.space-room-media img,
+.journey-media img,
+.teacher-video-card img,
+.video-card img{
+  object-fit:contain !important;
+}
+
+.hero-banner-photo .hero-photo,
+.hero-photo,
+.hero-mini,
+.level-list .circle{
+  background-size:contain !important;
+  background-repeat:no-repeat !important;
+}
+
+.hero-banner-photo .hero-photo{background-color:#f4f4f6 !important;}
+.hero-mini{background-color:#f4f4f6 !important;}
+.level-list .circle{background-color:#e8e8e8 !important;}
+
+/* Remove overlay that would tint empty hero photo space */
+.hero-banner-photo .hero-photo:after{background:none !important;}
+.about-photo{background:#eef7fb !important;}
