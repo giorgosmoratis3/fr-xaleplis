@@ -819,6 +819,16 @@
   .advisor.section-white .three-cols{grid-template-columns:1fr;gap:45px;}
   .advisor.section-white .three-cols h3{font-size:20px;}
 }
+@media(max-width:600px){
+  .advisor.section-white{padding:50px 20px 64px;}
+  .advisor.section-white .number-bg{font-size:160px;top:40px;opacity:.75;}
+  .advisor.section-white h2{font-size:34px;margin:80px 0 20px;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .32em;}
+  .advisor.section-white h2 span{display:inline;color:#d62828;}
+  .advisor.section-white h2:after{content:'↓';display:block;width:100%;color:#d62828;font-size:38px;line-height:1;margin:14px 0 0;}
+  .advisor.section-white .intro{position:relative;z-index:1;background:linear-gradient(135deg,#0b3d91 50%,#d62828 50%);color:#fff;border-radius:24px;padding:28px 24px;font-size:16px;font-weight:600;line-height:1.6;text-align:center;max-width:none;margin:0 0 28px;box-shadow:0 16px 40px rgba(11,61,145,.22);}
+  .advisor.section-white .intro br{display:none;}
+  .advisor.section-white .three-cols{display:none;}
+}
 
 /* --- Section 02 exact dark block + remove circular fill on check hover --- */
 .check-icon::after,
