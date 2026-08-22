@@ -85,23 +85,15 @@ async function hydrateArticles() {
   const lists = Array.from(document.querySelectorAll('[data-cms-articles]'));
   if (!lists.length) return;
 
-  const HIDDEN_FROM_HOME_PRESS_ID = '6357d765-dec9-4d3b-aec6-dd8e51ca4950';
-
   for (const list of lists) {
     const category = list.getAttribute('data-cms-articles');
     const isPressCarousel = list.closest('[data-press-carousel]') !== null;
-    let query = supabase
+    const { data, error } = await supabase
       .from('articles')
       .select('*')
       .eq('category', category)
       .eq('published', true)
       .order('published_at', { ascending: false });
-
-    if (isPressCarousel && category === 'press') {
-      query = query.neq('id', HIDDEN_FROM_HOME_PRESS_ID);
-    }
-
-    const { data, error } = await query;
 
     if (error) { list.innerHTML = '<p class="cms-empty">Δεν ήταν δυνατή η φόρτωση του περιεχομένου.</p>'; continue; }
     if (!data || !data.length) { list.innerHTML = '<p class="cms-empty">Δεν υπάρχουν καταχωρήσεις ακόμη.</p>'; continue; }
