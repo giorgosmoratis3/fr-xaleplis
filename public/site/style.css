@@ -8223,3 +8223,21 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo .hero-dots{bottom:16px}
   .hero-badge{padding:8px 12px}
 }
+
+/* Google reviews CTA + mobile fix */
+.greviews-cta{margin-top:34px;text-align:center;}
+.greviews-cta p{margin:0 0 14px;color:#5d6472;font-size:14px;}
+.greviews-cta-btn{display:inline-block;padding:15px 26px;background:#0b2044;color:#fff;font-size:12px;font-weight:700;letter-spacing:.18em;text-decoration:none;border:1px solid #0b2044;transition:.25s;}
+.greviews-cta-btn:hover{background:#d62828;border-color:#d62828;}
+@media (max-width:760px){
+  .greviews-section{padding:70px 18px 60px;}
+  .greviews-stage{height:auto;perspective:none;}
+  .greviews-track{height:auto;}
+  .greview-card{position:relative;left:auto;right:auto;width:100%;aspect-ratio:auto;height:auto;display:none;transform:none !important;opacity:1 !important;}
+  .greview-card.is-active{display:block;}
+  .greview-card.is-prev,.greview-card.is-next{display:none;}
+  .greview-inner{padding:24px 22px;height:auto;}
+  .greview-card p{font-size:15px;line-height:1.7;flex:none;}
+  .greview-foot{margin-top:20px;}
+  .greviews-controls{margin-top:28px;gap:14px;}
+}
