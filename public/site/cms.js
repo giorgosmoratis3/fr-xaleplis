@@ -81,6 +81,19 @@ function initPressCarousel(carousel) {
   move();
 }
 
+function cleanArticleBody(id, body = '') {
+  if (id !== '6357d765-dec9-4d3b-aec6-dd8e51ca4950') return body;
+  return body
+    .split('\n')
+    .map((p) => p.trim())
+    .filter((p) => {
+      if (!p) return false;
+      const start = p.slice(0, 60).toLowerCase();
+      return !start.startsWith('με χαρά και υπερηφάνεια') && !start.startsWith('επιλέγουμε τη διαδρομή');
+    })
+    .join('\n');
+}
+
 async function hydrateArticles() {
   const lists = Array.from(document.querySelectorAll('[data-cms-articles]'));
   if (!lists.length) return;
