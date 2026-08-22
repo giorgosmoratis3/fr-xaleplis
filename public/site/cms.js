@@ -119,7 +119,7 @@ async function hydrateArticles() {
           <span class="cms-card-date">${fmtDate(a.published_at)}</span>
           <h3>${a.title || ''}</h3>
           ${a.excerpt ? `<p class="cms-card-excerpt">${a.excerpt}</p>` : ''}
-          ${a.body ? `<div class="cms-card-text">${(a.body || '').split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
+          ${a.body ? `<div class="cms-card-text">${cleanArticleBody(a.id, a.body).split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
           ${a.link_url ? `<a class="cms-card-link" href="${a.link_url}" target="_blank" rel="noopener">ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ →</a>` : ''}
         </div>
       </article>`;
