@@ -81,27 +81,32 @@ function initPressCarousel(carousel) {
   move();
 }
 
+function cleanArticleBody(id, body = '') {
+  if (id !== '6357d765-dec9-4d3b-aec6-dd8e51ca4950') return body;
+  return body
+    .split('\n')
+    .map((p) => p.trim())
+    .filter((p) => {
+      if (!p) return false;
+      const start = p.slice(0, 60).toLowerCase();
+      return !start.startsWith('με χαρά και υπερηφάνεια') && !start.startsWith('επιλέγουμε τη διαδρομή');
+    })
+    .join('\n');
+}
+
 async function hydrateArticles() {
   const lists = Array.from(document.querySelectorAll('[data-cms-articles]'));
   if (!lists.length) return;
 
-  const HIDDEN_FROM_HOME_PRESS_ID = '6357d765-dec9-4d3b-aec6-dd8e51ca4950';
-
   for (const list of lists) {
     const category = list.getAttribute('data-cms-articles');
     const isPressCarousel = list.closest('[data-press-carousel]') !== null;
-    let query = supabase
+    const { data, error } = await supabase
       .from('articles')
       .select('*')
       .eq('category', category)
       .eq('published', true)
       .order('published_at', { ascending: false });
-
-    if (isPressCarousel && category === 'press') {
-      query = query.neq('id', HIDDEN_FROM_HOME_PRESS_ID);
-    }
-
-    const { data, error } = await query;
 
     if (error) { list.innerHTML = '<p class="cms-empty">Δεν ήταν δυνατή η φόρτωση του περιεχομένου.</p>'; continue; }
     if (!data || !data.length) { list.innerHTML = '<p class="cms-empty">Δεν υπάρχουν καταχωρήσεις ακόμη.</p>'; continue; }
@@ -114,7 +119,7 @@ async function hydrateArticles() {
           <span class="cms-card-date">${fmtDate(a.published_at)}</span>
           <h3>${a.title || ''}</h3>
           ${a.excerpt ? `<p class="cms-card-excerpt">${a.excerpt}</p>` : ''}
-          ${a.body ? `<div class="cms-card-text">${(a.body || '').split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
+          ${a.body ? `<div class="cms-card-text">${cleanArticleBody(a.id, a.body).split('\n').filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div>` : ''}
           ${a.link_url ? `<a class="cms-card-link" href="${a.link_url}" target="_blank" rel="noopener">ΔΕΙΤΕ ΠΕΡΙΣΣΟΤΕΡΑ →</a>` : ''}
         </div>
       </article>`;
