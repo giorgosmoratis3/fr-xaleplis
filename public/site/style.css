@@ -8085,7 +8085,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo{box-shadow:10px 10px 0 0 #d62828}
   .hero-banner-photo .hero-stage{height:auto;min-height:600px}
   .hero-banner-photo .hero-slide{grid-template-columns:1fr;grid-template-rows:220px 1fr}
-  .hero-banner-photo .hero-photo{grid-column:1;grid-row:1}
+  .hero-banner-photo .hero-photo{grid-column:1;grid-row:1;background-position:center 20%}
   .hero-banner-photo .hero-text-col{grid-column:1;grid-row:2;padding:36px 24px 96px;align-items:flex-start;text-align:left}
   .hero-badge{padding:12px 16px}
   .hero-badge strong{font-size:1.5rem}
