@@ -5463,7 +5463,7 @@ html, body{
 }
 .advisor.section-white h2 span{
   color:#c91822 !important;
-  display:inline !important;
+  display:block !important;
 }
 .advisor.section-white h2::after{
   content:'↓' !important;
