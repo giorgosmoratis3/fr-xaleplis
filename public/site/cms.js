@@ -237,7 +237,7 @@ async function hydratePageSections() {
       const paras = (s.body || '').split('\n').map((t) => t.trim()).filter(Boolean).map((t) => `<p>${t}</p>`).join('');
       const more = s.link_url
         ? `<a class="psec-more" href="${esc(s.link_url)}"${/^https?:/i.test(s.link_url) ? ' target="_blank" rel="noopener"' : ''}>${label} →</a>`
-        : (paras ? `<button class="psec-more" type="button" data-psec-toggle>${label} →</button>` : '');
+        : (paras ? `<button class="psec-more" type="button" data-psec-toggle data-label="${esc(label)}">${label} →</button>` : '');
       return `<article class="psec-card ${img ? 'has-media' : ''}">
         ${img ? `<figure class="psec-media"><img src="${img}" alt="${esc(s.title)}" loading="lazy"/></figure>` : ''}
         <div class="psec-body">
