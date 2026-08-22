@@ -8238,7 +8238,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 }
 @media (max-width:520px){
   .hero-banner-photo .hero-slide{grid-template-rows:auto auto}
-  .hero-banner-photo .hero-photo{min-height:0;aspect-ratio:1/1}
+  .hero-banner-photo .hero-photo{min-height:0;aspect-ratio:4/3;background-position:center}
 }
 @media (max-width:900px){
   .hero.section-white{overflow-x:hidden}
