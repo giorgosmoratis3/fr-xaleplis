@@ -8305,3 +8305,34 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .psec-more{margin-top:18px;display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;cursor:pointer;font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c31924;text-decoration:none}
 .psec-more:hover{color:#073760}
 @media(max-width:820px){.psec-card.has-media{grid-template-columns:minmax(0,1fr)}.psec-media img{height:240px;min-height:0}}
+
+/* ===== Legal / info pages ===== */
+.legal-section {
+  padding: 56px 24px 96px;
+  background: #ffffff;
+}
+.legal-body {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.legal-body h2 {
+  font-family: 'Ubuntu', 'Manrope', sans-serif;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  color: #0b3d91;
+  margin: 34px 0 10px;
+  padding-left: 14px;
+  border-left: 4px solid #c8102e;
+  letter-spacing: .01em;
+}
+.legal-body h2:first-child { margin-top: 0; }
+.legal-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #2c2f36;
+  margin: 0 0 12px;
+}
+.legal-body a { color: #0b3d91; text-decoration: underline; }
+@media (max-width: 640px) {
+  .legal-section { padding: 36px 18px 64px; }
+  .legal-body p { font-size: .96rem; }
+}
