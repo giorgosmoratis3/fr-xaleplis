@@ -8122,7 +8122,6 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   background:#f4f4f6;
   display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;
   padding:clamp(48px,7vw,96px) clamp(28px,4.6vw,80px) clamp(84px,8vw,110px);
-  border-top:6px solid #0b3d91;
 }
 .hero-banner-photo .hero-text-col:before{
   right:-8%;bottom:-14%;width:min(96%,560px);
