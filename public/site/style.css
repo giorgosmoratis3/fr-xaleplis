@@ -8240,19 +8240,14 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .hero-banner-photo .hero-slide{grid-template-rows:auto auto}
   .hero-banner-photo .hero-photo{min-height:0;aspect-ratio:1/1;background-position:center}
 }
-.hero-photo-desktop{display:block}
-.hero-photo-mobile{display:none}
 @media (max-width:900px){
-  .hero-photo-desktop{display:none}
-  .hero-photo-mobile{display:block}
-  .hero-slide[data-slide="2"] .hero-photo-mobile{background-position:center 20%}
   .hero.section-white{overflow-x:hidden}
   .hero-content{min-height:0;padding:0}
   .hero-banner-photo{box-shadow:none;margin:0}
   .hero-banner-photo .hero-text-col{padding-bottom:56px !important}
   .hero-banner-photo .hero-dots{bottom:16px}
   .hero-badge{padding:8px 12px}
-  .hero-slide[data-slide="2"] .hero-photo-desktop{background-position:center 60%}
+  .hero-slide[data-slide="2"] .hero-photo{background-position:center 60%}
 }
 
 /* Google reviews CTA + mobile fix */
