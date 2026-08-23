@@ -8216,7 +8216,6 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
     grid-column:1;grid-row:2;
     justify-content:flex-start !important;
     padding:26px 20px 64px !important;
-    border-top:5px solid #0b3d91;
     bottom:auto !important;
     top:auto !important;
   }
