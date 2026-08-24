@@ -4,10 +4,25 @@ import { useEffect } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Φιλολογικό Φροντιστήριο Χαλεπλής" },
-      { name: "description", content: "Φιλολογικό Φροντιστήριο Χαλεπλής — Πρόγραμμα Σπουδών, Πανελλαδικές, Αποτελέσματα 2025." },
+      { title: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
+      {
+        name: "description",
+        content:
+          "Φιλολογικό Φροντιστήριο Χαλεπλής στη Λαμία — Πρόγραμμα Σπουδών, Πανελλαδικές, Αποτελέσματα 2025 & 2026.",
+      },
+      { property: "og:title", content: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
+      {
+        property: "og:description",
+        content:
+          "Φιλολογικό Φροντιστήριο Χαλεπλής στη Λαμία — Πρόγραμμα Σπουδών, Πανελλαδικές, Αποτελέσματα 2025 & 2026.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://fr-xaleplis.gr/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://fr-xaleplis.gr/" }],
   }),
+
   component: Index,
 });
 
