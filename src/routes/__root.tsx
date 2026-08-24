@@ -77,14 +77,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
+      {
+        name: "description",
+        content:
+          "Φιλολογικό Φροντιστήριο Χαλεπλής στη Λαμία — από το 1993, προσωπική καθοδήγηση και αποτελέσματα στις Πανελλαδικές.",
+      },
+      { name: "author", content: "Φροντιστήριο Χαλεπλής" },
+      { property: "og:site_name", content: "Φροντιστήριο Χαλεπλής" },
+      { property: "og:title", content: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
+      {
+        property: "og:description",
+        content:
+          "Φιλολογικό Φροντιστήριο Χαλεπλής στη Λαμία — από το 1993, προσωπική καθοδήγηση και αποτελέσματα στις Πανελλαδικές.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+
     ],
     links: [
       {
