@@ -166,14 +166,6 @@
 <div class="footer-modern-copy">© 2026 Φιλολογικό Φροντιστήριο Χαλεπλής. All rights reserved.</div>
 <div class="footer-admin"><span class="footer-admin-rule"></span><a href="admin.html">Είσοδος admin</a></div>
 </div>
-</footer><script>
-(() => {
- const toggle=document.querySelector('.reference-menu-toggle');
- const nav=document.querySelector('.reference-nav');
- if(!toggle||!nav)return;
- toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
- document.querySelectorAll('.has-dropdown > .nav-link').forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();const item=btn.parentElement;document.querySelectorAll('.has-dropdown').forEach(x=>{if(x!==item)x.classList.remove('dropdown-open')});item.classList.toggle('dropdown-open');btn.setAttribute('aria-expanded',String(item.classList.contains('dropdown-open')));}));
- document.addEventListener('click',e=>{if(!e.target.closest('.reference-nav'))document.querySelectorAll('.has-dropdown').forEach(x=>x.classList.remove('dropdown-open'));});
-})();
-</script><script type="module" src="cms.js"></script>
+</footer><script type="module" src="cms.js"></script>
+<script src="nav.js"></script>
 </body></html>
