@@ -8390,3 +8390,26 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   .reference-search.search-open input{display:block}
   .site-search-results{left:auto;right:0}
 }
+
+/* Hero: red period must stay inline, exactly next to the final letter */
+.hero-banner-photo .hero-headline .hero-nowrap{
+  display:inline !important;
+  font-size:inherit !important;
+  white-space:nowrap !important;
+}
+.hero-banner-photo .hero-headline .hero-dot-mark{
+  display:inline !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  color:var(--red) !important;
+  -webkit-text-fill-color:var(--red) !important;
+  font-size:inherit !important;
+  line-height:inherit !important;
+  vertical-align:baseline !important;
+  overflow:visible !important;
+  text-indent:0 !important;
+}
