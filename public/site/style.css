@@ -7716,7 +7716,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 }
 @media (max-width:1100px){
   .hero-banner-photo{height:auto !important;min-height:78svh !important;}
-  .hero-banner-photo .hero-text-col{padding:90px 22px 120px !important;}
+  .hero-banner-photo .hero-text-col{padding:90px 18px 120px !important;}
 }
 
 /* Hero: hide the white progress track at the very bottom */
