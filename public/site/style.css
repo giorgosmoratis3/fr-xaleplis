@@ -8165,8 +8165,8 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 }
 .hero-banner-photo .hero-dot-mark{display:inline-block;margin:0 0 .16em .12em;vertical-align:baseline}
 .hero-banner-photo .hero-subtitle{margin:0 0 28px;max-width:44ch}
-.hero-banner-photo .hero-actions{display:flex;flex-flow:row wrap;align-items:center;gap:16px}
-.hero-banner-photo .hero-cta{padding:15px 26px;font-size:13px}
+.hero-banner-photo .hero-actions{display:flex;flex-flow:row nowrap;align-items:center;gap:10px}
+.hero-banner-photo .hero-cta{padding:14px 20px;font-size:12px}
 @media (max-width:700px){
   .hero-banner-photo .hero-headline,.hero-banner-photo h2.hero-headline{font-size:clamp(1.7rem,7vw,2.3rem);max-width:100%}
   .hero-banner-photo .hero-actions{flex-direction:column;align-items:stretch}
