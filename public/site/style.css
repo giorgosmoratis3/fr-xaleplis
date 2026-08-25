@@ -7631,7 +7631,7 @@ a.btn,.phone,.hero-btn,.class-program-cta,
 .hero-banner-photo .hero-subtitle{color:#fff}
 .hero-banner-photo .hero-headline{color:#fff}
 .hero-headline{white-space:nowrap}
-.hero-dot-mark{display:inline-block;width:.16em;height:.16em;border-radius:50%;background:var(--red);color:transparent;font-size:inherit;margin-left:.1em;vertical-align:.12em;overflow:hidden;text-indent:-9999px}
+.hero-dot-mark{display:inline;width:auto;height:auto;border-radius:0;background:transparent;color:var(--red);-webkit-text-fill-color:var(--red);font-size:inherit;margin:0;vertical-align:baseline;overflow:visible;text-indent:0}
 .hero-banner-photo .hero-cta-ghost{border-color:rgba(255,255,255,.75);color:#fff}
 .hero-banner-photo .hero-cta-ghost:hover{background:rgba(255,255,255,.18)}
 
