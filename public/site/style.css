@@ -8133,7 +8133,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   background:linear-gradient(180deg,rgba(244,244,246,0) 40%,rgba(244,244,246,.9) 100%);
 }
 .hero-banner-photo .hero-kicker{color:#d62828}
-.hero-banner-photo .hero-headline{color:#0b3d91;font-size:clamp(2.3rem,5.4vw,4.4rem);margin:0 0 24px}
+.hero-banner-photo .hero-headline{color:#0b3d91;font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.05;margin:0 0 24px}
 .hero-banner-photo .hero-subtitle{color:#3a4a5f;border-left:4px solid #d62828;font-weight:400}
 .hero-banner-photo .hero-dot{background:rgba(11,61,145,.22)}
 .hero-banner-photo .hero-dot:hover{background:rgba(11,61,145,.45)}
