@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "google-site-verification",
-        content: "xCWu7MadIFxBZifWCNtSg3litRNog-tQV9zpP8NyEEI",
+        content: "Vxs9UBvPSAB5r2_LlQXzapaqNFpFwiLWfkhCzg35DcU",
       },
       { property: "og:title", content: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
       {
