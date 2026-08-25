@@ -1852,6 +1852,20 @@ body{position:relative;}
 }
 .hero h1 span{font-size:60px !important;}
 
+/* Banner-photo hero headline overrides the legacy .hero h1 sizing */
+.hero .hero-banner-photo .hero-headline{
+  font-size:clamp(2rem,4vw,3.4rem) !important;
+  line-height:1.05 !important;
+  letter-spacing:-0.035em !important;
+  margin-bottom:20px !important;
+}
+.hero .hero-banner-photo .hero-headline .hero-dot-mark{font-size:inherit !important;}
+@media (max-width:1100px){
+  .hero .hero-banner-photo .hero-headline{font-size:clamp(1.8rem,3.4vw,2.8rem) !important;}
+}
+
+
+
 .compare{padding:58px 18px 74px !important;}
 .compare-wrap{gap:22px !important;}
 .compare-item{
@@ -8069,6 +8083,8 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
 .hero-banner-photo .hero-dot-mark{color:#d62828}
 .hero-banner-photo .hero-subtitle{color:rgba(244,244,246,.9);border-left:4px solid #d62828;padding-left:22px;max-width:460px;margin:0 0 38px;font-weight:300}
 .hero-banner-photo .hero-actions{display:flex;flex-wrap:wrap;gap:0}
+.hero-banner-photo .hero-slide[data-slide="0"] .hero-actions{flex-direction:column;align-items:stretch;gap:14px}
+.hero-banner-photo .hero-slide[data-slide="0"] .hero-cta-ghost{margin-left:0}
 .hero-banner-photo .hero-cta{background:#d62828;color:#fff;padding:19px 34px}
 .hero-banner-photo .hero-cta:hover{background:#b02121;transform:none;box-shadow:none}
 .hero-banner-photo .hero-cta-ghost{background:transparent;border:2px solid #f4f4f6;color:#f4f4f6;margin-left:-2px}
@@ -8131,7 +8147,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   background:linear-gradient(180deg,rgba(244,244,246,0) 40%,rgba(244,244,246,.9) 100%);
 }
 .hero-banner-photo .hero-kicker{color:#d62828}
-.hero-banner-photo .hero-headline{color:#0b3d91;font-size:clamp(2.3rem,5.4vw,4.4rem);margin:0 0 24px}
+.hero-banner-photo .hero-headline{color:#0b3d91;font-size:clamp(1.8rem,4vw,3.2rem);line-height:1.05;margin:0 0 24px}
 .hero-banner-photo .hero-subtitle{color:#3a4a5f;border-left:4px solid #d62828;font-weight:400}
 .hero-banner-photo .hero-dot{background:rgba(11,61,145,.22)}
 .hero-banner-photo .hero-dot:hover{background:rgba(11,61,145,.45)}
