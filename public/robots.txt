@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /site/admin.html
 
 Sitemap: https://fr-xaleplis.gr/sitemap.xml
