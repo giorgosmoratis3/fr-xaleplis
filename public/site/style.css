@@ -1852,6 +1852,19 @@ body{position:relative;}
 }
 .hero h1 span{font-size:60px !important;}
 
+/* Banner-photo hero headline overrides the legacy .hero h1 sizing */
+.hero .hero-banner-photo .hero-headline{
+  font-size:clamp(1.9rem,3.6vw,3.2rem) !important;
+  line-height:1.05 !important;
+  letter-spacing:-0.035em !important;
+  margin-bottom:20px !important;
+}
+.hero .hero-banner-photo .hero-headline .hero-dot-mark{font-size:inherit !important;}
+@media (max-width:1100px){
+  .hero .hero-banner-photo .hero-headline{font-size:clamp(1.6rem,2.9vw,2.6rem) !important;}
+}
+
+
 .compare{padding:58px 18px 74px !important;}
 .compare-wrap{gap:22px !important;}
 .compare-item{
