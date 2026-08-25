@@ -10,6 +10,10 @@ export const Route = createFileRoute("/")({
         content:
           "Φιλολογικό Φροντιστήριο Χαλεπλής στη Λαμία — Πρόγραμμα Σπουδών, Πανελλαδικές, Αποτελέσματα 2025 & 2026.",
       },
+      {
+        name: "google-site-verification",
+        content: "xCWu7MadIFxBZifWCNtSg3litRNog-tQV9zpP8NyEEI",
+      },
       { property: "og:title", content: "Φιλολογικό Φροντιστήριο Χαλεπλής | Λαμία" },
       {
         property: "og:description",
