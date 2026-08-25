@@ -8180,6 +8180,7 @@ a[class*="arrow"],span[class*="arrow"]:not(.offer-hover-arrow),div[class*="arrow
   white-space:normal;overflow-wrap:break-word;margin:0 0 20px;max-width:14ch;
 }
 .hero-banner-photo .hero-dot-mark{display:inline-block;margin:0 0 .16em 0;vertical-align:baseline}
+.hero-banner-photo .hero-nowrap{white-space:nowrap}
 .hero-banner-photo .hero-subtitle{margin:0 0 28px;max-width:44ch}
 .hero-banner-photo .hero-actions{display:flex;flex-flow:row nowrap;align-items:center;gap:8px}
 .hero-banner-photo .hero-cta{padding:13px 18px;font-size:12px}
