@@ -22,6 +22,18 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://fr-xaleplis.gr/" },
+      {
+        property: "og:image",
+        content: "https://fr-xaleplis.gr/site/chalepelis-logo.jpeg",
+      },
+      {
+        property: "og:image:alt",
+        content: "Φιλολογικό Φροντιστήριο Χαλεπλής",
+      },
+      {
+        name: "twitter:image",
+        content: "https://fr-xaleplis.gr/site/chalepelis-logo.jpeg",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "https://fr-xaleplis.gr/" }],
