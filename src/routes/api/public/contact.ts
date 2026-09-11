@@ -48,6 +48,26 @@ export const Route = createFileRoute('/api/public/contact')({
         const data = parsed.data
         const submissionId = crypto.randomUUID()
 
+        // 1) Persist the submission first so nothing is ever lost.
+        let stored = false
+        try {
+          const { supabaseAdmin } = await import('@/integrations/supabase/client.server')
+          const { error } = await supabaseAdmin.from('contact_messages').insert({
+            id: submissionId,
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            level: data.level || null,
+            message: data.message || null,
+          })
+          if (error) console.error('contact store failed', error)
+          else stored = true
+        } catch (error) {
+          console.error('contact store failed', error)
+        }
+
+        // 2) Try to email; a delivery problem must not break the form.
+        let emailed = false
         try {
           for (const owner of OWNER_EMAILS) {
             await sendTemplateEmail('contact-notification', owner, {
@@ -60,12 +80,28 @@ export const Route = createFileRoute('/api/public/contact')({
             templateData: { name: data.name },
             idempotencyKey: `contact-confirmation-${submissionId}`,
           })
+          emailed = true
         } catch (error) {
           console.error('contact form send failed', error)
+        }
+
+        if (emailed && stored) {
+          try {
+            const { supabaseAdmin } = await import('@/integrations/supabase/client.server')
+            await supabaseAdmin
+              .from('contact_messages')
+              .update({ emailed: true })
+              .eq('id', submissionId)
+          } catch (error) {
+            console.error('contact flag update failed', error)
+          }
+        }
+
+        if (!stored && !emailed) {
           return Response.json({ ok: false, error: 'send_failed' }, { status: 500 })
         }
 
-        return Response.json({ ok: true })
+        return Response.json({ ok: true, emailed })
       },
     },
   },
