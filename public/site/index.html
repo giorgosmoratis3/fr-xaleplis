@@ -641,15 +641,62 @@
 </section>
 <section class="contact" id="contact">
 <h2>Επικοινώνησε σήμερα<br>με το Φιλολογικό Φροντιστήριο<br/><span>της περιοχής σου!</span></br></h2>
-<form class="contact-form">
+<form class="contact-form" id="contactForm">
 <label>ΟΝΟΜΑΤΕΠΩΝΥΜΟ *<input name="name" required="" type="text"/></label>
 <label>EMAIL *<input name="email" required="" type="email"/></label>
 <label>ΤΗΛΕΦΩΝΟ *<input name="phone" required="" type="tel"/></label>
 <label>ΤΑΞΗ ΜΑΘΗΤΗ *<select name="level"><option>Γυμνάσιο</option><option>Α’ Λυκείου</option><option>Β’ Λυκείου</option><option>Γ’ Λυκείου</option><option>ΕΠΑ.Λ.</option></select></label>
 <label>ΣΧΟΛΙΑ<textarea name="message"></textarea></label>
-<label class="terms"><input name="terms" type="checkbox"/> <span>Αποδέχομαι τους Όρους Χρήσης</span></label>
+<label class="terms"><input name="terms" type="checkbox" required=""/> <span>Αποδέχομαι τους Όρους Χρήσης</span></label>
 <button class="btn btn-dark" type="submit">ΥΠΟΒΟΛΗ</button>
+<p id="contactFormStatus" role="status" style="margin:10px 0 0;font-size:.95rem"></p>
 </form>
+<script>
+(function(){
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var status = document.getElementById('contactFormStatus');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    var fd = new FormData(form);
+    var payload = {
+      name: (fd.get('name')||'').toString(),
+      email: (fd.get('email')||'').toString(),
+      phone: (fd.get('phone')||'').toString(),
+      level: (fd.get('level')||'').toString(),
+      message: (fd.get('message')||'').toString()
+    };
+    btn.disabled = true;
+    status.style.color = '#12172a';
+    status.textContent = 'Αποστολή...';
+    try {
+      var res = await fetch('/api/public/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      var data = await res.json().catch(function(){ return {}; });
+      if (res.ok && data.ok) {
+        form.reset();
+        status.style.color = '#1e7b34';
+        status.textContent = 'Το μήνυμά σου στάλθηκε! Θα επικοινωνήσουμε σύντομα.';
+      } else if (res.status === 429) {
+        status.style.color = '#c0392b';
+        status.textContent = 'Πολλές προσπάθειες. Δοκίμασε ξανά σε λίγο.';
+      } else {
+        status.style.color = '#c0392b';
+        status.textContent = 'Κάτι πήγε λάθος. Δοκίμασε ξανά ή κάλεσε 22310 44022.';
+      }
+    } catch (err) {
+      status.style.color = '#c0392b';
+      status.textContent = 'Κάτι πήγε λάθος. Δοκίμασε ξανά ή κάλεσε 22310 44022.';
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
 </section>
 </main>
 <footer class="footer footer-reference footer-modern">
