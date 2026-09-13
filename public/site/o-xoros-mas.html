@@ -106,10 +106,26 @@
     <div class="space-stats-inner">
       <div class="space-stat"><strong>7</strong><span>Αίθουσες διδασκαλίας</span></div>
       <div class="space-stat"><strong>4–8</strong><span>Μαθητές ανά τμήμα</span></div>
-      <div class="space-stat"><strong>2</strong><span>Χώροι μελέτης</span></div>
+      <div class="space-stat"><strong>1</strong><span>Χώρος μελέτης</span></div>
       <div class="space-stat"><strong>100%</strong><span>Κλιματισμός &amp; φυσικό φως</span></div>
     </div>
   </section>
+
+  <style>
+    .space-room-media{position:relative;overflow:hidden;margin:0}
+    .space-room-media.has-gallery{cursor:pointer}
+    .space-room-media.has-gallery img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;transition:transform .5s ease}
+    .space-room-media.has-gallery:hover img{transform:scale(1.05)}
+    .space-room-media .room-gallery-badge{position:absolute;bottom:0;left:0;background:#c8102e;color:#fff;font-size:12px;font-weight:800;letter-spacing:1.5px;padding:10px 16px}
+    .room-lightbox{position:fixed;inset:0;background:rgba(8,12,24,.94);z-index:9999;display:none;align-items:center;justify-content:center;padding:24px}
+    .room-lightbox.is-open{display:flex}
+    .room-lightbox img{max-width:92vw;max-height:78vh;object-fit:contain}
+    .room-lightbox-cap{position:absolute;top:22px;left:0;right:0;text-align:center;color:#fff;font-weight:800;letter-spacing:1.5px;font-size:14px}
+    .room-lightbox button{position:absolute;background:#fff;color:#111;border:0;width:52px;height:52px;font-size:26px;cursor:pointer;line-height:1}
+    .room-lb-prev{left:16px;top:50%;transform:translateY(-50%)}
+    .room-lb-next{right:16px;top:50%;transform:translateY(-50%)}
+    .room-lb-close{top:16px;right:16px;width:46px;height:46px;font-size:22px}
+  </style>
 
   <section class="space-rooms" aria-label="Αίθουσες">
     <div class="space-rooms-inner">
@@ -128,10 +144,15 @@
       </article>
 
       <article class="space-room reverse">
-        <figure class="space-room-media"><span>Αίθουσα Β</span></figure>
+        <figure class="space-room-media has-gallery" role="button" tabindex="0" aria-label="Δείτε τις εικόνες της αίθουσας Νέων Ελληνικών"
+          data-room="Αίθουσα Νέων Ελληνικών"
+          data-images="/__l5e/assets-v1/b42c6658-21ea-49a9-861c-b47e580ed04f/room-neoellinika-1.jpg|/__l5e/assets-v1/1ba0443f-15ee-4cc1-8eb3-1e199be33a6f/room-neoellinika-2.jpg|/__l5e/assets-v1/4d3823f1-2f32-4ca3-af8b-ef1ac2b5573d/room-neoellinika-3.jpg|/__l5e/assets-v1/32fa3989-5e0b-4d94-93c0-92114650dbf6/room-neoellinika-4.jpg">
+          <img src="/__l5e/assets-v1/b42c6658-21ea-49a9-861c-b47e580ed04f/room-neoellinika-1.jpg" alt="Αίθουσα Νέων Ελληνικών" loading="lazy">
+          <span class="room-gallery-badge">4 ΕΙΚΟΝΕΣ</span>
+        </figure>
         <div class="space-room-body">
           <span class="space-room-index">02</span>
-          <h2>Αίθουσα Β &mdash; Νεοελληνική Γλώσσα</h2>
+          <h2>Αίθουσα Νέων Ελληνικών</h2>
           <p>Χώρος αφιερωμένος στην Έκφραση&ndash;Έκθεση και τη Λογοτεχνία. Οργανωμένη βιβλιοθήκη με κείμενα, φακέλους ύλης και συλλογή θεμάτων για συστηματική εξάσκηση μέσα στο μάθημα.</p>
           <ul class="space-room-list">
             <li>Έως 8 μαθητές</li>
@@ -142,10 +163,15 @@
       </article>
 
       <article class="space-room">
-        <figure class="space-room-media"><span>Αίθουσα Γ</span></figure>
+        <figure class="space-room-media has-gallery" role="button" tabindex="0" aria-label="Δείτε τις εικόνες της αίθουσας Ιστορίας"
+          data-room="Αίθουσα Ιστορίας"
+          data-images="/__l5e/assets-v1/c8efcf52-9e15-4c3d-80c7-99d7393bf06b/room-istorias-1.jpg|/__l5e/assets-v1/5dd51c7b-f527-4ca0-a3bb-9cc86f284de0/room-istorias-2.jpg|/__l5e/assets-v1/0cf8885f-a267-4cae-8594-91c4c546e0b9/room-istorias-3.jpg">
+          <img src="/__l5e/assets-v1/c8efcf52-9e15-4c3d-80c7-99d7393bf06b/room-istorias-1.jpg" alt="Αίθουσα Ιστορίας" loading="lazy">
+          <span class="room-gallery-badge">3 ΕΙΚΟΝΕΣ</span>
+        </figure>
         <div class="space-room-body">
           <span class="space-room-index">03</span>
-          <h2>Αίθουσα Γ &mdash; Ιστορία</h2>
+          <h2>Αίθουσα Ιστορίας</h2>
           <p>Αίθουσα με εποπτικό υλικό, χάρτες και χρονολογικές γραμμές που βοηθούν τους μαθητές να οργανώνουν την ύλη της Ιστορίας και να συνδέουν τα γεγονότα με τη μεθοδολογία των Πανελλαδικών.</p>
           <ul class="space-room-list">
             <li>Έως 6 μαθητές</li>
@@ -156,10 +182,15 @@
       </article>
 
       <article class="space-room reverse">
-        <figure class="space-room-media"><span>Αίθουσα Δ</span></figure>
+        <figure class="space-room-media has-gallery" role="button" tabindex="0" aria-label="Δείτε την εικόνα της αίθουσας Λατινικών"
+          data-room="Αίθουσα Λατινικών"
+          data-images="/__l5e/assets-v1/b0658a89-27f3-47d7-8ce8-c3523e36a94c/room-latinika-1.jpg">
+          <img src="/__l5e/assets-v1/b0658a89-27f3-47d7-8ce8-c3523e36a94c/room-latinika-1.jpg" alt="Αίθουσα Λατινικών" loading="lazy">
+          <span class="room-gallery-badge">1 ΕΙΚΟΝΑ</span>
+        </figure>
         <div class="space-room-body">
           <span class="space-room-index">04</span>
-          <h2>Αίθουσα Δ &mdash; Λατινικά</h2>
+          <h2>Αίθουσα Λατινικών</h2>
           <p>Αίθουσα αφιερωμένη στη διδασκαλία των Λατινικών, με οργανωμένη ύλη, λεξιλογικούς πίνακες και χώρο για συστηματική εξάσκηση στη μετάφραση και τη γραμματική.</p>
           <ul class="space-room-list">
             <li>Έως 6 μαθητές</li>
@@ -170,13 +201,18 @@
       </article>
 
       <article class="space-room">
-        <figure class="space-room-media"><span>Χώρος μελέτης</span></figure>
+        <figure class="space-room-media has-gallery" role="button" tabindex="0" aria-label="Δείτε τις εικόνες του χώρου μελέτης"
+          data-room="Χώρος μελέτης"
+          data-images="/__l5e/assets-v1/374507fa-7d2f-46e4-9b8a-86399ce4f1e7/room-meleti-1.jpg|/__l5e/assets-v1/f90f689c-94fc-4b8b-8aa9-baa993a5d1b7/room-meleti-2.jpg">
+          <img src="/__l5e/assets-v1/374507fa-7d2f-46e4-9b8a-86399ce4f1e7/room-meleti-1.jpg" alt="Χώρος μελέτης" loading="lazy">
+          <span class="room-gallery-badge">2 ΕΙΚΟΝΕΣ</span>
+        </figure>
         <div class="space-room-body">
           <span class="space-room-index">05</span>
           <h2>Χώρος μελέτης</h2>
           <p>Ήσυχος χώρος όπου οι μαθητές μπορούν να διαβάσουν πριν ή μετά το μάθημα, με τη δυνατότητα να ζητήσουν άμεσα διευκρινίσεις από τον καθηγητή τους.</p>
           <ul class="space-room-list">
-            <li>Ατομικά θρανία μελέτης</li>
+            <li>Στρογγυλό τραπέζι συνεργασίας</li>
             <li>Υποστήριξη από καθηγητή</li>
             <li>Ελεύθερη πρόσβαση στα διαλείμματα</li>
           </ul>
@@ -212,6 +248,47 @@
       </article>
     </div>
   </section>
+
+  <div class="room-lightbox" id="roomLightbox" role="dialog" aria-modal="true" aria-label="Εικόνες αίθουσας">
+    <span class="room-lightbox-cap" id="roomLbCap"></span>
+    <button class="room-lb-close" type="button" aria-label="Κλείσιμο">&times;</button>
+    <button class="room-lb-prev" type="button" aria-label="Προηγούμενη">&#8249;</button>
+    <img id="roomLbImg" src="" alt="">
+    <button class="room-lb-next" type="button" aria-label="Επόμενη">&#8250;</button>
+  </div>
+
+  <script>
+  (function(){
+    var lb=document.getElementById('roomLightbox');
+    if(!lb)return;
+    var img=document.getElementById('roomLbImg');
+    var cap=document.getElementById('roomLbCap');
+    var list=[],i=0;
+    function show(){img.src=list[i];}
+    function open(el){
+      list=(el.getAttribute('data-images')||'').split('|').filter(Boolean);
+      if(!list.length)return;
+      i=0;cap.textContent=el.getAttribute('data-room')||'';
+      show();lb.classList.add('is-open');document.body.style.overflow='hidden';
+    }
+    function close(){lb.classList.remove('is-open');document.body.style.overflow='';}
+    function step(d){if(!list.length)return;i=(i+d+list.length)%list.length;show();}
+    document.querySelectorAll('.space-room-media.has-gallery').forEach(function(el){
+      el.addEventListener('click',function(){open(el);});
+      el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el);}});
+    });
+    lb.querySelector('.room-lb-close').addEventListener('click',close);
+    lb.querySelector('.room-lb-prev').addEventListener('click',function(e){e.stopPropagation();step(-1);});
+    lb.querySelector('.room-lb-next').addEventListener('click',function(e){e.stopPropagation();step(1);});
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('is-open'))return;
+      if(e.key==='Escape')close();
+      if(e.key==='ArrowLeft')step(-1);
+      if(e.key==='ArrowRight')step(1);
+    });
+  })();
+  </script>
 
   <section class="space-cta-section">
     <div class="space-cta-inner">
